@@ -1,0 +1,9 @@
+/*body {
+	background-color: #d49e99;
+}*/
+.photo {
+	margin: 10px;
+}
+#zoom_photo {
+position:fixed;
+}

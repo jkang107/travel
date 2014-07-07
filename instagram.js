@@ -8,7 +8,7 @@ var access_token;
       $("#zoom_photo").css("display", "none");
 
       $("body").click(function(e){
-        if(e.target.id == "photo") {
+        if(e.target.id == "photo"|| e.target.className == "menu") {
           $("#photo").css("opacity", 1.0);
           if($("#zoom_photo").css("display") != "none") {
             $("#zoom_photo").hide();  

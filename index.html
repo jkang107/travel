@@ -161,13 +161,13 @@
 
 			$("#worldMapStr").text("D" + diffDays);
 		}
-
+		/* YouTube API */
 		function onYouTubeIframeAPIReady() {
 			player = new YT.Player('player', {
 			  height: '390',
 			  width: '640',
 			  videoId: '9YOa7uJAZ8U',
-			  playerVars: { 'autoplay': 1, 'controls': 0 },
+			  playerVars: { 'autoplay': 0, 'controls': 0 },
 			  events: {
 			    'onReady': onPlayerReady,
 			    'onStateChange': onPlayerStateChange
@@ -202,7 +202,7 @@
 			loadPhotos(regionCode);
 		}
 
-		function loadPhotos(regionCode) {
+		/*function loadPhotos(regionCode) {
 			var userId = "108037496123424136807"; //Test User ID
 			var albumId = "5960442263666975665"; // Gallery Album ID
 			var storageAccessToken = "ya29.1.AADtN_WUs36AUCTusGdkHAeJRZb-gupOZvUIDVYG-c-kgdnJKuM4oWnHIIgg4NX5E9FRO4g";
@@ -244,7 +244,9 @@
 				}
 			}
 			setImage();
-		}
+		}*/
+
+
 
 		function setImage() {
 			var temp = "<div class='brick' style='width:{width}px;'><img src='{index}' width='100%'></div>";
@@ -288,10 +290,10 @@
 </head>
 <body>
 <ul id="menu">
-	<li data-menuanchor="firstPage"><a href="#firstPage">HOME</a></li>
-	<li data-menuanchor="secondPage"><a href="#secondPage">TRAVEL</a></li>
-	<li data-menuanchor="3rdPage"><a href="#3rdPage">PORTFOLIO</a></li>
-	<li data-menuanchor="4thpage"><a href="#4thpage">ABOUT</a></li>
+	<li data-menuanchor="firstPage"><a href="#firstPage" class="menu">HOME</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage" class="menu">TRAVEL</a></li>
+	<li data-menuanchor="3rdPage"><a href="#3rdPage" class="menu">PORTFOLIO</a></li>
+	<li data-menuanchor="4thpage"><a href="#4thpage" class="menu">ABOUT</a></li>
 </ul>
 
 <div class="section " id="section0">
@@ -330,9 +332,8 @@
 </div>
 <div class="section" id="section2">
 	<div class="intro">
-		<h1>Example</h1>
-		<p>HTML markup example to define 4 sections.</p>
-		<img src="imgs/example2.png" alt="example" />
+		<div id="photo"></div>
+    	<img id ="zoom_photo">
 	</div>
 </div>
 <div class="section" id="section3" >

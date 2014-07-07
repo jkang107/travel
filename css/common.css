@@ -114,7 +114,7 @@ p{
 	margin: 20px 0 0 0;
 }	
 #section2 img{
-	margin: 20px 0 0 52px;	
+	margin: 200px 0 0 52px;	
 }
 /* #section3 img{
 	bottom: 0px;
@@ -123,7 +123,7 @@ p{
 	background-image: "./bg1.jpg";
 } */
 #section3 {
-	background-image: url("./bg1.jpg");
+	background-image: url("../image/bg1.jpg");
 	opacity: 0.6;
 }
 

@@ -114,8 +114,12 @@ p{
 	margin: 20px 0 0 0;
 }	
 #section2 img{
-	margin: 200px 0 0 52px;	
+	margin: 20px 0 0 52px;	
 }
+#section2 .intro {
+	margin:50px;
+}
+
 /* #section3 img{
 	bottom: 0px;
 	position:absolute;

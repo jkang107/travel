@@ -468,6 +468,10 @@
 			if(e.target.tagName == "svg" || e.target.tagName == "path" || e.target.tagName == "circle") {
 				return;
 			}
+			if($("#zoom_photo").css("display") != "none") {
+            	$("#zoom_photo").hide();  
+            	$("#photo").css("opacity", 1.0);
+          	}
 
 			if(options.autoScrolling){
 				// cross-browser wheel delta

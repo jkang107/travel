@@ -46,7 +46,6 @@
 				$('#world-map').css({"width" : mapWidth, "height" : mapHeight, "left" : mapLeft});
 			}
 			
-
 			var map = new jvm.WorldMap({
 				container: $('#world-map'),
 				map: 'world_mill_en',
@@ -137,7 +136,6 @@
 			var player;
 
 			calculateDDay();
-			
 		});
 		
 		function calculateDDay() {
@@ -166,7 +164,7 @@
 			player = new YT.Player('player', {
 			  height: '390',
 			  width: '640',
-			  videoId: '9YOa7uJAZ8U',
+			  videoId: '1DokZiUolCU',
 			  playerVars: { 'autoplay': 0, 'controls': 0 },
 			  events: {
 			    'onReady': onPlayerReady,
@@ -201,52 +199,6 @@
 			$.fn.fullpage.landscapeScroll(slides, destiny);
 			loadPhotos(regionCode);
 		}
-
-		/*function loadPhotos(regionCode) {
-			var userId = "108037496123424136807"; //Test User ID
-			var albumId = "5960442263666975665"; // Gallery Album ID
-			var storageAccessToken = "ya29.1.AADtN_WUs36AUCTusGdkHAeJRZb-gupOZvUIDVYG-c-kgdnJKuM4oWnHIIgg4NX5E9FRO4g";
-
-			var fields = "&fields=entry(media:group(media:thumbnail(@url),media:content,media:title))";
-
-			var PHOTO_URL = "https://picasaweb.google.com/data/feed/api/user/" + userId +
-				"/albumid/" + albumId + "?kind=photo&thumbsize=360c&imgmax=1600&alt=json&access_token=" + storageAccessToken + fields;
-
-			$.ajax({
-				url: PHOTO_URL,
-				type: 'get',
-				success: function(data) {
-					responsePhotoCallback(data);
-				},
-				error: function(xhr) {
-					console.log("requestPhotos Function ERROR!! : " + xhr.status);
-					handleErrorMsg(xhr, "photo");
-				}
-			});
-		}
-
-		var imgAlbumList = new Array();
-
-		function responsePhotoCallback(data) {
-			if (data.feed.entry) {
-				console.log(data.feed.entry);
-				var photoList = data.feed.entry;
-				for(var i=0; i<photoList.length; i++) {
-					//if(photoList.media$group.media$thumbnail && photoList.media$group.media$content) {
-						var thumbnail = photoList[i].media$group.media$thumbnail[0].url;
-						if(thumbnail) {
-							var imgAlbumNum = imgAlbumList.length;
-							imgAlbumList[imgAlbumNum] = {
-								thumbnail: thumbnail
-							}
-						}
-					//}
-				}
-			}
-			setImage();
-		}*/
-
-
 
 		function setImage() {
 			var temp = "<div class='brick' style='width:{width}px;'><img src='{index}' width='100%'></div>";
@@ -313,6 +265,7 @@
     <div class="slide" id="CN">
 		<div class="intro">
 			<div id="freewall" class="free-wall"></div>
+			<h1>Hello china?</h1>
 		</div>
 	</div>
     <div class="slide" id="ES">

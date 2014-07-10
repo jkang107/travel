@@ -75,6 +75,7 @@ p{
 	background: rgba(255,255,255, 0.5);
 	-webkit-border-radius: 10px; 
             border-radius: 10px; 
+            /* width: 10%; */
 }
 #menu li.active{
 	background:#666;
@@ -132,13 +133,14 @@ p{
 }
 
 .intro p{
-	width: 50%;
-	margin: 0 auto;
-	/* font-size: 1.5em; */
-	font-size: 4em;
+	/* width: 50%; */
+	/* margin: 0 auto; */
+	text-align:center;
+	font-size: 3.5em;
 	font-family: arial,helvetica;
 	color: black;
 }
+
 .twitter-share-button{
 	position: absolute;
 	z-index: 99;
@@ -183,3 +185,43 @@ p{
 	position: absolute;
 	z-index: 1;
 }
+
+@-ms-viewport {
+/*ie10 윈도우8 기기전용 반응형 디자인 적용*/
+ width: device-width;
+}
+
+@viewport {
+ width: device-width;
+}
+
+@media screen and (max-width: 320px) {
+  p {
+  	font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  p {
+  	font-size: 24px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  p {
+  	font-size: 34px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  p {
+  	font-size: 44px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  p {
+  	font-size: 54px;
+  }
+}
+

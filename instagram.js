@@ -16,6 +16,10 @@ $(document).ready(function() {
     }
   });
 
+  $("#addFlight").click(function(e) {
+    getFlightInfo($("#input_airline").val(), $("#input_flightNum").val(), $("#input_departureDate").val());
+  });
+
 });
 
 function login() {
@@ -118,4 +122,74 @@ String.prototype.toHHMMSS = function() {
   }
   var time = hours + ':' + minutes + ':' + seconds;
   return time;
+}
+
+//https://developer.flightstats.com/api-docs/flightstatus/v2/flight
+
+function getFlightInfo(airlineCode, flightNumber, departureDate) {
+  var API_KEY = "5518caa213d5f1068aade0fa25662be5";
+  /*var fxml_url = 'http://jkang107:' +  API_KEY + '@flightxml.flightaware.com/json/FlightXML2/';
+  $.ajax({
+    type: 'GET',
+    url: fxml_url + 'FlightInfoEx',
+    data: {
+      'ident': $('#ident_text').val(),
+      'howMany': 1,
+      'offset': 0
+    },
+    success: function(result) {
+      // display some textual details about the flight.
+      var flight = result.FlightInfoExResult.flights[0];
+      $('#results').html('Flight ' + flight.ident + ' from ' + flight.origin + ' to ' + flight.destination);
+
+      // display the route on a map.
+      fetchAndRenderRoute(flight.faFlightID);
+    },
+    error: function(data, text) {
+      alert('Failed to fetch flight: ' + data);
+    },
+    dataType: 'jsonp',
+    jsonp: 'jsonp_callback',
+    xhrFields: {
+      withCredentials: true
+    }
+  });*/
+  var APP_ID = "9e6a56a1";
+  /*var airlineCode = "OZ";
+  var flightNumber = "202";
+  var departureDate = "2014/07/22";*/
+  //var departureAirport = "ICN";
+  var departureDateStr = departureDate.split("-")[0] + "/" + departureDate.split("-")[1] + "/" + departureDate.split("-")[2]; 
+  departureDate = departureDateStr;
+
+  var scheduleURL = "https://api.flightstats.com/flex/schedules/rest/v1/json/flight/" 
+                  + airlineCode + "/" + flightNumber + "/departing/" + departureDate + 
+                  "?appId=" + APP_ID + "&appKey=" + API_KEY;
+
+
+  $.ajax({
+    type: 'GET',
+    url: scheduleURL,
+    success: function(result) {
+      console.log("good!");
+      var responseData = result.scheduledFlights[0];
+
+      var arrivalInfo = {
+        airport: responseData.arrivalAirportFsCode,
+        terminal: responseData.arrivalTerminal,
+        time: responseData.arrivalTime
+      };
+
+      var departureInfo = {
+        airport: responseData.departureAirportFsCode,
+        time: responseData.departureTime
+      };
+
+      console.log("[Arrival] AirportCode: " + arrivalInfo.airport + " / Terminal: " + arrivalInfo.terminal + " / Time: " + arrivalInfo.time);
+      console.log("[Departure] AirportCode: " + departureInfo.airport + " / Time: " + departureInfo.time);
+    },
+    error: function(data,text) {
+      console.log("bad");
+    }
+  });
 }

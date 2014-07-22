@@ -190,6 +190,11 @@ p{
 	z-index: 1;
 }
 
+.itinerary {
+	text-align: left;
+	font-size: 20px;
+}
+
 @-ms-viewport {
 /*ie10 윈도우8 기기전용 반응형 디자인 적용*/
  width: device-width;

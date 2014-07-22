@@ -5,3 +5,7 @@
 	margin: 0;
 	display: block;
 }
+#world-map {
+	padding: 20px;
+	border: 2px #E9D5FC dotted;
+}

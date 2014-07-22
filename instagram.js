@@ -17,7 +17,8 @@ $(document).ready(function() {
   });
 
   $("#addFlight").click(function(e) {
-    getFlightInfo($("#input_airline").val(), $("#input_flightNum").val(), $("#input_departureDate").val());
+    //getFlightInfo($("#input_airline").val(), $("#input_flightNum").val(), $("#input_departureDate").val());
+    getFlightInfo("OZ", "202", "2014/09/23");
   });
 
 });
@@ -126,41 +127,19 @@ String.prototype.toHHMMSS = function() {
 
 //https://developer.flightstats.com/api-docs/flightstatus/v2/flight
 
+var itin_number = 0;
 function getFlightInfo(airlineCode, flightNumber, departureDate) {
-  var API_KEY = "5518caa213d5f1068aade0fa25662be5";
-  /*var fxml_url = 'http://jkang107:' +  API_KEY + '@flightxml.flightaware.com/json/FlightXML2/';
-  $.ajax({
-    type: 'GET',
-    url: fxml_url + 'FlightInfoEx',
-    data: {
-      'ident': $('#ident_text').val(),
-      'howMany': 1,
-      'offset': 0
-    },
-    success: function(result) {
-      // display some textual details about the flight.
-      var flight = result.FlightInfoExResult.flights[0];
-      $('#results').html('Flight ' + flight.ident + ' from ' + flight.origin + ' to ' + flight.destination);
+  if(airlineCode == "" || flightNumber == "" || departureDate == "") {
+    return;
+  }
 
-      // display the route on a map.
-      fetchAndRenderRoute(flight.faFlightID);
-    },
-    error: function(data, text) {
-      alert('Failed to fetch flight: ' + data);
-    },
-    dataType: 'jsonp',
-    jsonp: 'jsonp_callback',
-    xhrFields: {
-      withCredentials: true
-    }
-  });*/
+  var API_KEY = "5518caa213d5f1068aade0fa25662be5";
+
   var APP_ID = "9e6a56a1";
-  /*var airlineCode = "OZ";
-  var flightNumber = "202";
-  var departureDate = "2014/07/22";*/
-  //var departureAirport = "ICN";
-  var departureDateStr = departureDate.split("-")[0] + "/" + departureDate.split("-")[1] + "/" + departureDate.split("-")[2]; 
-  departureDate = departureDateStr;
+
+  //It use when user put data in text field.
+  /*var departureDateStr = departureDate.split("-")[0] + "/" + departureDate.split("-")[1] + "/" + departureDate.split("-")[2]; 
+  departureDate = departureDateStr;*/
 
   var scheduleURL = "https://api.flightstats.com/flex/schedules/rest/v1/json/flight/" 
                   + airlineCode + "/" + flightNumber + "/departing/" + departureDate + 
@@ -174,17 +153,28 @@ function getFlightInfo(airlineCode, flightNumber, departureDate) {
       console.log("good!");
       var responseData = result.scheduledFlights[0];
 
+      var arrivalDate = responseData.arrivalTime.split("T")[0];
+      var arrivalTime = responseData.arrivalTime.split("T")[1].split(":")[0] + ":" + responseData.arrivalTime.split("T")[1].split(":")[1];
+
       var arrivalInfo = {
         airport: responseData.arrivalAirportFsCode,
         terminal: responseData.arrivalTerminal,
-        time: responseData.arrivalTime
+        time: arrivalDate + " " + arrivalTime
       };
+
+      var departureDate = responseData.departureTime.split("T")[0];
+      var departureTime = responseData.departureTime.split("T")[1].split(":")[0] + ":" + responseData.departureTime.split("T")[1].split(":")[1];
 
       var departureInfo = {
         airport: responseData.departureAirportFsCode,
-        time: responseData.departureTime
+        time: departureDate + " " + departureTime
       };
 
+      $("#itinerary").append("<div class='flightInfo' id='itinerary_'" + itin_number + "></div>");
+      $(".flightInfo").append("<div class='departureInfo'>[ Departure ]<p class='airportcode'>" + departureInfo.airport + "</p><p class='time'>" + departureInfo.time + "</p></div>");
+      $(".flightInfo").append("<div class='arrivalInfo'>[ Arrival ] <p class='airportcode'>" + arrivalInfo.airport + "</p><p class='terminal'>Terminal " + arrivalInfo.terminal + "</p><p class='time'>" + arrivalInfo.time + "</p></div>");
+      itin_number++;
+      
       console.log("[Arrival] AirportCode: " + arrivalInfo.airport + " / Terminal: " + arrivalInfo.terminal + " / Time: " + arrivalInfo.time);
       console.log("[Departure] AirportCode: " + departureInfo.airport + " / Time: " + departureInfo.time);
     },

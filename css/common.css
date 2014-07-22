@@ -190,9 +190,14 @@ p{
 	z-index: 1;
 }
 
-.itinerary {
+#itinerary {
 	text-align: left;
 	font-size: 20px;
+}
+
+.flightInfo p{
+	font-size: 20px;
+	
 }
 
 @-ms-viewport {

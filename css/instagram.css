@@ -6,6 +6,8 @@
 	margin: 1em auto;
 	max-width: 1500px;
 	text-align: center;
+	overflow-y: auto;
+	height: 690px;
 }
  
 .photo-grid li {
@@ -19,7 +21,6 @@
 	display: block;
 	height: auto;
 	max-width: 100%;
-
 }
  
 .photo-grid figure {
@@ -108,3 +109,26 @@
 	transition-delay: 100ms;
 	z-index: 100;
 }
+
+.photo-grid::-webkit-scrollbar{
+width:16px;
+background-color:#cccccc;
+} 
+
+.photo-grid::-webkit-scrollbar-thumb{
+background-color:#F27478;
+border-radius:10px;
+}
+.photo-grid::-webkit-scrollbar-thumb:hover{
+background-color:#BF4649;
+border:1px solid #333333;
+}
+.photo-grid::-webkit-scrollbar-thumb:active{
+background-color:#A6393D;
+border:1px solid #333333;
+} 
+.photo-grid::-webkit-scrollbar-track{
+border:1px gray solid;
+border-radius:10px;
+-webkit-box-shadow:0 0 6px gray inset;
+} 

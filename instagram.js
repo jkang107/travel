@@ -65,13 +65,13 @@ function getUserPhotos() {
       }
       //var latitude = locationInfo.latitude;
       //var longitude = locationInfo.longitude
-      $(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + i + "' class='photo' src='" + photo_standard.url + "' width='300' height='300'><figcaption></figcaption></figure></a></li>");
+      $(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + i + "' class='photo' src='" + photo_standard.url + "' width='300' height='300'><figcaption><p></p></figcaption></figure></a></li>");
       $("#photo_" + i).attr("origin_width", photo_standard.width);
       $("#photo_" + i).attr("origin_height", photo_standard.height);
       $("#photo_" + i).attr("time", result.data[i].created_time.toHHMMSS());
       if (result.data[i].caption != null) {
         //$("#photo_" + i).attr("info", result.data[i].caption.text);
-        $("#photo_" + i).siblings().append("<p>" + result.data[i].caption.text + "</p>");
+        $("#photo_" + i).siblings().children().text(result.data[i].caption.text);
       }
     }
 
@@ -98,15 +98,6 @@ function addClickEvent() {
     $(".photo-grid").css("opacity", "0.3");
   });
 }
-
-// function addHoverEvent() {
-//   $("img").hover(function(e) {
-//     if (e.target.attributes.info) {
-//       //console.log(e.target.attributes.info.value);
-//     }
-
-//   });
-// }
 
 String.prototype.toHHMMSS = function() {
   var sec_num = parseInt(this, 10); // don't forget the second param

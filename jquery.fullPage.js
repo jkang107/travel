@@ -465,7 +465,9 @@
 		 */
 		function MouseWheelHandler(e) {
 			//console.log("e.target.tagName: " + e.target.tagName);
-			if(e.target.tagName == "svg" || e.target.tagName == "path" || e.target.tagName == "circle") {
+			// added by jinah kang
+			if(e.target.tagName == "svg" || e.target.tagName == "path" || e.target.tagName == "circle" 
+				|| e.target.parentElement.tagName == "FIGCAPTION" || e.target.className == "photo-grid" || e.target.parentNode.className == "photo-grid") {
 				return;
 			}
 			if($("#zoom_photo").css("display") != "none") {

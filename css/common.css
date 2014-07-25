@@ -110,15 +110,16 @@ p{
 	padding: 0;
 	margin:0;
 }
-#section0 img,
-#section1 img{
+#section0 img/* , */
+/* #section1 img */{
 	margin: 20px 0 0 0;
 }	
 #section2 img{
 	margin: 20px 0 0 52px;	
 }
-#section2 .intro {
-	margin:50px;
+/* instagram */
+#section1 .intro { 
+	padding:70px 50px 50px 30px;
 }
 
 /* #section3 img{

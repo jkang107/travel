@@ -192,13 +192,30 @@ p{
 
 #itinerary {
 	text-align: left;
-	font-size: 20px;
+	font-size: 18px;
+	padding-top: 50px;
 }
 
 .flightInfo p{
-	font-size: 20px;
-	
+	font-size: 15px;
 }
+
+#showMyItinerary {
+	width: 200px;
+	height: 100px;
+	font-size: 20px;
+}
+
+.arrivalInfo{
+	float: left;
+	width: 50%;
+}
+
+.departureInfo {
+	float: left;
+	width: 50%;
+}
+
 
 @-ms-viewport {
 /*ie10 윈도우8 기기전용 반응형 디자인 적용*/

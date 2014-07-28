@@ -3,20 +3,93 @@ $(document).ready(function() {
 
   $("#showMyItinerary").click(function(e) {
     //getFlightInfo($("#input_airline").val(), $("#input_flightNum").val(), $("#input_departureDate").val());
-    getFlightInfo("OZ", "202", "2014/09/23", ++itin_number);
+/*    getFlightInfo("OZ", "202", "2014/09/23", ++itin_number);
     getFlightInfo("CM", "361", "2014/10/1", ++itin_number);
     getFlightInfo("CM", "493", "2014/10/1", ++itin_number);
     getFlightInfo("LH", "505", "2014/10/17", ++itin_number);
     getFlightInfo("OU", "4437", "2015/2/6", ++itin_number);
     getFlightInfo("TK", "1054", "2015/2/18", ++itin_number);
-    getFlightInfo("OZ", "552", "2015/3/1", ++itin_number);
-
+    getFlightInfo("OZ", "552", "2015/3/1", ++itin_number);*/
+    readJsonFromServer();
+    //writeJsonFromServer();
     $("#showMyItinerary").remove();
   });
 });
 
 
 //https://developer.flightstats.com/api-docs/flightstatus/v2/flight
+function readJsonFromServer() {
+  $.ajax({
+    type: 'GET',
+    url: "http://whispering-gorge-9163.herokuapp.com/read",
+    success: function(result) {
+      console.log(JSON.parse(result).flights);
+      console.log(JSON.parse(result).countries);
+    }
+  });
+}
+
+function writeJsonFromServer() {
+  $.ajax({
+    type: 'POST',
+    url: "http://whispering-gorge-9163.herokuapp.com/write",
+    
+    data:
+      {
+      "flights": [
+        {
+          "code": "XX",
+          "number": "XXX",
+          "date": "2014/09/23"
+        },
+        {
+          "code": "OZ",
+          "number": "202",
+          "date": "2014/09/23"
+        },
+        {
+          "code": "CM",
+          "number": "361",
+          "date": "2014/10/1"
+        },
+        {
+          "code": "CM",
+          "number": "493",
+          "date": "2014/10/1"
+        },
+        {
+          "code": "LH",
+          "number": "505",
+          "date": "2014/10/17"
+        },
+        {
+          "code": "OU",
+          "number": "4437",
+          "date": "2015/2/6"
+        },
+        {
+          "code": "TK",
+          "number": "1054",
+          "date": "2015/2/18"
+        },
+        {
+          "code": "OZ",
+          "number": "552",
+          "date": "2014/3/1"
+        }
+      ],
+      
+      "countries": [
+        "BO","BR","HR","PE","CL","DE","AT","US","TR","IT","AR"
+      ]
+    },
+    dataType: "json",
+    success: function(result) {
+      console.log(JSON.parse(result).countries);
+    }
+  });
+}
+
 
 var itin_number = 0;
 function getFlightInfo(airlineCode, flightNumber, departureDate, itin_number) {

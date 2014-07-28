@@ -1,19 +1,6 @@
 
 $(document).ready(function() {
 
-  $("#showMyItinerary").click(function(e) {
-    //getFlightInfo($("#input_airline").val(), $("#input_flightNum").val(), $("#input_departureDate").val());
-/*    getFlightInfo("OZ", "202", "2014/09/23", ++itin_number);
-    getFlightInfo("CM", "361", "2014/10/1", ++itin_number);
-    getFlightInfo("CM", "493", "2014/10/1", ++itin_number);
-    getFlightInfo("LH", "505", "2014/10/17", ++itin_number);
-    getFlightInfo("OU", "4437", "2015/2/6", ++itin_number);
-    getFlightInfo("TK", "1054", "2015/2/18", ++itin_number);
-    getFlightInfo("OZ", "552", "2015/3/1", ++itin_number);*/
-    readJsonFromServer();
-    //writeJsonFromServer();
-    $("#showMyItinerary").remove();
-  });
 });
 
 
@@ -23,6 +10,9 @@ function readJsonFromServer() {
     type: 'GET',
     url: "http://whispering-gorge-9163.herokuapp.com/read",
     success: function(result) {
+      createWorldMap(JSON.parse(result).countries);
+      getMyFlightList(JSON.parse(result).flights);
+      
       console.log(JSON.parse(result).flights);
       console.log(JSON.parse(result).countries);
     }
@@ -78,7 +68,6 @@ function writeJsonFromServer() {
           "date": "2014/3/1"
         }
       ],
-      
       "countries": [
         "BO","BR","HR","PE","CL","DE","AT","US","TR","IT","AR"
       ]
@@ -90,20 +79,23 @@ function writeJsonFromServer() {
   });
 }
 
+function getMyFlightList(data) {
+  for(var i = 0; i < data.length; i++) {
+    var tmpInfo = data[i];
+    getFlightInfo(tmpInfo.code, tmpInfo.number, tmpInfo.date, i);
+  }  
+}
 
-var itin_number = 0;
+//var itin_number = 0;
 function getFlightInfo(airlineCode, flightNumber, departureDate, itin_number) {
+  var API_KEY = "5518caa213d5f1068aade0fa25662be5";
+  var APP_ID = "9e6a56a1";
+
   if(airlineCode == "" || flightNumber == "" || departureDate == "") {
     return;
   }
 
   $("#itinerary").append("<div class='flightInfo' id='itinerary_" + itin_number + "'></div>");
-  $("#itinerary").append("<div class='line'>" + "-----------------------------------------------------------------------------------------------------------------------------------------"
-    + "-----------------------------------------------------------------------" + "</div>");
-
-  var API_KEY = "5518caa213d5f1068aade0fa25662be5";
-
-  var APP_ID = "9e6a56a1";
 
   //It use when user enter the data in text field.
   /*var departureDateStr = departureDate.split("-")[0] + "/" + departureDate.split("-")[1] + "/" + departureDate.split("-")[2]; 
@@ -112,7 +104,6 @@ function getFlightInfo(airlineCode, flightNumber, departureDate, itin_number) {
   var scheduleURL = "https://api.flightstats.com/flex/schedules/rest/v1/json/flight/" 
                   + airlineCode + "/" + flightNumber + "/departing/" + departureDate + 
                   "?appId=" + APP_ID + "&appKey=" + API_KEY;
-
 
   $.ajax({
     type: 'GET',

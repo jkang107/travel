@@ -119,7 +119,7 @@ p{
 }
 /* instagram */
 #section1 .intro { 
-	padding:60px 50px 50px 30px;
+	padding:60px 50px 50px 50px;
 }
 
 /* #section3 img{
@@ -227,7 +227,7 @@ p{
 @viewport {
  width: device-width;
 }
-
+/* 
 @media screen and (max-width: 320px) {
   p {
   	font-size: 14px;
@@ -257,4 +257,4 @@ p{
   	font-size: 54px;
   }
 }
-
+ */

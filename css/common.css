@@ -142,7 +142,9 @@ p{
 	/* margin: 0 auto; */
 	text-align:center;
 	font-size: 3.5em;
-	font-family: arial,helvetica;
+	/* font-family: arial,helvetica; */
+	font-family: 'Indie Flower', serif;
+	font-weight: bold;
 	color: black;
 }
 

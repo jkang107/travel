@@ -9,3 +9,10 @@
 	padding: 20px;
 	border: 2px #E9D5FC dotted;
 }
+
+#worldMapStr {
+	font-family: 'Montserrat', serif;
+  	font-size: 80px;
+  	/*font-weight: bold;*/
+  	/* text-shadow: 4px 4px 4px #aaa; */
+}

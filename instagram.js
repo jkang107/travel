@@ -40,7 +40,7 @@ function getUserPhotos() {
   // http://jelled.com/instagram/lookup-user-id
 
   var myUserId = "179519605"; //jkang107
-  myUserId = "285866271" //배우 박수진
+  //myUserId = "285866271" //배우 박수진
   //myUserId = "15882249" //타블로
   var requestUserUrl = "https://api.instagram.com/v1/users/" + myUserId + "/media/recent/?access_token=" + access_token;
   var requestPopularURL = "https://api.instagram.com/v1/media/popular?access_token=" + access_token;

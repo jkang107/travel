@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-
+  writeJsonFromServer();
 });
 
 
@@ -10,7 +10,7 @@ function readJsonFromServer() {
     type: 'GET',
     url: "http://whispering-gorge-9163.herokuapp.com/read",
     success: function(result) {
-      createWorldMap(JSON.parse(result).countries);
+      createWorldMap(JSON.parse(result).selectedCountry);
       getMyFlightList(JSON.parse(result).flights);
       
       console.log(JSON.parse(result).flights);
@@ -25,13 +25,8 @@ function writeJsonFromServer() {
     url: "http://whispering-gorge-9163.herokuapp.com/write",
     
     data:
-      {
+    {
       "flights": [
-        {
-          "code": "XX",
-          "number": "XXX",
-          "date": "2014/09/23"
-        },
         {
           "code": "OZ",
           "number": "202",
@@ -68,8 +63,63 @@ function writeJsonFromServer() {
           "date": "2014/3/1"
         }
       ],
+      "selectedCountry":["BO","BR","HR","PE","CL","DE","AT","US","TR","IT","AR"],
       "countries": [
-        "BO","BR","HR","PE","CL","DE","AT","US","TR","IT","AR"
+        {
+          "code": "US",
+          "from": "2014/9/23",
+          "to":"2014/10/1"
+        },
+        {
+          "code": "PE",
+          "from":"2014/10/1",
+          "to":"2014/10/10"
+        },
+        {
+          "code":"BO",
+          "from":"2014/10/14",
+          "to":"2014/11/10"
+        },
+        {
+          "code":"CL",
+          "from":"2014/11/11",
+          "to":"2014/11/30"
+        },
+        {
+          "code": "AR",
+          "from":"2014/11/30",
+          "to": "2014/12/10"
+        },
+        {
+          "code":"BR",
+          "from":"2014/12/10",
+          "to":"2014/12/18"
+        },
+        {
+          "code": "DE",
+          "from":"2014/12/18",
+          "to":"2014/12/25"
+        },
+        {
+          "code":"AT",
+          "from":"2014/12/25",
+          "to":"2014/12/31"
+        },
+        {
+          "code":"IT",
+          "from":"2015/1/1",
+          "to":"2015/1/30"
+        },
+        {
+          "code": "HR",
+          "from":"2015/2/1",
+          "to": "2015/2/12"
+        },
+        {
+          "code":"TR",
+          "from":"2015/2/12",
+          "to":"2015/3/1"
+        }
       ]
     },
     dataType: "json",

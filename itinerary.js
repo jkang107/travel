@@ -1,8 +1,104 @@
 
 $(document).ready(function() {
-  //writeJsonFromServer();
+  writeJsonFromServer();
 });
 
+
+function createWorldMap(selectedCountries) {
+  var map = new jvm.WorldMap({
+    container: $('#world-map'),
+    map: 'world_mill_en',
+    backgroundColor: '', 
+    regionsSelectable: false,
+        markersSelectable: true,
+        markersSelectableOne: true,
+        regionStyle: {
+          hover: {
+          "fill-opacity": 0.7
+      },
+          selected: {
+          fill: '#F9998A'
+      }
+    },
+
+        selectedRegions: selectedCountries,
+
+        /*selectedMarkers: JSON.parse( window.localStorage.getItem('jvectormap-selected-markers') || '[]'),*/
+        /*onMarkerLabelShow: function(event, label, index){
+          label.html(label.html()+' (modified marker)');
+        },
+        onMarkerOver: function(event, index){
+          console.log('marker-over', index);
+        },
+        onMarkerOut: function(event, index){
+          console.log('marker-out', index);
+        },
+        onMarkerClick: function(event, index){
+          console.log('marker-click', index);
+        },
+        onMarkerSelected: function(event, index, isSelected, selectedMarkers){
+          console.log('marker-select', index, isSelected, selectedMarkers);
+          if (window.localStorage) {
+            window.localStorage.setItem(
+              'jvectormap-selected-markers',
+              JSON.stringify(selectedMarkers)
+            );
+          }
+        },*/
+        markers: [
+          {latLng: [37.3, 127], name: 'Seoul'},
+          {latLng: [34.5128266, -117.1064505], name: 'Los Angeles'},
+          {latLng: [-11.922874, -77.022283], name: 'Lima'},
+          {latLng: [-23.55, -46.63], name: 'Sao Paulo'},
+          {latLng: [45.81, 15.98], name: 'Zagreb'},
+          {latLng: [41, 28.5], name: 'Istanbul (2/2~ 2/10)'},
+          {latLng: [41.4, 12.36], name: 'Rome'},
+          {latLng: [-19.01, -65.26], name: 'Bolivia'},
+          {latLng: [-33.408461, -70.677856], name: 'Chile'},
+          {latLng: [-34.616842, -58.354506], name: 'Buenos Aires'},
+          {latLng: [48.134522, 11.579258], name: 'Munich'},
+          {latLng: [47.817451, 13.030509], name: 'Salzburg'}
+      ],
+        onRegionLabelShow: function(event, label, code){
+          //label.html(label.html()+' (modified)');
+          label.html();
+        },
+        onRegionOver: function(event, code){
+          //console.log('region-over', code, map.getRegionName(code));
+        },
+        onRegionOut: function(event, code){
+          //console.log('region-out', code);
+        },
+        onRegionClick: function(event, code){
+          console.log('region-click', code);
+          if($("#" + code).length > 0) {
+            moveToPhotoSlide(code);
+            event.stopPropagation();
+          }
+        },
+        onRegionSelected: function(event, code, isSelected, selectedRegions){
+          console.log('region-select', code, isSelected, selectedRegions);
+          if (window.localStorage) {
+            window.localStorage.setItem(
+              'jvectormap-selected-regions',
+              JSON.stringify(selectedRegions)
+            );
+          }
+        },
+        onViewportChange: function(e, scale, transX, transY){
+            console.log('viewportChange', scale, transX, transY);
+        }
+  });
+
+}
+function setMapPosition() {
+  var browserWidth = $(window).width();
+  var mapWidth = browserWidth * 0.5;
+  var mapHeight = mapWidth * 1.8/3;
+  var mapLeft = ($("#worldMapStr").width() - mapWidth) / 2 - 22;
+
+  $('#world-map').css({"width" : mapWidth, "height" : mapHeight, "left" : mapLeft});
+}
 
 //https://developer.flightstats.com/api-docs/flightstatus/v2/flight
 function readJsonFromServer() {
@@ -11,7 +107,8 @@ function readJsonFromServer() {
     url: "http://whispering-gorge-9163.herokuapp.com/read",
     success: function(result) {
       createWorldMap(JSON.parse(result).selectedCountry);
-      getMyFlightList(JSON.parse(result).flights);
+      //getMyFlightList(JSON.parse(result).flights);
+      draw();
       
       console.log(JSON.parse(result).flights);
       console.log(JSON.parse(result).countries);
@@ -209,4 +306,56 @@ function getFlightInfo(airlineCode, flightNumber, departureDate, itin_number) {
       console.log("bad");
     }
   });
+}
+
+function draw(){
+  var c = document.getElementById("myCanvas");
+  line(c);
+  line(c);
+  line(c);
+  //circle(c, x, y);
+}
+
+var start_x = 70;
+var start_y = 40;
+var radius = 30;
+var line_length = 60;
+
+var country_color = '#8ED6FF';
+var city_color = '#FFCCCC';
+
+var circle_index = 1;
+
+function line(c) {
+  var ctx = c.getContext("2d");
+  ctx.beginPath();
+  ctx.arc(start_x-radius, start_y, radius, 0, 2*Math.PI);
+  ctx.fillStyle = country_color;
+  ctx.fill();
+  ctx.lineWidth = 1;
+  ctx.font = "40px Arial";
+  ctx.textAlign = 'center';
+  ctx.fillStyle = "black";
+  ctx.fillText(circle_index, start_x-radius, start_y + (radius/2));
+  circle_index++;
+  ctx.stroke();
+  //
+  /*ctx.arc(30, 30, 15, 0, 2*Math.PI);
+  ctx.fillStyle = "red";
+  ctx.fill();
+
+  ctx.font = "20px Arial";
+  ctx.fillStyle = "blue";
+  ctx.fillText("1",24,37);*/
+  //
+
+  var ctx1 = c.getContext("2d");
+  ctx1.beginPath();
+  ctx.moveTo(start_x, start_y);
+  start_x += line_length * 1.5;
+  ctx1.lineTo(start_x, start_y);
+  ctx1.lineWidth = 10;
+  ctx1.stroke();
+  start_x += radius*2;
+  console.log("start_x: "+ start_x);
 }

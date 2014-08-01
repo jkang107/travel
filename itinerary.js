@@ -163,7 +163,7 @@ function writeJsonFromServer() {
       "countries": [
         {
           "code":"KR",
-          "country": "Arrival!",
+          "country": "Departure!",
           "from":"2014/9/23"
         },
         {
@@ -234,7 +234,7 @@ function writeJsonFromServer() {
         },
         {
           "code":"KR",
-          "country": "Departure!",
+          "country": "Arrival!",
           "from":"2015/3/1"
         }
       ]
@@ -356,7 +356,7 @@ function draw(data) {
   // https://www.iconfinder.com/icons/175097/airplane_takeoff_icon#size=64
   // icon finder
 
-  $("#itinerary").append("<div><img class='plane_img' src='./image/airplane_64.png'></div>");
+  $("#itinerary").append("<div id='plane' style='height:75px;'><img class='plane_img' src='./image/airplane_64.png'></div>");
   
   for(var i = 0; i < data.length; i++) {
 
@@ -370,7 +370,7 @@ function draw(data) {
         } else {
           prevLineR = countR - 1;
         }
-        $("#right_" + countR).css("top", parseInt($("#right_" + prevLineR).css("top"),10) + parseInt($(".line_vertical_right").height(), 10) * countR*2);
+        $("#right_" + countR).css("top", $("#plane").height() + parseInt($("#right_" + prevLineR).css("top"),10) + parseInt($(".line_vertical_right").height(), 10) * countR*2);
         $("#route_" + (i+1)).css({"left": positionOfRightCircle - 17, "top": parseInt($("#right_" + countR).css("top"),10) + $(".line_horizontal_right").height()/2 - 25});
         countR++;
         continue;

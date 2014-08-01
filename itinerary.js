@@ -2,7 +2,7 @@
 $(document).ready(function() {
   writeJsonFromServer();
 });
-
+var jsonData;
 
 function createWorldMap(selectedCountries) {
   var map = new jvm.WorldMap({
@@ -121,8 +121,7 @@ function writeJsonFromServer() {
     type: 'POST',
     url: "http://whispering-gorge-9163.herokuapp.com/write",
     
-    data:
-    {
+    data: {
       "flights": [
         {
           "code": "OZ",
@@ -163,59 +162,80 @@ function writeJsonFromServer() {
       "selectedCountry":["BO","BR","HR","PE","CL","DE","AT","US","TR","IT","AR"],
       "countries": [
         {
+          "code":"KR",
+          "country": "Arrival!",
+          "from":"2014/9/23"
+        },
+        {
           "code": "US",
+          "country": "United State",
           "from": "2014/9/23",
           "to":"2014/10/1"
         },
         {
           "code": "PE",
+          "country": "Peru",
           "from":"2014/10/1",
           "to":"2014/10/10"
         },
         {
           "code":"BO",
+          "country": "Bolivia",
           "from":"2014/10/14",
           "to":"2014/11/10"
         },
         {
           "code":"CL",
+          "country": "Chile",
           "from":"2014/11/11",
           "to":"2014/11/30"
         },
         {
           "code": "AR",
+          "country": "Argentina",
           "from":"2014/11/30",
           "to": "2014/12/10"
         },
         {
           "code":"BR",
+          "country": "Brazil",
           "from":"2014/12/10",
           "to":"2014/12/18"
         },
         {
           "code": "DE",
+          "country": "Germany",
           "from":"2014/12/18",
           "to":"2014/12/25"
         },
         {
           "code":"AT",
+          "country": "Austria",
           "from":"2014/12/25",
           "to":"2014/12/31"
         },
         {
           "code":"IT",
+          "country": "Italy",
           "from":"2015/1/1",
           "to":"2015/1/30"
         },
         {
           "code": "HR",
+          "country": "Croatia",
           "from":"2015/2/1",
           "to": "2015/2/12"
         },
         {
           "code":"TR",
+          "country": "Turkey",
           "from":"2015/2/12",
           "to":"2015/3/1"
+        },
+        {
+          "code":"KR",
+          "country": "Departure!",
+          "from":"2015/3/1"
         }
       ]
     },
@@ -308,6 +328,8 @@ function getFlightInfo(airlineCode, flightNumber, departureDate, itin_number) {
   });
 }
 
+// http://suitcaseonthesofa.com/argentinian-chronicles-travel-tunes-itinerary/
+
 function draw(data) {
   //var screenDivWidth = $("#itinerary").width();
   var screenDivWidth = 1440;
@@ -321,7 +343,7 @@ function draw(data) {
   var prevLineL = 0;
   var positionOfRightCircle = 0;
 
-  data.length = 25;
+  //data.length = 25;
   for(var i = 0; i < data.length; i++) {
     if((oneRouteWidth * i) + 55 > screenDivWidth) {
         maxNumber = i-1;
@@ -331,26 +353,38 @@ function draw(data) {
         break;
     }
   }
+  // https://www.iconfinder.com/icons/175097/airplane_takeoff_icon#size=64
+  // icon finder
 
-  
+  $("#itinerary").append("<div><img class='plane_img' src='./image/airplane_64.png'></div>");
   
   for(var i = 0; i < data.length; i++) {
+
     if(i == maxNumber) {
       $("#itinerary").append("<div id='right_" + countR + "' class='line_horizontal_right'></div>");
-      $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container_right'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)+ "</span></div>");
-      if(countR == 0) {
-        prevLineR = 0;
+      if(i != data.length-1) {
+        $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container_right'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)
+        + "</span><div class='route_info'><div class='code'>" + data[i].country + "</div><div class='from'>" + data[i].from + "</div></div></div>");
+        if(countR == 0) {
+          prevLineR = 0;
+        } else {
+          prevLineR = countR - 1;
+        }
+        $("#right_" + countR).css("top", parseInt($("#right_" + prevLineR).css("top"),10) + parseInt($(".line_vertical_right").height(), 10) * countR*2);
+        $("#route_" + (i+1)).css({"left": positionOfRightCircle - 17, "top": parseInt($("#right_" + countR).css("top"),10) + $(".line_horizontal_right").height()/2 - 25});
+        countR++;
+        continue;
       } else {
-        prevLineR = countR - 1;
+        $("#itinerary").append("<div class='line_vertical_left' style='margin-right:35px;'></div>"); 
+        $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container_test'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)
+        + "</span><div class='route_info'><div class='code'>" + data[i].country + "</div><div class='from'>" + data[i].from + "</div></div></div>");
+       
       }
-      $("#right_" + countR).css("top", parseInt($("#right_" + prevLineR).css("top"),10) + parseInt($(".line_vertical_right").height(), 10) * countR*2);
-      $("#route_" + (i+1)).css({"left": positionOfRightCircle - 17, "top": parseInt($("#right_" + countR).css("top"),10) + $(".line_horizontal_right").height()/2 - 25});
-      countR++;
-      continue;
     }
 
     if( i < maxNumber) {
-      $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)+ "</span></div>");
+      $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)
+        + "</span><div class='route_info'><div class='code'>" + data[i].country + "</div><div class='from'>" + data[i].from + "</div></div></div>");
       $("#itinerary").append("<div class='line_vertical_right'></div>");
     } else {
       if(isFirstLine) {
@@ -365,27 +399,39 @@ function draw(data) {
       } else {
         $("#itinerary").append("<div class='line_vertical_left'></div>");    
       }
-    
-      $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container_test'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)+ "</span></div>");
+      if(i!=data.length-1) {
+        $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container_test'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)
+        + "</span><div class='route_info'><div class='code'>" + data[i].country + "</div><div class='from'>" + data[i].from + "</div></div></div>");
+      }
+      
       if(i == tmpMaxNumber) {
-        maxNumber = tmpMaxNumber;
-        $("#itinerary").append("<div id='left_" + countL + "' class='line_horizontal_left'></div>");
-        if(countL == 0) {
-          prevLineL = 0;
+          maxNumber = tmpMaxNumber;
+          $("#itinerary").append("<div id='left_" + countL + "' class='line_horizontal_left'></div>");
+          if(countL == 0) {
+            prevLineL = 0;
+          } else {
+            prevLineL = countL - 1;
+          }
+          $("#left_" + countL).css("top", parseInt($("#right_" + prevLineR).css("top"),10) + parseInt($(".line_vertical_left").height(), 10) *(countL*2+1));
+          $(".line_horizontal_left").css("left", "20px");
+        if(i != data.length-1) {
+          $("#route_" + (i+1)).css({"left": "17px", "top": $(".line_horizontal_right").height()/2 - 25});
+          tmpMaxNumber += 6;
+          maxNumber = tmpMaxNumber;
+          console.log("max number: " + maxNumber);
+          if(i != data.length -1) {
+            $("#itinerary").append("<div class='line_vertical_right' style='margin-left:55px;'></div>");
+          }
+          countL++;
         } else {
-          prevLineL = countL - 1;
-        }
-        $("#left_" + countL).css("top", parseInt($("#right_" + prevLineR).css("top"),10) + parseInt($(".line_vertical_left").height(), 10) *(countL*2+1));
-        $(".line_horizontal_left").css("left", "20px");
-        $("#route_" + (i+1)).css({"left": "17px", "top": $(".line_horizontal_right").height()/2 - 25});
-        tmpMaxNumber += 6;
-        maxNumber = tmpMaxNumber;
-        console.log("max number: " + maxNumber);
-        if(i != data.length -1) {
           $("#itinerary").append("<div class='line_vertical_right' style='margin-left:55px;'></div>");
-        }
-        countL++;
-      }     
+          $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)
+        + "</span><div class='route_info'><div class='code'>" + data[i].country + "</div><div class='from'>" + data[i].from + "</div></div></div>");
+      
+        }     
+      }
     }
+
+
   }
 }

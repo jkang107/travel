@@ -349,6 +349,34 @@ p{
 	z-index: 15;
 }
 
+.route_info {
+	position:relative;
+	/* background-color: #E9F998; */
+	width: 150px;
+	height:90px;
+	top:60px;
+	left:-50px;
+	color: black;
+	/* opacity: 0.6; */
+}
+
+.route_info > .code {
+	font-weight: bold;
+	font-family: 'Montserrat', serif;
+}
+
+.route_info > .from {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.plane_img {
+	position: absolute;
+	float: left;
+	top:-70px;
+	left: -5px;
+	z-index: 1000;
+}
+
 @-ms-viewport {
 /*ie10 윈도우8 기기전용 반응형 디자인 적용*/
  width: device-width;

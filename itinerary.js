@@ -108,7 +108,7 @@ function readJsonFromServer() {
     success: function(result) {
       createWorldMap(JSON.parse(result).selectedCountry);
       //getMyFlightList(JSON.parse(result).flights);
-      draw();
+      draw(JSON.parse(result).countries);
       
       console.log(JSON.parse(result).flights);
       console.log(JSON.parse(result).countries);
@@ -308,54 +308,84 @@ function getFlightInfo(airlineCode, flightNumber, departureDate, itin_number) {
   });
 }
 
-function draw(){
-  var c = document.getElementById("myCanvas");
-  line(c);
-  line(c);
-  line(c);
-  //circle(c, x, y);
-}
+function draw(data) {
+  //var screenDivWidth = $("#itinerary").width();
+  var screenDivWidth = 1440;
+  var oneRouteWidth = 200;
+  var maxNumber = 0;
+  var tmpMaxNumber = 0;
+  var isFirstLine = true;
+  var countR= 0;
+  var countL= 0;
+  var prevLineR = 0;
+  var prevLineL = 0;
+  var positionOfRightCircle = 0;
 
-var start_x = 70;
-var start_y = 40;
-var radius = 30;
-var line_length = 60;
+  data.length = 25;
+  for(var i = 0; i < data.length; i++) {
+    if((oneRouteWidth * i) + 55 > screenDivWidth) {
+        maxNumber = i-1;
+        positionOfRightCircle = maxNumber * oneRouteWidth;
+        var marginRL = (screenDivWidth - ((oneRouteWidth * (i-2)) + 80))/2;
+        $("#itinerary").css("margin", "80px " + marginRL + "px");
+        break;
+    }
+  }
 
-var country_color = '#8ED6FF';
-var city_color = '#FFCCCC';
+  
+  
+  for(var i = 0; i < data.length; i++) {
+    if(i == maxNumber) {
+      $("#itinerary").append("<div id='right_" + countR + "' class='line_horizontal_right'></div>");
+      $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container_right'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)+ "</span></div>");
+      if(countR == 0) {
+        prevLineR = 0;
+      } else {
+        prevLineR = countR - 1;
+      }
+      $("#right_" + countR).css("top", parseInt($("#right_" + prevLineR).css("top"),10) + parseInt($(".line_vertical_right").height(), 10) * countR*2);
+      $("#route_" + (i+1)).css({"left": positionOfRightCircle - 17, "top": parseInt($("#right_" + countR).css("top"),10) + $(".line_horizontal_right").height()/2 - 25});
+      countR++;
+      continue;
+    }
 
-var circle_index = 1;
+    if( i < maxNumber) {
+      $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)+ "</span></div>");
+      $("#itinerary").append("<div class='line_vertical_right'></div>");
+    } else {
+      if(isFirstLine) {
+        tmpMaxNumber = maxNumber + 5;
+        isFirstLine = false;
+      } else {
+        tmpMaxNumber = maxNumber + 6;
+      }
 
-function line(c) {
-  var ctx = c.getContext("2d");
-  ctx.beginPath();
-  ctx.arc(start_x-radius, start_y, radius, 0, 2*Math.PI);
-  ctx.fillStyle = country_color;
-  ctx.fill();
-  ctx.lineWidth = 1;
-  ctx.font = "40px Arial";
-  ctx.textAlign = 'center';
-  ctx.fillStyle = "black";
-  ctx.fillText(circle_index, start_x-radius, start_y + (radius/2));
-  circle_index++;
-  ctx.stroke();
-  //
-  /*ctx.arc(30, 30, 15, 0, 2*Math.PI);
-  ctx.fillStyle = "red";
-  ctx.fill();
-
-  ctx.font = "20px Arial";
-  ctx.fillStyle = "blue";
-  ctx.fillText("1",24,37);*/
-  //
-
-  var ctx1 = c.getContext("2d");
-  ctx1.beginPath();
-  ctx.moveTo(start_x, start_y);
-  start_x += line_length * 1.5;
-  ctx1.lineTo(start_x, start_y);
-  ctx1.lineWidth = 10;
-  ctx1.stroke();
-  start_x += radius*2;
-  console.log("start_x: "+ start_x);
+      if(i == maxNumber+1) {
+        $("#itinerary").append("<div class='line_vertical_left' style='margin-right:35px;'></div>");  
+      } else {
+        $("#itinerary").append("<div class='line_vertical_left'></div>");    
+      }
+    
+      $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container_test'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)+ "</span></div>");
+      if(i == tmpMaxNumber) {
+        maxNumber = tmpMaxNumber;
+        $("#itinerary").append("<div id='left_" + countL + "' class='line_horizontal_left'></div>");
+        if(countL == 0) {
+          prevLineL = 0;
+        } else {
+          prevLineL = countL - 1;
+        }
+        $("#left_" + countL).css("top", parseInt($("#right_" + prevLineR).css("top"),10) + parseInt($(".line_vertical_left").height(), 10) *(countL*2+1));
+        $(".line_horizontal_left").css("left", "20px");
+        $("#route_" + (i+1)).css({"left": "17px", "top": $(".line_horizontal_right").height()/2 - 25});
+        tmpMaxNumber += 6;
+        maxNumber = tmpMaxNumber;
+        console.log("max number: " + maxNumber);
+        if(i != data.length -1) {
+          $("#itinerary").append("<div class='line_vertical_right' style='margin-left:55px;'></div>");
+        }
+        countL++;
+      }     
+    }
+  }
 }

@@ -114,9 +114,11 @@ p{
 /* #section1 img */{
 	margin: 20px 0 0 0;
 }	
+/* 
+동그리마 그리느라 잠시 주석처리
 #section2 img{
 	margin: 20px 0 0 52px;	
-}
+} */
 /* instagram */
 #section1 .intro { 
 	padding:60px 50px 50px 50px;
@@ -194,10 +196,9 @@ p{
 }
 
 #itinerary {
-	text-align: left;
-	font-size: 18px;
-	padding-top: 50px;
-	padding-left: 50px;
+	/* margin: 80px; */
+	position: relative;
+	float: left;
 }
 
 .flightInfo p{
@@ -220,6 +221,133 @@ p{
 	width: 50%;
 }
 
+/* 여정 동그라미로 그리는 부분 */
+.route_container {
+	height:165px;
+    width:50px;
+    position:relative;
+    float: left;
+    z-index: 100;
+}
+
+.route_container_test {
+	height:165px;
+    width:50px;
+    position:relative;
+    float: right;
+    z-index: 100;
+}
+
+
+.route_container_right {
+	height:50px;
+    width:50px;
+    float: right;
+    z-index: 100;
+    position:absolute;
+}
+
+.route_container_left {
+	height:50px;
+    width:50px;
+    float: left;
+    z-index: 100;
+    position:absolute;
+}
+
+.circle
+{    
+    position:absolute;
+    right:0;
+    top:0;
+    margin:0px;
+}
+
+.circle_no
+{
+    z-index:100;
+    position:absolute;    
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    right:0px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.line_vertical_right {
+	position:relative;
+	top:-3px;
+	left:0px;
+	background-image:url('../image/line_top_middle.png');
+	background-repeat:repeat-x;
+	width: 150px;
+	height:165px;
+	float: left;
+	z-index: 10;
+}
+
+.line_vertical_left {
+	position:relative;
+	top:-3px;
+	right:0px;
+	background-image:url('../image/line_top_middle.png');
+	background-repeat:repeat-x;
+	width: 150px;
+	height:165px;
+	float: right;
+	z-index: 10;
+}
+
+.line_horizontal_right
+{
+	background-image: 
+		url('../image/curve_top_right.png'),
+		url('../image/line_right.png'),
+		url('../image/curve_bot_right.png');
+	background-position: 
+		right 0px top 0px,
+		right 0px top 35px,
+		right 0px top 185px;
+	background-repeat: no-repeat;
+	background-size: 
+		35px 35px,
+		35px 150px, 
+		35px 35px;
+	float: right;
+	position: absolute;
+	right: 5px;
+	top: -3px;
+	width: 35px;
+	height:220px;
+	z-index: 15;
+}
+
+.line_horizontal_left
+{
+	background-image: 
+		url('../image/curve_top_left.png'),
+		url('../image/line_left.png'),
+		url('../image/curve_bot_left.png');
+	background-position: 
+		left 0px top 0px,
+		left 0px top 35px,
+		left 0px top 185px;
+	background-repeat: no-repeat;
+	background-size: 
+		35px 35px,
+		35px 150px, 
+		35px 35px;
+	float: left;
+	position: absolute;
+	left: 5px;
+	top: -3px;
+	width: 35px;
+	height:220px;
+	z-index: 15;
+}
 
 @-ms-viewport {
 /*ie10 윈도우8 기기전용 반응형 디자인 적용*/

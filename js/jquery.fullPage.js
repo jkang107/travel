@@ -805,6 +805,12 @@
 		 */
 		$('.section').on('click', '.controlArrow', function() {
 			//not that fast my friend! :)
+			
+			if($("#zoom_photo").css("display") != "none") {
+            	$("#zoom_photo").hide();  
+            	$("#photo").css("opacity", 1.0);
+          	}
+
 			if (slideMoving) {
 				return;
 			}

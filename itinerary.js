@@ -475,14 +475,14 @@ function drawCircle(num, direction, country, from) {
 
 function drawLine(num, direction) {
   if(direction == "left_right") {
-    if(num == leftDirectionMaxNumber+1) {
+    if(num == leftDirectionMaxNumber+1 || num == dataSize) {
       $("#itinerary").append("<div class='line_vertical_right' style='margin-left:55px;'></div>");
     } else {
       $("#itinerary").append("<div class='line_vertical_right'></div>");  
     }
     
   } else if(direction == "right_left") {
-    if(num == rightDirectionMaxNumber+2 || num == dataSize) {
+    if(num == rightDirectionMaxNumber+2 || (num == dataSize && rightDirectionMaxNumber+1 == dataSize)) {
       $("#itinerary").append("<div class='line_vertical_left' style='margin-right:"+ positionOfFirstRightLine + "px;'></div>");  
     } else {
       $("#itinerary").append("<div class='line_vertical_left'></div>");    

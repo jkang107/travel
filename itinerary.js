@@ -332,7 +332,8 @@ function getFlightInfo(airlineCode, flightNumber, departureDate, itin_number) {
 
 function draw(data) {
   //var screenDivWidth = $("#itinerary").width();
-  var screenDivWidth = 1440;
+  //var screenDivWidth = 1440;
+  var screenDivWidth = screen.width - 200;
   var oneRouteWidth = 200;
   var maxNumber = 0;
   var tmpMaxNumber = 0;

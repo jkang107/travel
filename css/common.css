@@ -222,39 +222,6 @@ p{
 }
 
 /* 여정 동그라미로 그리는 부분 */
-.route_container {
-	height:165px;
-    width:50px;
-    position:relative;
-    float: left;
-    z-index: 100;
-}
-
-.route_container_test {
-	height:165px;
-    width:50px;
-    position:relative;
-    float: right;
-    z-index: 100;
-}
-
-
-.route_container_right {
-	height:50px;
-    width:50px;
-    float: right;
-    z-index: 100;
-    position:absolute;
-}
-
-.route_container_left {
-	height:50px;
-    width:50px;
-    float: left;
-    z-index: 100;
-    position:absolute;
-}
-
 .circle
 {    
     position:absolute;
@@ -316,9 +283,8 @@ p{
 		35px 35px,
 		35px 150px, 
 		35px 35px;
-	float: right;
+	float: left;
 	position: absolute;
-	right: 5px;
 	top: -3px;
 	width: 35px;
 	height:220px;
@@ -373,6 +339,16 @@ p{
 	position: relative;
 	float: left;
 	z-index: 1000;
+}
+
+
+/* new */
+
+.circle_container {
+	height:165px;
+    width:50px;
+    position:relative;
+    z-index: 100;
 }
 
 @-ms-viewport {

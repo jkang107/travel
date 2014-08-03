@@ -246,7 +246,10 @@ function writeJsonFromServer() {
   });
 }
 
+
 function getMyFlightList(data) {
+  routeLength = data.length;
+
   for(var i = 0; i < data.length; i++) {
     var tmpInfo = data[i];
     getFlightInfo(tmpInfo.code, tmpInfo.number, tmpInfo.date, i);
@@ -330,26 +333,35 @@ function getFlightInfo(airlineCode, flightNumber, departureDate, itin_number) {
 
 // http://suitcaseonthesofa.com/argentinian-chronicles-travel-tunes-itinerary/
 
+var positionOfFirstRightLine = 0;
+var positionOfRightCircle = 0;
+var rightDirectionMaxNumber, leftDirectionMaxNumber;
+var lengthOfHorizontalLine = 220;
+var countR = 0;
+var countL = 0;
+var dataSize = 0;
+
 function draw(data) {
-  //var screenDivWidth = $("#itinerary").width();
-  var screenDivWidth = 1440;
-  var oneRouteWidth = 200;
+  var screenDivWidth = $("#section2").width();
+  var oneRouteWidth = 50 + 150;
   var maxNumber = 0;
   var tmpMaxNumber = 0;
   var isFirstLine = true;
-  var countR= 0;
-  var countL= 0;
   var prevLineR = 0;
   var prevLineL = 0;
-  var positionOfRightCircle = 0;
-
-  //data.length = 25;
-  for(var i = 0; i < data.length; i++) {
-    if((oneRouteWidth * i) + 55 > screenDivWidth) {
+  dataSize = data.length;
+  
+  for(var i = 1; i < dataSize; i++) {
+    if((oneRouteWidth * i) + 55 + 55 > screenDivWidth) {
         maxNumber = i-1;
+
         positionOfRightCircle = maxNumber * oneRouteWidth;
-        var marginRL = (screenDivWidth - ((oneRouteWidth * (i-2)) + 80))/2;
+        var marginRL = (screenDivWidth - ((oneRouteWidth * maxNumber) + 55)) / 2;
+        /*if(marginRL < 50) {
+          marginRL = 50;
+        }*/
         $("#itinerary").css("margin", "80px " + marginRL + "px");
+        positionOfFirstRightLine = screenDivWidth -(marginRL*2 + positionOfRightCircle);
         break;
     }
   }
@@ -358,80 +370,128 @@ function draw(data) {
 
   $("#itinerary").append("<div id='plane' style='height:75px;'><img class='plane_img' src='./image/airplane_64.png'></div>");
   
-  for(var i = 0; i < data.length; i++) {
+  rightDirectionMaxNumber = maxNumber;
+  leftDirectionMaxNumber = maxNumber*2;
+  
+  oneRoundRange = maxNumber*2;
 
-    if(i == maxNumber) {
-      $("#itinerary").append("<div id='right_" + countR + "' class='line_horizontal_right'></div>");
-      if(i != data.length-1) {
-        $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container_right'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)
-        + "</span><div class='route_info'><div class='code'>" + data[i].country + "</div><div class='from'>" + data[i].from + "</div></div></div>");
-        if(countR == 0) {
-          prevLineR = 0;
-        } else {
-          prevLineR = countR - 1;
-        }
-        $("#right_" + countR).css("top", $("#plane").height() + parseInt($("#right_" + prevLineR).css("top"),10) + parseInt($(".line_vertical_right").height(), 10) * countR*2);
-        $("#route_" + (i+1)).css({"left": positionOfRightCircle - 17, "top": parseInt($("#right_" + countR).css("top"),10) + $(".line_horizontal_right").height()/2 - 25});
-        countR++;
-        continue;
-      } else {
-        $("#itinerary").append("<div class='line_vertical_left' style='margin-right:35px;'></div>"); 
-        $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container_test'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)
-        + "</span><div class='route_info'><div class='code'>" + data[i].country + "</div><div class='from'>" + data[i].from + "</div></div></div>");
-       
+  for(var i = 0; i < dataSize; i++) {
+    
+    if(i < rightDirectionMaxNumber && i < leftDirectionMaxNumber) {
+      //1. left - to - right
+
+      // Draw circle
+      drawCircle(i+1, "left_right", data[i].country, data[i].from);
+
+      // Draw Line
+      if(i+1 != dataSize) {
+        drawLine(i+1, "left_right");
       }
-    }
 
-    if( i < maxNumber) {
-      $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)
-        + "</span><div class='route_info'><div class='code'>" + data[i].country + "</div><div class='from'>" + data[i].from + "</div></div></div>");
-      $("#itinerary").append("<div class='line_vertical_right'></div>");
+    } else if(i == rightDirectionMaxNumber) {
+      //2. right: top-down  
+
+      // Draw Line
+      drawLine(i+1, "right");
+      if(i+1 == dataSize) {
+        drawLine(i+1, "right_left");
+        drawCircle(i+1, "right_left", data[i].country, data[i].from);
+      } else {
+        // Draw circle
+        drawCircle(i+1, "right", data[i].country, data[i].from);
+        
+      }
+
+    } else if(i > rightDirectionMaxNumber && i < leftDirectionMaxNumber){
+      //3. right - to - left
+      
+      // Draw Line
+      drawLine(i+1, "right_left");
+      // Draw Circle
+      drawCircle(i+1, "right_left", data[i].country, data[i].from);
+
+    } else if(i == leftDirectionMaxNumber) {
+      //4. left: top-down
+
+      // Draw Line
+      drawLine(i+1, "right_left");
+      // Draw Line
+      drawLine(i+1, "left");
+      
+      if(i+1 == dataSize) {
+        // Last Route
+        // Draw Line
+        drawLine(i+1, "left_right");
+        // Draw Circle
+        drawCircle(i+1, "left_right", data[i].country, data[i].from);
+      } else {
+        // Draw Circle
+        drawCircle(i+1, "left", data[i].country, data[i].from);
+        // Draw Line
+        drawLine(i+1, "left_right");
+      }
+      // update max value
+      rightDirectionMaxNumber += oneRoundRange;
+      leftDirectionMaxNumber += oneRoundRange;
+
+      countR++;
+      countL++;
+    }
+  }
+}
+
+function drawCircle(num, direction, country, from) {
+  var floatStyle;
+  var topStyle = 0;
+  var leftStyle = 0;
+  var rightStyle = 0;
+
+  if(direction == "right_left") {
+    floatStyle = "right";
+
+  } else if(direction == "left_right") {
+    floatStyle = "left";
+
+  } else if(direction == "right") {
+    topStyle = -3 + lengthOfHorizontalLine/2 - 25;
+    floatStyle = "right";
+
+  } else {
+    floatStyle = "left";  
+    topStyle = -3 + lengthOfHorizontalLine/2 - 25;
+  } 
+  
+  $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle + "px;'><img class='circle' src='./image/circle.png'><span class='circle_no'>"
+        + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
+
+  if(direction == "right") {
+    $("#route_" + num).css("right", "23px");
+  } else if(direction == "left") {
+    $("#route_" + num).css("left", "23px");
+  }
+}
+
+function drawLine(num, direction) {
+  if(direction == "left_right") {
+    if(num == leftDirectionMaxNumber+1) {
+      $("#itinerary").append("<div class='line_vertical_right' style='margin-left:55px;'></div>");
     } else {
-      if(isFirstLine) {
-        tmpMaxNumber = maxNumber + 5;
-        isFirstLine = false;
-      } else {
-        tmpMaxNumber = maxNumber + 6;
-      }
-
-      if(i == maxNumber+1) {
-        $("#itinerary").append("<div class='line_vertical_left' style='margin-right:35px;'></div>");  
-      } else {
-        $("#itinerary").append("<div class='line_vertical_left'></div>");    
-      }
-      if(i!=data.length-1) {
-        $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container_test'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)
-        + "</span><div class='route_info'><div class='code'>" + data[i].country + "</div><div class='from'>" + data[i].from + "</div></div></div>");
-      }
-      
-      if(i == tmpMaxNumber) {
-          maxNumber = tmpMaxNumber;
-          $("#itinerary").append("<div id='left_" + countL + "' class='line_horizontal_left'></div>");
-          if(countL == 0) {
-            prevLineL = 0;
-          } else {
-            prevLineL = countL - 1;
-          }
-          $("#left_" + countL).css("top", parseInt($("#right_" + prevLineR).css("top"),10) + parseInt($(".line_vertical_left").height(), 10) *(countL*2+1));
-          $(".line_horizontal_left").css("left", "20px");
-        if(i != data.length-1) {
-          $("#route_" + (i+1)).css({"left": "17px", "top": $(".line_horizontal_right").height()/2 - 25});
-          tmpMaxNumber += 6;
-          maxNumber = tmpMaxNumber;
-          console.log("max number: " + maxNumber);
-          if(i != data.length -1) {
-            $("#itinerary").append("<div class='line_vertical_right' style='margin-left:55px;'></div>");
-          }
-          countL++;
-        } else {
-          $("#itinerary").append("<div class='line_vertical_right' style='margin-left:55px;'></div>");
-          $("#itinerary").append("<div id='route_" + (i+1) + "' class='route_container'><img class='circle' src='./image/circle.png'><span class='circle_no'>" + (i+1)
-        + "</span><div class='route_info'><div class='code'>" + data[i].country + "</div><div class='from'>" + data[i].from + "</div></div></div>");
-      
-        }     
-      }
+      $("#itinerary").append("<div class='line_vertical_right'></div>");  
+    }
+    
+  } else if(direction == "right_left") {
+    if(num == rightDirectionMaxNumber+2 || num == dataSize) {
+      $("#itinerary").append("<div class='line_vertical_left' style='margin-right:"+ positionOfFirstRightLine + "px;'></div>");  
+    } else {
+      $("#itinerary").append("<div class='line_vertical_left'></div>");    
     }
 
+  } else if(direction == "right") {
+    var topStyle = -3 + $("#plane").height() + $(".circle_container").height() * countR * 2;
+    $("#itinerary").append("<div class='line_horizontal_right' style='left:" + positionOfRightCircle + "px; top:" + topStyle + "px'></div>");
 
+  } else if(direction == "left") {
+    var topStyle = -3 + $("#plane").height() + $(".circle_container").height() * (countL*2 + 1);
+    $("#itinerary").append("<div class='line_horizontal_left' style='top:" + topStyle + "px; left:20px;'></div>");
   }
 }

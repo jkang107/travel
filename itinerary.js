@@ -93,8 +93,9 @@ function createWorldMap(selectedCountries) {
 }
 function setMapPosition() {
   var browserWidth = $(window).width();
-  var mapWidth = browserWidth * 0.5;
+  var mapWidth = browserWidth * 0.65;
   var mapHeight = mapWidth * 1.8/3;
+
   var mapLeft = ($("#worldMapStr").width() - mapWidth) / 2 - 22;
 
   $('#world-map').css({"width" : mapWidth, "height" : mapHeight, "left" : mapLeft});
@@ -107,6 +108,7 @@ function readJsonFromServer() {
     url: "http://whispering-gorge-9163.herokuapp.com/read",
     success: function(result) {
       createWorldMap(JSON.parse(result).selectedCountry);
+
       //getMyFlightList(JSON.parse(result).flights);
       draw(JSON.parse(result).countries);
       

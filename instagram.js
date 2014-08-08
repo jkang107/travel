@@ -32,9 +32,13 @@ function login() {
   console.log("access_token : " + access_token);
   return access_token;
 }
+var userURL;
+//var numberOfPhoto = 0;
+var totalNumberOfPhoto = 0;
+var hasMoreImages = false;
 
 function getUserPhotos() {
-  var requestSelfUrl = "https://api.instagram.com/v1/users/self/feed?access_token=" + access_token + "&COUNT=5";
+  var requestSelfUrl = "https://api.instagram.com/v1/users/self/feed?access_token=" + access_token + "&COUNT=100";
 
   //get user id from username
   // http://jelled.com/instagram/lookup-user-id
@@ -44,7 +48,11 @@ function getUserPhotos() {
   //myUserId = "15882249"; //타블로
   var requestUserUrl = "https://api.instagram.com/v1/users/" + myUserId + "/media/recent/?access_token=" + access_token;
   var requestPopularURL = "https://api.instagram.com/v1/media/popular?access_token=" + access_token;
-  var userURL = "https://api.instagram.com/v1/users/" + myUserId + "/media/recent/?client_id=" + client_id + "&count=30";
+  if(!hasMoreImages) {
+    userURL = "https://api.instagram.com/v1/users/" + myUserId + "/media/recent/?client_id=" + client_id + "&count=50";
+  }
+
+
   $.ajaxPrefilter('json', function(options, orig, jqXHR) {
         return 'jsonp';
     });
@@ -56,71 +64,56 @@ function getUserPhotos() {
     dataType: "json",
     type: 'GET',
     success: function(response) {
-    var result = response;
-    var numberOfPhoto = result.data.length;
+      var result = response;
 
-    for (var i = 0; i < numberOfPhoto; i++) {
-      var photo_standard = result.data[i].images.standard_resolution;
-      var locationInfo = result.data[i].location;
-      if(locationInfo) {
-        latitude = locationInfo.latitude;
-        longitude = locationInfo.longitude;
-        
-        //thumbnail info
-        var photo_thumbnail = result.data[i].images.thumbnail;
-        var thumb_url = photo_thumbnail.url;
-        var thumb_widht = photo_thumbnail.width;
-        var thumb_height = photo_thumbnail.height;
+      //numberOfPhoto = result.data.length;
+      totalNumberOfPhoto += result.data.length;
+      //i = numberOfPhoto;
+      if($("#loadMore").length > 0) {
+        $("#loadMore").remove();
       }
-      //var latitude = locationInfo.latitude;
-      //var longitude = locationInfo.longitude
-      $(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + i + "' class='photo' src='" + photo_standard.url + "' width='300' height='300'><figcaption><p></p></figcaption></figure></a></li>");
-      $("#photo_" + i).attr("origin_width", photo_standard.width);
-      $("#photo_" + i).attr("origin_height", photo_standard.height);
-      $("#photo_" + i).attr("time", result.data[i].created_time.toHHMMSS());
-      if (result.data[i].caption != null) {
-        //$("#photo_" + i).attr("info", result.data[i].caption.text);
-        $("#photo_" + i).siblings().children().text(result.data[i].caption.text);
+      for (var i=0; i < result.data.length; i++) {
+        var photo_standard = result.data[i].images.standard_resolution;
+        var locationInfo = result.data[i].location;
+        if(locationInfo) {
+          latitude = locationInfo.latitude;
+          longitude = locationInfo.longitude;
+          
+          //thumbnail info
+          var photo_thumbnail = result.data[i].images.thumbnail;
+          var thumb_url = photo_thumbnail.url;
+          var thumb_widht = photo_thumbnail.width;
+          var thumb_height = photo_thumbnail.height;
+        }
+        //var latitude = locationInfo.latitude;
+        //var longitude = locationInfo.longitude
+        $(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + (i + totalNumberOfPhoto) + "' class='photo' src='" 
+          + photo_standard.url + "' width='300' height='300'><figcaption><p></p></figcaption></figure></a></li>");
+        $("#photo_" + (i + totalNumberOfPhoto)).attr("origin_width", photo_standard.width);
+        $("#photo_" + (i + totalNumberOfPhoto)).attr("origin_height", photo_standard.height);
+        $("#photo_" + (i + totalNumberOfPhoto)).attr("time", result.data[i].created_time.toHHMMSS());
+        if (result.data[i].caption != null) {
+          //$("#photo_" + i).attr("info", result.data[i].caption.text);
+          $("#photo_" + (i + totalNumberOfPhoto)).siblings().children().text(result.data[i].caption.text);
+        }
       }
-    }
 
-    addClickEvent();
-    //addHoverEvent();
+      //numberOfPhoto = result.data.length;
+
+      addClickEvent();
+
+      if(result.pagination.next_url != undefined) {
+        userURL = result.pagination.next_url;
+        hasMoreImages = true;
+        //getUserPhotos();
+        $(".photo-grid").append("<button id='loadMore' style='width:300px; height:80px;'>Load more...</button>");
+        $("#loadMore").click(function(e) {
+          getUserPhotos();
+          
+        })
+      }
   }});
 
-
-/*  $.get(userURL, function(response) {
-    var result = response;
-    var numberOfPhoto = result.data.length;
-
-    for (var i = 0; i < numberOfPhoto; i++) {
-      var photo_standard = result.data[i].images.standard_resolution;
-      var locationInfo = result.data[i].location;
-      if(locationInfo) {
-        latitude = locationInfo.latitude;
-        longitude = locationInfo.longitude;
-        
-        //thumbnail info
-        var photo_thumbnail = result.data[i].images.thumbnail;
-        var thumb_url = photo_thumbnail.url;
-        var thumb_widht = photo_thumbnail.width;
-        var thumb_height = photo_thumbnail.height;
-      }
-      //var latitude = locationInfo.latitude;
-      //var longitude = locationInfo.longitude
-      $(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + i + "' class='photo' src='" + photo_standard.url + "' width='300' height='300'><figcaption><p></p></figcaption></figure></a></li>");
-      $("#photo_" + i).attr("origin_width", photo_standard.width);
-      $("#photo_" + i).attr("origin_height", photo_standard.height);
-      $("#photo_" + i).attr("time", result.data[i].created_time.toHHMMSS());
-      if (result.data[i].caption != null) {
-        //$("#photo_" + i).attr("info", result.data[i].caption.text);
-        $("#photo_" + i).siblings().children().text(result.data[i].caption.text);
-      }
-    }
-
-    addClickEvent();
-    //addHoverEvent();
-  });*/
 }
 
 function addClickEvent() {
@@ -130,13 +123,16 @@ function addClickEvent() {
     }
     var targetInfo = e.target.parentNode.parentNode.childNodes[0];
     $("#zoom_photo").attr("src", targetInfo.src);
-    $("#zoom_photo").attr("width", targetInfo.attributes.origin_width.value);
-    $("#zoom_photo").attr("height", targetInfo.attributes.origin_height.value);
+    var targetWidth = $("#"+targetInfo.id).attr("origin_width");
+    var targetHeight = $("#"+targetInfo.id).attr("origin_height");
 
-    var photoLeftPos = (window.innerWidth - targetInfo.attributes.origin_width.value) / 2;
+    $("#zoom_photo").attr("width", targetWidth);
+    $("#zoom_photo").attr("height", targetHeight);
+
+    var photoLeftPos = (window.innerWidth - targetWidth) / 2;
     $("#zoom_photo").css("left", photoLeftPos);
 
-    var photoTopPos = (window.innerHeight - targetInfo.attributes.origin_height.value) / 2;
+    var photoTopPos = (window.innerHeight - targetHeight) / 2;
     $("#zoom_photo").css("top", photoTopPos);
     $(".photo-grid").css("opacity", "0.3");
   });

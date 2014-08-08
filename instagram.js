@@ -44,9 +44,18 @@ function getUserPhotos() {
   //myUserId = "15882249"; //타블로
   var requestUserUrl = "https://api.instagram.com/v1/users/" + myUserId + "/media/recent/?access_token=" + access_token;
   var requestPopularURL = "https://api.instagram.com/v1/media/popular?access_token=" + access_token;
-  var userURL = "https://api.instagram.com/v1/users/" + myUserId + "/media/recent/?client_id=" + client_id;
+  var userURL = "https://api.instagram.com/v1/users/" + myUserId + "/media/recent/?client_id=" + client_id + "&count=30";
+  $.ajaxPrefilter('json', function(options, orig, jqXHR) {
+        return 'jsonp';
+    });
 
-  $.get(userURL, function(response) {
+
+  $.ajax({
+    url: userURL, 
+    corssDomain:true,
+    dataType: "json",
+    type: 'GET',
+    success: function(response) {
     var result = response;
     var numberOfPhoto = result.data.length;
 
@@ -77,7 +86,41 @@ function getUserPhotos() {
 
     addClickEvent();
     //addHoverEvent();
-  });
+  }});
+
+
+/*  $.get(userURL, function(response) {
+    var result = response;
+    var numberOfPhoto = result.data.length;
+
+    for (var i = 0; i < numberOfPhoto; i++) {
+      var photo_standard = result.data[i].images.standard_resolution;
+      var locationInfo = result.data[i].location;
+      if(locationInfo) {
+        latitude = locationInfo.latitude;
+        longitude = locationInfo.longitude;
+        
+        //thumbnail info
+        var photo_thumbnail = result.data[i].images.thumbnail;
+        var thumb_url = photo_thumbnail.url;
+        var thumb_widht = photo_thumbnail.width;
+        var thumb_height = photo_thumbnail.height;
+      }
+      //var latitude = locationInfo.latitude;
+      //var longitude = locationInfo.longitude
+      $(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + i + "' class='photo' src='" + photo_standard.url + "' width='300' height='300'><figcaption><p></p></figcaption></figure></a></li>");
+      $("#photo_" + i).attr("origin_width", photo_standard.width);
+      $("#photo_" + i).attr("origin_height", photo_standard.height);
+      $("#photo_" + i).attr("time", result.data[i].created_time.toHHMMSS());
+      if (result.data[i].caption != null) {
+        //$("#photo_" + i).attr("info", result.data[i].caption.text);
+        $("#photo_" + i).siblings().children().text(result.data[i].caption.text);
+      }
+    }
+
+    addClickEvent();
+    //addHoverEvent();
+  });*/
 }
 
 function addClickEvent() {

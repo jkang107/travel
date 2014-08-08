@@ -199,6 +199,8 @@ p{
 	/* margin: 80px; */
 	position: relative;
 	float: left;
+	/*overflow-x: auto;*/
+
 }
 
 .flightInfo p{
@@ -323,6 +325,7 @@ p{
 	top:60px;
 	left:-50px;
 	color: black;
+	z-index: 100;
 	/* opacity: 0.6; */
 }
 

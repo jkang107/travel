@@ -103,7 +103,13 @@ function setMapPosition() {
 
 //https://developer.flightstats.com/api-docs/flightstatus/v2/flight
 function readJsonFromServer() {
+  /*$.ajaxPrefilter('json', function(options, orig, jqXHR) {
+        return 'jsonp';
+    });*/
+
   $.ajax({
+    /*crossDomain:true,
+    dataType: "json",*/
     type: 'GET',
     url: "http://whispering-gorge-9163.herokuapp.com/read",
     success: function(result) {
@@ -114,12 +120,24 @@ function readJsonFromServer() {
       
       console.log(JSON.parse(result).flights);
       console.log(JSON.parse(result).countries);
+    },
+    error: function(a,b) {
+      console.log("error: " + a + b);
     }
   });
 }
 
 function writeJsonFromServer() {
+/*
+    $.ajaxPrefilter('json', function(options, orig, jqXHR) {
+        return 'jsonp';
+    });
+
+*/
+
   $.ajax({
+    /*crossDomain:true,
+    dataType: "json",*/
     type: 'POST',
     url: "http://whispering-gorge-9163.herokuapp.com/write",
     
@@ -174,6 +192,20 @@ function writeJsonFromServer() {
           "from": "2014/9/23",
           "to":"2014/10/1"
         },
+        /*{
+          "code":"US",
+          "country":"United State",
+          "city":"LosAngeles",
+          "from": "2014/9/23",
+          "to":"2014/9/26"
+        },
+        {
+          "code":"US",
+          "country":"United State",
+          "city":"SanFransico",
+          "from": "2014/9/26",
+          "to":"2014/10/1"
+        },*/
         {
           "code": "PE",
           "country": "Peru",
@@ -277,7 +309,14 @@ function getFlightInfo(airlineCode, flightNumber, departureDate, itin_number) {
                   + airlineCode + "/" + flightNumber + "/departing/" + departureDate + 
                   "?appId=" + APP_ID + "&appKey=" + API_KEY;
 
+ $.ajaxPrefilter('json', function(options, orig, jqXHR) {
+      return 'jsonp';
+  });
+
+
   $.ajax({
+    crossDomain:true,
+    dataType: "json",
     type: 'GET',
     url: scheduleURL,
     success: function(result) {
@@ -352,7 +391,18 @@ function draw(data) {
   var prevLineR = 0;
   var prevLineL = 0;
   dataSize = data.length;
+
+/*  var routeCount = 0;
+  for(var i = 0; i< data.length; i++) {
+    routeCount++;
+
+    if(data[i].city != "undefined") {
+      routeCount += data[i].city.length;
+    }
+  }
   
+  dataSize = routeCount;*/
+
   for(var i = 1; i < dataSize; i++) {
     if((oneRouteWidth * i) + 55 + 55 > screenDivWidth) {
         maxNumber = i-1;
@@ -378,12 +428,20 @@ function draw(data) {
   oneRoundRange = maxNumber*2;
 
   for(var i = 0; i < dataSize; i++) {
-    
+    var locationName;
+    var isCity = false;
+    if(data[i].city != undefined) {
+      locationName = data[i].city;
+      isCity = true;
+    } else {
+      locationName = data[i].country;
+    }
+
     if(i < rightDirectionMaxNumber && i < leftDirectionMaxNumber) {
       //1. left - to - right
 
       // Draw circle
-      drawCircle(i+1, "left_right", data[i].country, data[i].from);
+      drawCircle(i+1, "left_right", locationName, data[i].from, isCity);
 
       // Draw Line
       if(i+1 != dataSize) {
@@ -397,10 +455,10 @@ function draw(data) {
       drawLine(i+1, "right");
       if(i+1 == dataSize) {
         drawLine(i+1, "right_left");
-        drawCircle(i+1, "right_left", data[i].country, data[i].from);
+        drawCircle(i+1, "right_left", locationName, data[i].from, isCity);
       } else {
         // Draw circle
-        drawCircle(i+1, "right", data[i].country, data[i].from);
+        drawCircle(i+1, "right", locationName, data[i].from, isCity);
         
       }
 
@@ -410,7 +468,7 @@ function draw(data) {
       // Draw Line
       drawLine(i+1, "right_left");
       // Draw Circle
-      drawCircle(i+1, "right_left", data[i].country, data[i].from);
+      drawCircle(i+1, "right_left", locationName, data[i].from, isCity);
 
     } else if(i == leftDirectionMaxNumber) {
       //4. left: top-down
@@ -425,10 +483,10 @@ function draw(data) {
         // Draw Line
         drawLine(i+1, "left_right");
         // Draw Circle
-        drawCircle(i+1, "left_right", data[i].country, data[i].from);
+        drawCircle(i+1, "left_right", locationName, data[i].from, isCity);
       } else {
         // Draw Circle
-        drawCircle(i+1, "left", data[i].country, data[i].from);
+        drawCircle(i+1, "left", locationName, data[i].from, isCity);
         // Draw Line
         drawLine(i+1, "left_right");
       }
@@ -440,9 +498,11 @@ function draw(data) {
       countL++;
     }
   }
+
+  highlightRoute();
 }
 
-function drawCircle(num, direction, country, from) {
+function drawCircle(num, direction, country, from, isCity) {
   var floatStyle;
   var topStyle = 0;
   var leftStyle = 0;
@@ -462,10 +522,16 @@ function drawCircle(num, direction, country, from) {
     floatStyle = "left";  
     topStyle = -3 + lengthOfHorizontalLine/2 - 25;
   } 
-  
-  $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle + "px;'><img class='circle' src='./image/circle.png'><span class='circle_no'>"
-        + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
 
+  if(num > 7) {
+    $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle + "px;'><img class='circle' src='./image/circle2.png'><span id='circle_" + num + "' class='circle_no' style='color:#4B4646;'>"
+        + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
+  } else {
+    $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle + "px;'><img class='circle' src='./image/circle.png'><span id='circle_" + num + "' class='circle_no'>"
+        + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
+  }
+  
+  
   if(direction == "right") {
     $("#route_" + num).css("right", "23px");
   } else if(direction == "left") {
@@ -496,4 +562,17 @@ function drawLine(num, direction) {
     var topStyle = -3 + $("#plane").height() + $(".circle_container").height() * (countL*2 + 1);
     $("#itinerary").append("<div class='line_horizontal_left' style='top:" + topStyle + "px; left:20px;'></div>");
   }
+}
+
+
+function highlightRoute() { 
+var num = 1; 
+  setInterval(function() {
+    if($("#circle_" + num).css("color") == "rgb(255, 255, 255)") {
+      $("#circle_" + num).css("color", "blue");
+    } else {
+      $("#circle_" + num).css("color", "white");
+    }    
+  }, 1000);
+
 }

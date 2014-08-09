@@ -49,19 +49,13 @@ function getUserPhotos() {
   var requestUserUrl = "https://api.instagram.com/v1/users/" + myUserId + "/media/recent/?access_token=" + access_token;
   var requestPopularURL = "https://api.instagram.com/v1/media/popular?access_token=" + access_token;
   if(!hasMoreImages) {
-    userURL = "https://api.instagram.com/v1/users/" + myUserId + "/media/recent/?client_id=" + client_id + "&count=50";
+    userURL = "https://api.instagram.com/v1/users/" + myUserId + "/media/recent/?client_id=" + client_id + "&count=30";
   }
-
-
-  $.ajaxPrefilter('json', function(options, orig, jqXHR) {
-        return 'jsonp';
-    });
-
 
   $.ajax({
     url: userURL, 
-    corssDomain:true,
-    dataType: "json",
+    crossDomain:true,
+    dataType: "jsonp",
     type: 'GET',
     success: function(response) {
       var result = response;

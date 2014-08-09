@@ -2,7 +2,7 @@
 $(document).ready(function() {
   writeJsonFromServer();
 });
-var jsonData;
+//var jsonData;
 
 function createWorldMap(selectedCountries) {
   var map = new jvm.WorldMap({
@@ -103,15 +103,11 @@ function setMapPosition() {
 
 //https://developer.flightstats.com/api-docs/flightstatus/v2/flight
 function readJsonFromServer() {
-  /*$.ajaxPrefilter('json', function(options, orig, jqXHR) {
-        return 'jsonp';
-    });*/
 
   $.ajax({
-    /*crossDomain:true,
-    dataType: "json",*/
     type: 'GET',
     url: "http://whispering-gorge-9163.herokuapp.com/read",
+    //url: "http://localhost:5000/read",
     success: function(result) {
       createWorldMap(JSON.parse(result).selectedCountry);
 
@@ -128,18 +124,13 @@ function readJsonFromServer() {
 }
 
 function writeJsonFromServer() {
-/*
-    $.ajaxPrefilter('json', function(options, orig, jqXHR) {
-        return 'jsonp';
-    });
-
-*/
 
   $.ajax({
-    /*crossDomain:true,
-    dataType: "json",*/
+    //crossDomain:true,
+    //dataType: "json",
     type: 'POST',
     url: "http://whispering-gorge-9163.herokuapp.com/write",
+    //url: "http://localhost:5000/write",
     
     data: {
       "flights": [
@@ -192,20 +183,6 @@ function writeJsonFromServer() {
           "from": "2014/9/23",
           "to":"2014/10/1"
         },
-        /*{
-          "code":"US",
-          "country":"United State",
-          "city":"LosAngeles",
-          "from": "2014/9/23",
-          "to":"2014/9/26"
-        },
-        {
-          "code":"US",
-          "country":"United State",
-          "city":"SanFransico",
-          "from": "2014/9/26",
-          "to":"2014/10/1"
-        },*/
         {
           "code": "PE",
           "country": "Peru",
@@ -275,7 +252,11 @@ function writeJsonFromServer() {
     },
     dataType: "json",
     success: function(result) {
-      console.log(JSON.parse(result).countries);
+      console.log("post success");
+      readJsonFromServer();
+    },
+    error: function(data, text) { 
+      console.log("post error");
     }
   });
 }
@@ -309,14 +290,14 @@ function getFlightInfo(airlineCode, flightNumber, departureDate, itin_number) {
                   + airlineCode + "/" + flightNumber + "/departing/" + departureDate + 
                   "?appId=" + APP_ID + "&appKey=" + API_KEY;
 
- $.ajaxPrefilter('json', function(options, orig, jqXHR) {
+ /*$.ajaxPrefilter('json', function(options, orig, jqXHR) {
       return 'jsonp';
-  });
+  });*/
 
 
   $.ajax({
-    crossDomain:true,
-    dataType: "json",
+    //crossDomain:true,
+    //dataType: "json",
     type: 'GET',
     url: scheduleURL,
     success: function(result) {

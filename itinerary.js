@@ -481,6 +481,7 @@ function draw(data) {
   }
 
   highlightRoute();
+  mouseEventHandler();
 }
 
 function drawCircle(num, direction, country, from, isCity) {
@@ -507,20 +508,24 @@ function drawCircle(num, direction, country, from, isCity) {
 
   if(num > 7) {
     if (num == dataSize) {
+      //black
       $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
         + "px;'><div class='circle' style='width:50px; height:50px; background-color:#07314A;'></div><span id='circle_" + num + "' class='circle_no' style='color:white;'>"
           + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
     } else {
+      //yellow
       $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
-      + "px;'><div class='circle' style='width:50px; height:50px; background-color:#E5D38B;'></div><span id='circle_" + num + "' class='circle_no' style='color:#4B4646;'>"
+      + "px;'><div class='circle' style='width:50px; height:50px; background-color:#E7CA52;'></div><span id='circle_" + num + "' class='circle_no' style='color:#4B4646;'>"
         + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
     } 
   } else {
     if (num == 1) {
+      //red
       $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
         + "px;'><div class='circle' style='width:50px; height:50px; background-color:#DD6D64;'></div><span id='circle_" + num + "' class='circle_no' style='color:#4B4646;'>"
           + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
     } else {
+      //green
       $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
         + "px;'><div class='circle' style='width:50px; height:50px; background-color:#A5CDB3;'></div><span id='circle_" + num + "' class='circle_no' style='color:#4B4646;'>"
           + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
@@ -543,6 +548,8 @@ function drawCircle(num, direction, country, from, isCity) {
   } else if(direction == "left") {
     $("#route_" + num).css("left", "23px");
   }
+
+  
 }
 
 function drawLine(num, direction) {
@@ -575,10 +582,45 @@ function highlightRoute() {
 var num = 1; 
   setInterval(function() {
     if($("#circle_" + num).css("color") == "rgb(255, 255, 255)") {
-      $("#circle_" + num).css("color", "black");
+      $("#circle_" + num).css("color", "#4B4646");  
     } else {
       $("#circle_" + num).css("color", "white");
     }    
   }, 1000);
 
+}
+
+var origin_circle_color, hover_circle_color;
+
+
+function mouseEventHandler(e) {
+  $('.circle_no').mouseover(function(event) {
+      origin_circle_color = $("#"+event.target.id).siblings(".circle").css("background-color");
+      switch(origin_circle_color) {
+        case "rgb(221, 109, 100)":
+          //red
+          hover_circle_color = "rgb(219,170,167)";
+          break;
+        case "rgb(165, 205, 179)":
+          // green
+          hover_circle_color = "rgb(205,249,221)";
+          break;
+        case "rgb(231, 202, 82)":
+          //yellow
+          hover_circle_color = "rgb(250,231,152)";
+          break;
+        case "rgb(7, 49, 74)":
+          //black
+          hover_circle_color = "rgb(67,104,125)";
+          break;
+      }
+      $("#"+event.target.id).siblings(".circle").css("background-color", hover_circle_color);
+      //event.stopPropagation();
+  }).mouseout(function(event) {
+    $("#"+event.target.id).siblings(".circle").css("background-color", origin_circle_color);
+  });
+
+  $('.circle_no').click(function(e) {
+    console.log("click! " + e.target.id);
+  });
 }

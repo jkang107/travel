@@ -249,6 +249,10 @@ p{
     line-height: 50px;
 }
 
+.circle_no:hover {
+	cursor:pointer;
+}
+
 .line_vertical_right {
 	position:relative;
 	top:-3px;

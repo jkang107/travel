@@ -4,6 +4,7 @@ var client_id = "0cd2081f6bcd4d0ca9ea6fd4834b4e05";
 $(document).ready(function() {
   client_id = "0cd2081f6bcd4d0ca9ea6fd4834b4e05";
   //login()
+  $(".photo-grid").height();
   getUserPhotos();
   $("#zoom_photo").css("display", "none");
 
@@ -49,7 +50,7 @@ function getUserPhotos() {
   var requestUserUrl = "https://api.instagram.com/v1/users/" + myUserId + "/media/recent/?access_token=" + access_token;
   var requestPopularURL = "https://api.instagram.com/v1/media/popular?access_token=" + access_token;
   if(!hasMoreImages) {
-    userURL = "https://api.instagram.com/v1/users/" + myUserId + "/media/recent/?client_id=" + client_id + "&count=30";
+    userURL = "https://api.instagram.com/v1/users/" + myUserId + "/media/recent/?client_id=" + client_id + "&count=24";
   }
 
   $.ajax({
@@ -93,14 +94,16 @@ function getUserPhotos() {
       }
 
       //numberOfPhoto = result.data.length;
-
+      if($(".photo-grid").parent().parent().height() <= 800) {
+        $(".photo-grid").height($(".photo-grid").parent().parent().height() - 300);
+      }
       addClickEvent();
 
       if(result.pagination.next_url != undefined) {
         userURL = result.pagination.next_url;
         hasMoreImages = true;
         //getUserPhotos();
-        $(".photo-grid").append("<button id='loadMore' style='width:300px; height:80px;'>Load more...</button>");
+        $(".photo-grid").append("<button id='loadMore' style='width:300px; height:50px;'>Load more...</button>");
         $("#loadMore").click(function(e) {
           getUserPhotos();
           

@@ -505,12 +505,24 @@ function drawCircle(num, direction, country, from, isCity) {
   } 
 
   if(num > 7) {
-    $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle + "px;'><img class='circle' src='./image/circle2.png'><span id='circle_" + num + "' class='circle_no' style='color:#4B4646;'>"
+    $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
+      + "px;'><div class='circle' style='width:50px; height:50px; background-color:yellow;'></div><span id='circle_" + num + "' class='circle_no' style='color:#4B4646;'>"
         + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
   } else {
-    $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle + "px;'><img class='circle' src='./image/circle.png'><span id='circle_" + num + "' class='circle_no'>"
+    $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
+      + "px;'><div class='circle' style='width:50px; height:50px; background-color:red;'></div><span id='circle_" + num + "' class='circle_no'>"
         + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
   }
+
+  /*if(num > 7) {
+    $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
+      + "px;'><img class='circle' src='./image/circle2.png'><span id='circle_" + num + "' class='circle_no' style='color:#4B4646;'>"
+        + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
+  } else {
+    $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
+      + "px;'><img class='circle' src='./image/circle.png'><span id='circle_" + num + "' class='circle_no'>"
+        + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
+  }*/
   
   
   if(direction == "right") {

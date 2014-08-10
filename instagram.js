@@ -54,7 +54,7 @@ function getUserPhotos() {
   }
 
   $.ajax({
-    url: userURL, 
+    url: userURL,
     crossDomain:true,
     dataType: "jsonp",
     type: 'GET',
@@ -87,19 +87,19 @@ function getUserPhotos() {
         $("#photo_" + (i + totalNumberOfPhoto)).attr("origin_width", photo_standard.width);
         $("#photo_" + (i + totalNumberOfPhoto)).attr("origin_height", photo_standard.height);
         $("#photo_" + (i + totalNumberOfPhoto)).attr("time", result.data[i].created_time.toHHMMSS());
-        if (result.data[i].caption != null) {
+        if (result.data[i].caption !== null) {
           //$("#photo_" + i).attr("info", result.data[i].caption.text);
           $("#photo_" + (i + totalNumberOfPhoto)).siblings().children().text(result.data[i].caption.text);
         }
       }
 
       //numberOfPhoto = result.data.length;
-      if($(".photo-grid").parent().parent().height() <= 800) {
+      if(!hasMoreImages && $(".photo-grid").parent().parent().height() <= 800) {
         $(".photo-grid").height($(".photo-grid").parent().parent().height() - 300);
       }
       addClickEvent();
 
-      if(result.pagination.next_url != undefined) {
+      if(result.pagination.next_url !== undefined) {
         userURL = result.pagination.next_url;
         hasMoreImages = true;
         //getUserPhotos();
@@ -107,7 +107,7 @@ function getUserPhotos() {
         $("#loadMore").click(function(e) {
           getUserPhotos();
           
-        })
+        });
       }
   }});
 
@@ -152,4 +152,4 @@ String.prototype.toHHMMSS = function() {
   }
   var time = hours + ':' + minutes + ':' + seconds;
   return time;
-}
+};

@@ -504,14 +504,27 @@ function drawCircle(num, direction, country, from, isCity) {
     topStyle = -3 + lengthOfHorizontalLine/2 - 25;
   } 
 
+
   if(num > 7) {
-    $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
-      + "px;'><div class='circle' style='width:50px; height:50px; background-color:yellow;'></div><span id='circle_" + num + "' class='circle_no' style='color:#4B4646;'>"
+    if (num == dataSize) {
+      $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
+        + "px;'><div class='circle' style='width:50px; height:50px; background-color:#07314A;'></div><span id='circle_" + num + "' class='circle_no' style='color:white;'>"
+          + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
+    } else {
+      $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
+      + "px;'><div class='circle' style='width:50px; height:50px; background-color:#E5D38B;'></div><span id='circle_" + num + "' class='circle_no' style='color:#4B4646;'>"
         + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
+    } 
   } else {
-    $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
-      + "px;'><div class='circle' style='width:50px; height:50px; background-color:red;'></div><span id='circle_" + num + "' class='circle_no'>"
-        + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
+    if (num == 1) {
+      $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
+        + "px;'><div class='circle' style='width:50px; height:50px; background-color:#DD6D64;'></div><span id='circle_" + num + "' class='circle_no' style='color:#4B4646;'>"
+          + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
+    } else {
+      $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
+        + "px;'><div class='circle' style='width:50px; height:50px; background-color:#A5CDB3;'></div><span id='circle_" + num + "' class='circle_no' style='color:#4B4646;'>"
+          + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
+    }
   }
 
   /*if(num > 7) {
@@ -562,7 +575,7 @@ function highlightRoute() {
 var num = 1; 
   setInterval(function() {
     if($("#circle_" + num).css("color") == "rgb(255, 255, 255)") {
-      $("#circle_" + num).css("color", "blue");
+      $("#circle_" + num).css("color", "black");
     } else {
       $("#circle_" + num).css("color", "white");
     }    

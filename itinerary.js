@@ -531,17 +531,6 @@ function drawCircle(num, direction, country, from, isCity) {
           + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
     }
   }
-
-  /*if(num > 7) {
-    $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
-      + "px;'><img class='circle' src='./image/circle2.png'><span id='circle_" + num + "' class='circle_no' style='color:#4B4646;'>"
-        + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
-  } else {
-    $("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle 
-      + "px;'><img class='circle' src='./image/circle.png'><span id='circle_" + num + "' class='circle_no'>"
-        + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
-  }*/
-  
   
   if(direction == "right") {
     $("#route_" + num).css("right", "23px");
@@ -621,6 +610,20 @@ function mouseEventHandler(e) {
   });
 
   $('.circle_no').click(function(e) {
-    console.log("click! " + e.target.id);
+    //console.log("click! " + e.target.id);
+    showDetailInfo(e.target.id.split("_")[1]);
   });
+
+  $("#close_img").click(function(e) {
+    $("#detailInfo").css("display", "none");
+  });
+}
+
+function showDetailInfo(num) {
+  console.log("click " + num);
+  var detailHeight = $("#itinerary").height() + 120;
+  var detailWidth = $("#itinerary").width() - 80;
+  var marginLR = (1600 - detailWidth)/2;
+  var marginTD = 40;
+  $("#detailInfo").css({"display": "block", "height":detailHeight, "width":detailWidth, "margin": marginTD + "px " + marginLR + "px"});
 }

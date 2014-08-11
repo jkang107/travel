@@ -348,7 +348,7 @@ p{
 .plane_img {
 	position: relative;
 	float: left;
-	z-index: 1000;
+	z-index: 200;
 }
 
 
@@ -359,6 +359,14 @@ p{
     width:50px;
     position:relative;
     z-index: 100;
+}
+
+#detailInfo {
+	background-color: gray; 
+	z-index:300; 
+	opacity: 0.95;
+	float: left;
+	position: absolute;
 }
 
 @-ms-viewport {

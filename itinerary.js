@@ -526,26 +526,13 @@ function draw(data) {
   var prevLineL = 0;
   dataSize = data.length;
 
-/*  var routeCount = 0;
-  for(var i = 0; i< data.length; i++) {
-    routeCount++;
-
-    if(data[i].city != "undefined") {
-      routeCount += data[i].city.length;
-    }
-  }
-  
-  dataSize = routeCount;*/
-
   for(var i = 1; i < dataSize; i++) {
     if((oneRouteWidth * i) + 55 + 55 > screenDivWidth) {
         maxNumber = i-1;
 
         positionOfRightCircle = maxNumber * oneRouteWidth;
         var marginRL = (screenDivWidth - ((oneRouteWidth * maxNumber) + 55)) / 2;
-        /*if(marginRL < 50) {
-          marginRL = 50;
-        }*/
+        
         $("#itinerary").css("margin", "80px " + marginRL + "px");
         positionOfFirstRightLine = screenDivWidth -(marginRL*2 + positionOfRightCircle);
         break;
@@ -757,13 +744,11 @@ function mouseEventHandler(e) {
           break;
       }
       $("#"+event.target.id).siblings(".circle").css("background-color", hover_circle_color);
-      //event.stopPropagation();
   }).mouseout(function(event) {
     $("#"+event.target.id).siblings(".circle").css("background-color", origin_circle_color);
   });
 
   $('.circle_no').click(function(e) {
-    //console.log("click! " + e.target.id);
     var clickedCountry = $("#" + e.target.id).siblings(".route_info").children(".code").text();
     if(hasCityInfo(clickedCountry) === true) {
       showDetailInfo(clickedCountry);

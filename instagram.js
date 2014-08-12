@@ -4,7 +4,7 @@ var client_id = "0cd2081f6bcd4d0ca9ea6fd4834b4e05";
 $(document).ready(function() {
   client_id = "0cd2081f6bcd4d0ca9ea6fd4834b4e05";
   //login()
-  $(".photo-grid").height();
+  //$(".photo-grid").height();
   getUserPhotos();
   $("#zoom_photo").css("display", "none");
 
@@ -94,8 +94,8 @@ function getUserPhotos() {
       }
 
       //numberOfPhoto = result.data.length;
-      if(!hasMoreImages && $(".photo-grid").parent().parent().height() <= 800) {
-        $(".photo-grid").height($(".photo-grid").parent().parent().height() - 300);
+      if(!hasMoreImages && innerHeight < 800) {
+        $(".photo-grid").height(innerHeight - 100);
       }
       addClickEvent();
 

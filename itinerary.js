@@ -92,9 +92,8 @@ function createWorldMap(selectedCountries) {
 
 }
 function setMapPosition() {
-  var browserWidth = $(window).width();
-  var mapWidth = browserWidth * 0.5;
-  var mapHeight = mapWidth * 1.8/3;
+  var mapWidth = innerWidth * 0.5;
+  var mapHeight = innerHeight * 0.55;
 
   var mapLeft = ($("#worldMapStr").width() - mapWidth) / 2 - 22;
 

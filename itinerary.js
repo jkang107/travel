@@ -101,6 +101,7 @@ function setMapPosition() {
   $('#world-map').css({"width" : mapWidth, "height" : mapHeight, "left" : mapLeft});
 }
 
+var cityJSON;
 //https://developer.flightstats.com/api-docs/flightstatus/v2/flight
 function readJsonFromServer() {
 
@@ -113,6 +114,7 @@ function readJsonFromServer() {
 
       //getMyFlightList(JSON.parse(result).flights);
       draw(JSON.parse(result).countries);
+      cityJSON = JSON.parse(result).city;
       
       console.log(JSON.parse(result).flights);
       console.log(JSON.parse(result).countries);
@@ -248,7 +250,134 @@ function writeJsonFromServer() {
           "country": "Arrival!",
           "from":"2015/3/1"
         }
-      ]
+      ],
+      "city": [
+        {
+          "country" : [
+            {"name" : "United State"},
+            {
+              "city" : "Los Angeles",
+              "from": "2014/9/23",
+              "to":"2014/9/25"
+            },
+            {
+              "city" : "San Francisco",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            }
+          ]
+        }, 
+        {
+          "country" : [
+            {"name" : "Peru"},
+            {
+              "city" : "리마",
+              "from": "2014/10/1",
+              "to":"2014/10/5"
+            },
+            {
+              "city" : "와라즈",
+              "from": "2014/10/5",
+              "to":"2014/10/10"
+            },
+            {
+              "city" : "쿠스코",
+              "from": "2014/10/10",
+              "to":"2014/10/15"
+            }
+          ] 
+        },
+        {
+          "country" : [
+            {"name" : "Bolivia"},
+            {
+              "city" : "코바카바나",
+              "from": "2014/10/1",
+              "to":"2014/10/5"
+            },
+            {
+              "city" : "라파스",
+              "from": "2014/10/5",
+              "to":"2014/10/10"
+            },
+            {
+              "city" : "수크레",
+              "from": "2014/10/10",
+              "to":"2014/10/15"
+            },
+            {
+              "city" : "우유니",
+              "from": "2014/10/10",
+              "to":"2014/10/15"
+            }
+          ] 
+        },
+        {
+          "country" : [
+            {"name" : "Chile"},
+            {
+              "city" : "산티아고",
+              "from": "2014/10/1",
+              "to":"2014/10/5"
+            },
+            {
+              "city" : "푸콘",
+              "from": "2014/10/5",
+              "to":"2014/10/10"
+            },
+            {
+              "city" : "푸에르토 몬트",
+              "from": "2014/10/5",
+              "to":"2014/10/10"
+            },
+            {
+              "city" : "푸에르토 나탈레스",
+              "from": "2014/10/5",
+              "to":"2014/10/10"
+            },
+            {
+              "city" : "토레스 델 파이네",
+              "from": "2014/10/5",
+              "to":"2014/10/10"
+            }
+          ] 
+        },
+        {
+          "country" : [
+            {"name" : "Germany"},
+            {
+              "city" : "뭰헨",
+              "from": "2014/10/1",
+              "to":"2014/10/5"
+            },
+            {
+              "city" : "퓌센",
+              "from": "2014/10/5",
+              "to":"2014/10/10"
+            }
+          ] 
+        },
+        {
+          "country" : [
+            {"name" : "Italy"},
+            {
+              "city" : "베니스",
+              "from": "2014/10/1",
+              "to":"2014/10/5"
+            },
+            {
+              "city" : "밀라노",
+              "from": "2014/10/5",
+              "to":"2014/10/10"
+            },
+            {
+              "city" : "로마",
+              "from": "2014/10/5",
+              "to":"2014/10/10"
+            }
+          ] 
+        }
+      ] 
     },
     dataType: "json",
     success: function(result) {
@@ -611,11 +740,15 @@ function mouseEventHandler(e) {
 
   $('.circle_no').click(function(e) {
     //console.log("click! " + e.target.id);
-    showDetailInfo(e.target.id.split("_")[1], $("#" + e.target.id).siblings(".route_info").children(".code").text());
+    var clickedCountry = $("#" + e.target.id).siblings(".route_info").children(".code").text();
+    if(hasCityInfo(clickedCountry) === true) {
+      showDetailInfo(clickedCountry);
+    }
   });
 
   $("#close_img").click(function(e) {
     $("#detailInfo").css("display", "none");
+    $(".detail_container").remove();
   });
 
   $("#close_img").mouseover(function(e) {
@@ -625,11 +758,34 @@ function mouseEventHandler(e) {
   });
 }
 
-function showDetailInfo(num, countryCode) {
-  console.log("click " + num + "/ countryCode " + countryCode);
-  var detailHeight = $("#itinerary").height() + 100;
-  var detailWidth = $("#itinerary").width() - 80;
-  var marginLR = ($("#section2").width() - detailWidth)/2;
-  var marginTB = 40;
-  $("#detailInfo").css({"display": "block", "height":detailHeight, "width":detailWidth, "margin": marginTB + "px " + marginLR + "px"});
+var selectedCountry;
+
+function hasCityInfo(countryName) {
+  for(var i = 0; i < cityJSON.length; i++) {
+    if(cityJSON[i].country[0].name === countryName) {
+      selectedCountry = JSON.stringify(cityJSON[i]);
+      return true;
+    }
+  }
+  return false;
+}
+
+function showDetailInfo() {
+  console.log("selected country name : " + selectedCountry);
+  var data = JSON.parse(selectedCountry);
+  if($("#detailInfo").css("display") == "none") {
+    var detailHeight = $("#itinerary").parent().height() - 200;
+    var detailWidth = $("#itinerary").width() - 80;
+    var marginLR = ($("#section2").width() - detailWidth)/2;
+    var marginTB = 40;
+    $("#detailInfo").css({"display": "block", "height":detailHeight, "width":detailWidth, "margin": marginTB + "px " + marginLR + "px"});
+  }
+
+  var numberOfCity = data.country.length-1;
+  for(var i = 1; i < numberOfCity+1; i++) {
+    $("#detailInfo").append("<div id='detail_" + i + "'  class='detail_container'></div>");
+    $("#detail_" + i).text(data.country[i].city);
+    $("#detail_" + i).css("width", ($("#detailInfo").width() - 20*numberOfCity - 64 - 30)/numberOfCity);
+    $("#detail_" + i).css("height", $("#detailInfo").height()-60);
+  }
 }

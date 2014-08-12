@@ -376,6 +376,27 @@ p{
 	position: absolute;
 }
 
+.detail_container {
+	background-color: black;
+	color: #797979;
+	font-size: 40px;
+	float:left;
+	position:relative;
+	margin:30px 10px;
+	opacity: 0.9;
+	left:22px;
+	font-family: "나눔 고딕","Nanum Gothic","맑은 고딕","Malgun Gothic","Apple Gothic","돋움",Dotum,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+	font-family: "Maison Neue Bold", Helvetica, Arial, Sans-Serif, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-border-radius: 8px; 
+   	-webkit-border-radius: 8px; 
+   	border-radius: 8px;
+}
+
+#close_img {
+	cursor: pointer;
+}
+
 @-ms-viewport {
 /*ie10 윈도우8 기기전용 반응형 디자인 적용*/
  width: device-width;

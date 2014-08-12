@@ -101,7 +101,7 @@ function setMapPosition() {
   $('#world-map').css({"width" : mapWidth, "height" : mapHeight, "left" : mapLeft});
 }
 
-var cityJSON;
+var countryJSON;
 //https://developer.flightstats.com/api-docs/flightstatus/v2/flight
 function readJsonFromServer() {
 
@@ -113,8 +113,8 @@ function readJsonFromServer() {
       createWorldMap(JSON.parse(result).selectedCountry);
 
       //getMyFlightList(JSON.parse(result).flights);
-      draw(JSON.parse(result).countries);
-      cityJSON = JSON.parse(result).city;
+      countryJSON = JSON.parse(result).countries;
+      draw(countryJSON);
       
       console.log(JSON.parse(result).flights);
       console.log(JSON.parse(result).countries);
@@ -183,201 +183,226 @@ function writeJsonFromServer() {
           "code": "US",
           "country": "United State",
           "from": "2014/9/23",
-          "to":"2014/10/1"
+          "to":"2014/10/1",
+          "cities": [
+            {
+              "name": "Los Angeles",
+              "from": "2014/9/23",
+              "to":"2014/9/25"
+            },
+            {
+              "name": "San Francisco",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            }
+          ]
         },
         {
           "code": "PE",
           "country": "Peru",
           "from":"2014/10/1",
-          "to":"2014/10/10"
+          "to":"2014/10/10",
+          "cities": [
+            {
+              "name": "Lima",
+              "from": "2014/9/23",
+              "to":"2014/9/25"
+            },
+            {
+              "name": "Huaraz",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "Nasca",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "Cusco",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            }
+          ]
         },
         {
           "code":"BO",
           "country": "Bolivia",
           "from":"2014/10/14",
-          "to":"2014/11/10"
+          "to":"2014/11/10",
+          "cities": [
+            {
+              "name": "수크레",
+              "from": "2014/9/23",
+              "to":"2014/9/25"
+            },
+            {
+              "name": "우유니",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            }
+          ]
         },
         {
           "code":"CL",
           "country": "Chile",
           "from":"2014/11/11",
-          "to":"2014/11/30"
+          "to":"2014/11/30",
+          "cities": [
+            {
+              "name": "산티아고",
+              "from": "2014/9/23",
+              "to":"2014/9/25"
+            },
+            {
+              "name": "푸콘",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            }
+          ]
         },
         {
           "code": "AR",
           "country": "Argentina",
           "from":"2014/11/30",
-          "to": "2014/12/10"
+          "to": "2014/12/10",
+          "cities": [
+            {
+              "name": "칼라파테",
+              "from": "2014/9/23",
+              "to":"2014/9/25"
+            },
+            {
+              "name": "엘찰튼",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "부에노스 아이레스",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            }
+          ]
         },
         {
           "code":"BR",
           "country": "Brazil",
           "from":"2014/12/10",
-          "to":"2014/12/18"
+          "to":"2014/12/18",
+          "cities": [
+            {
+              "name": "이과수",
+              "from": "2014/9/23",
+              "to":"2014/9/25"
+            },
+            {
+              "name": "리오",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "상파울로",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            }
+          ]
         },
         {
           "code": "DE",
           "country": "Germany",
           "from":"2014/12/18",
-          "to":"2014/12/25"
+          "to":"2014/12/25",
+          "cities": [
+            {
+              "name": "뭰헨",
+              "from": "2014/9/23",
+              "to":"2014/9/25"
+            },
+            {
+              "name": "퓌센",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            }
+          ]
         },
         {
           "code":"AT",
           "country": "Austria",
           "from":"2014/12/25",
-          "to":"2014/12/31"
+          "to":"2014/12/31",
+          "cities": [
+            {
+              "name": "짤츠부르크",
+              "from": "2014/9/23",
+              "to":"2014/9/25"
+            },
+            {
+              "name": "할슈타트",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            }
+          ]
         },
         {
           "code":"IT",
           "country": "Italy",
           "from":"2015/1/1",
-          "to":"2015/1/30"
+          "to":"2015/1/30",
+          "cities": [
+            {
+              "name": "베니스",
+              "from": "2014/9/23",
+              "to":"2014/9/25"
+            },
+            {
+              "name": "밀라노",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "로마",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            }
+          ]
         },
         {
           "code": "HR",
           "country": "Croatia",
           "from":"2015/2/1",
-          "to": "2015/2/12"
+          "to": "2015/2/12",
+          "cities": [
+            {
+              "name": "자그레브",
+              "from": "2014/9/23",
+              "to":"2014/9/25"
+            },
+            {
+              "name": "두브로니크",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            }
+          ]
         },
         {
           "code":"TR",
           "country": "Turkey",
           "from":"2015/2/12",
-          "to":"2015/3/1"
+          "to":"2015/3/1",
+          "cities": [
+            {
+              "name": "이스탄불",
+              "from": "2014/9/23",
+              "to":"2014/9/25"
+            }
+          ]
         },
         {
           "code":"KR",
           "country": "Arrival!",
           "from":"2015/3/1"
         }
-      ],
-      "city": [
-        {
-          "country" : [
-            {"name" : "United State"},
-            {
-              "city" : "Los Angeles",
-              "from": "2014/9/23",
-              "to":"2014/9/25"
-            },
-            {
-              "city" : "San Francisco",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
-            }
-          ]
-        }, 
-        {
-          "country" : [
-            {"name" : "Peru"},
-            {
-              "city" : "리마",
-              "from": "2014/10/1",
-              "to":"2014/10/5"
-            },
-            {
-              "city" : "와라즈",
-              "from": "2014/10/5",
-              "to":"2014/10/10"
-            },
-            {
-              "city" : "쿠스코",
-              "from": "2014/10/10",
-              "to":"2014/10/15"
-            }
-          ] 
-        },
-        {
-          "country" : [
-            {"name" : "Bolivia"},
-            {
-              "city" : "코바카바나",
-              "from": "2014/10/1",
-              "to":"2014/10/5"
-            },
-            {
-              "city" : "라파스",
-              "from": "2014/10/5",
-              "to":"2014/10/10"
-            },
-            {
-              "city" : "수크레",
-              "from": "2014/10/10",
-              "to":"2014/10/15"
-            },
-            {
-              "city" : "우유니",
-              "from": "2014/10/10",
-              "to":"2014/10/15"
-            }
-          ] 
-        },
-        {
-          "country" : [
-            {"name" : "Chile"},
-            {
-              "city" : "산티아고",
-              "from": "2014/10/1",
-              "to":"2014/10/5"
-            },
-            {
-              "city" : "푸콘",
-              "from": "2014/10/5",
-              "to":"2014/10/10"
-            },
-            {
-              "city" : "푸에르토 몬트",
-              "from": "2014/10/5",
-              "to":"2014/10/10"
-            },
-            {
-              "city" : "푸에르토 나탈레스",
-              "from": "2014/10/5",
-              "to":"2014/10/10"
-            },
-            {
-              "city" : "토레스 델 파이네",
-              "from": "2014/10/5",
-              "to":"2014/10/10"
-            }
-          ] 
-        },
-        {
-          "country" : [
-            {"name" : "Germany"},
-            {
-              "city" : "뭰헨",
-              "from": "2014/10/1",
-              "to":"2014/10/5"
-            },
-            {
-              "city" : "퓌센",
-              "from": "2014/10/5",
-              "to":"2014/10/10"
-            }
-          ] 
-        },
-        {
-          "country" : [
-            {"name" : "Italy"},
-            {
-              "city" : "베니스",
-              "from": "2014/10/1",
-              "to":"2014/10/5"
-            },
-            {
-              "city" : "밀라노",
-              "from": "2014/10/5",
-              "to":"2014/10/10"
-            },
-            {
-              "city" : "로마",
-              "from": "2014/10/5",
-              "to":"2014/10/10"
-            }
-          ] 
-        }
-      ] 
+      ]
     },
     dataType: "json",
     success: function(result) {
@@ -761,9 +786,9 @@ function mouseEventHandler(e) {
 var selectedCountry;
 
 function hasCityInfo(countryName) {
-  for(var i = 0; i < cityJSON.length; i++) {
-    if(cityJSON[i].country[0].name === countryName) {
-      selectedCountry = JSON.stringify(cityJSON[i]);
+  for(var i = 0; i < countryJSON.length; i++) {
+    if(countryJSON[i].country === countryName && countryJSON[i].cities !== undefined) {
+      selectedCountry = JSON.stringify(countryJSON[i].cities);
       return true;
     }
   }
@@ -771,7 +796,6 @@ function hasCityInfo(countryName) {
 }
 
 function showDetailInfo() {
-  console.log("selected country name : " + selectedCountry);
   var data = JSON.parse(selectedCountry);
   if($("#detailInfo").css("display") == "none") {
     var detailHeight = $("#itinerary").parent().height() - 200;
@@ -781,11 +805,11 @@ function showDetailInfo() {
     $("#detailInfo").css({"display": "block", "height":detailHeight, "width":detailWidth, "margin": marginTB + "px " + marginLR + "px"});
   }
 
-  var numberOfCity = data.country.length-1;
-  
-  for(var i = 1; i < numberOfCity+1; i++) {
+  var numberOfCity = data.length;
+
+  for(var i = 0; i < numberOfCity; i++) {
     $("#detailInfo").append("<div id='detail_" + i + "'  class='detail_container'></div>");
-    $("#detail_" + i).text(data.country[i].city);
+    $("#detail_" + i).text(data[i].name);
     $("#detail_" + i).css("width", ($("#detailInfo").width() - 20*numberOfCity - 64 - 30)/numberOfCity);
     $("#detail_" + i).css("height", $("#detailInfo").height()-60);
   }

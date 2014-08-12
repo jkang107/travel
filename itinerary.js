@@ -231,12 +231,12 @@ function writeJsonFromServer() {
           "to":"2014/11/10",
           "cities": [
             {
-              "name": "수크레",
+              "name": "Sucre",
               "from": "2014/9/23",
               "to":"2014/9/25"
             },
             {
-              "name": "우유니",
+              "name": "Uyuni Salt Flat",
               "from": "2014/9/25",
               "to":"2014/10/1"
             }
@@ -249,12 +249,12 @@ function writeJsonFromServer() {
           "to":"2014/11/30",
           "cities": [
             {
-              "name": "산티아고",
+              "name": "Santiago",
               "from": "2014/9/23",
               "to":"2014/9/25"
             },
             {
-              "name": "푸콘",
+              "name": "Pucón",
               "from": "2014/9/25",
               "to":"2014/10/1"
             }
@@ -267,17 +267,17 @@ function writeJsonFromServer() {
           "to": "2014/12/10",
           "cities": [
             {
-              "name": "칼라파테",
+              "name": "Calafate",
               "from": "2014/9/23",
               "to":"2014/9/25"
             },
             {
-              "name": "엘찰튼",
+              "name": "El Chalten",
               "from": "2014/9/25",
               "to":"2014/10/1"
             },
             {
-              "name": "부에노스 아이레스",
+              "name": "Buenos Aires",
               "from": "2014/9/25",
               "to":"2014/10/1"
             }
@@ -290,17 +290,17 @@ function writeJsonFromServer() {
           "to":"2014/12/18",
           "cities": [
             {
-              "name": "이과수",
+              "name": "Iguazu Falls",
               "from": "2014/9/23",
               "to":"2014/9/25"
             },
             {
-              "name": "리오",
+              "name": "Rio de Janeiro",
               "from": "2014/9/25",
               "to":"2014/10/1"
             },
             {
-              "name": "상파울로",
+              "name": "São Paulo",
               "from": "2014/9/25",
               "to":"2014/10/1"
             }
@@ -758,12 +758,6 @@ function mouseEventHandler(e) {
   $("#close_img").click(function(e) {
     $("#detailInfo").css("display", "none");
     $(".detail_container").remove();
-  });
-
-  $("#close_img").mouseover(function(e) {
-    $("#close_img").css("background-color", "#BCBCBC");
-  }).mouseout(function(e) {
-    $("#close_img").css("background-color", "");
   });
 }
 

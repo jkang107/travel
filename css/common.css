@@ -371,7 +371,7 @@ p{
 #detailInfo {
 	background-color: gray; 
 	z-index:300; 
-	/* opacity: 0.95; */
+	opacity: 0.95; 
 	float: left;
 	position: absolute;
 	top:40px;
@@ -397,6 +397,7 @@ p{
 
 #close_img {
 	cursor: pointer;
+	width:30px;
 }
 
 @-ms-viewport {

@@ -19,7 +19,7 @@ $(document).ready(function() {
 
   $("#addFlight").click(function(e) {
     //getFlightInfo($("#input_airline").val(), $("#input_flightNum").val(), $("#input_departureDate").val());
-    getFlightInfo("OZ", "202", "2014/09/23");
+    //getFlightInfo("OZ", "202", "2014/09/23");
   });
 
 });

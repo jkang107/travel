@@ -797,10 +797,10 @@ function hasCityInfo(countryName) {
 function showDetailInfo() {
   var data = JSON.parse(selectedCountry);
   if($("#detailInfo").css("display") == "none") {
-    var detailHeight = $("#itinerary").parent().height() - 200;
-    var detailWidth = $("#itinerary").width() - 80;
+    var detailHeight = innerHeight - 130;
+    var detailWidth = innerWidth - 150;
     var marginLR = ($("#section2").width() - detailWidth)/2;
-    var marginTB = 40;
+    var marginTB = (innerHeight - 40 - detailHeight) / 2;
     $("#detailInfo").css({"display": "block", "height":detailHeight, "width":detailWidth, "margin": marginTB + "px " + marginLR + "px"});
   }
 

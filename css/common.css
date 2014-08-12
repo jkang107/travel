@@ -374,6 +374,8 @@ p{
 	/* opacity: 0.95; */
 	float: left;
 	position: absolute;
+	top:40px;
+	/*bottom:60px;*/
 }
 
 .detail_container {

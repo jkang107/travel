@@ -782,6 +782,7 @@ function showDetailInfo() {
   }
 
   var numberOfCity = data.country.length-1;
+  
   for(var i = 1; i < numberOfCity+1; i++) {
     $("#detailInfo").append("<div id='detail_" + i + "'  class='detail_container'></div>");
     $("#detail_" + i).text(data.country[i].city);

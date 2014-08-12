@@ -39,11 +39,13 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var pepe = $.fn.fullpage({
-				slidesColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+				slidesColor: ['#A6BFB9', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
 				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
 				menu: '#menu'
 			});
-			
+
+			var imageSize = Math.ceil($("#section0").width() /3.5);
+			$("#worldImage").css({"width": imageSize, "height": imageSize});
 			setMapPosition();
 			calculateDDay();
 			//readJsonFromServer();
@@ -171,6 +173,7 @@
 <div class="section " id="section0">
 	<h1>Jinah Kang</h1><br/>
 	<div id="player"> </div>
+	<img id='worldImage' src='./image/world.jpg'>
 </div>
 <div class="section" id="section1">
     <div class="slide">

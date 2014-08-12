@@ -93,7 +93,7 @@ function createWorldMap(selectedCountries) {
 }
 function setMapPosition() {
   var browserWidth = $(window).width();
-  var mapWidth = browserWidth * 0.65;
+  var mapWidth = browserWidth * 0.5;
   var mapHeight = mapWidth * 1.8/3;
 
   var mapLeft = ($("#worldMapStr").width() - mapWidth) / 2 - 22;
@@ -611,7 +611,7 @@ function mouseEventHandler(e) {
 
   $('.circle_no').click(function(e) {
     //console.log("click! " + e.target.id);
-    showDetailInfo(e.target.id.split("_")[1]);
+    showDetailInfo(e.target.id.split("_")[1], $("#" + e.target.id).siblings(".route_info").children(".code").text());
   });
 
   $("#close_img").click(function(e) {
@@ -625,11 +625,11 @@ function mouseEventHandler(e) {
   });
 }
 
-function showDetailInfo(num) {
-  console.log("click " + num);
+function showDetailInfo(num, countryCode) {
+  console.log("click " + num + "/ countryCode " + countryCode);
   var detailHeight = $("#itinerary").height() + 100;
   var detailWidth = $("#itinerary").width() - 80;
   var marginLR = ($("#section2").width() - detailWidth)/2;
-  var marginTD =40;
-  $("#detailInfo").css({"display": "block", "height":detailHeight, "width":detailWidth, "margin": marginTD + "px " + marginLR + "px"});
+  var marginTB = 40;
+  $("#detailInfo").css({"display": "block", "height":detailHeight, "width":detailWidth, "margin": marginTB + "px " + marginLR + "px"});
 }

@@ -621,9 +621,9 @@ function mouseEventHandler(e) {
 
 function showDetailInfo(num) {
   console.log("click " + num);
-  var detailHeight = $("#itinerary").height() + 120;
+  var detailHeight = $("#itinerary").height() + 100;
   var detailWidth = $("#itinerary").width() - 80;
-  var marginLR = (1600 - detailWidth)/2;
-  var marginTD = 40;
+  var marginLR = ($("#section2").width() - detailWidth)/2;
+  var marginTD =40;
   $("#detailInfo").css({"display": "block", "height":detailHeight, "width":detailWidth, "margin": marginTD + "px " + marginLR + "px"});
 }

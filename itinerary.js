@@ -617,6 +617,12 @@ function mouseEventHandler(e) {
   $("#close_img").click(function(e) {
     $("#detailInfo").css("display", "none");
   });
+
+  $("#close_img").mouseover(function(e) {
+    $("#close_img").css("background-color", "#BCBCBC");
+  }).mouseout(function(e) {
+    $("#close_img").css("background-color", "");
+  });
 }
 
 function showDetailInfo(num) {

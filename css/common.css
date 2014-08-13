@@ -381,21 +381,48 @@ p{
 .detail_container {
 	background-color: #465552;
 	color: #D6D7D7;
-	font-size: 35px;
+	
 	float:left;
 	position:relative;
 	margin:30px 10px;
 	/* opacity: 0.99; */
 	left:22px;
-	font-family: "나눔 고딕","Nanum Gothic","맑은 고딕","Malgun Gothic","Apple Gothic","돋움",Dotum,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
-	font-family: "Maison Neue Bold", Helvetica, Arial, Sans-Serif, sans-serif;
-	-webkit-font-smoothing: antialiased;
+	
 	-moz-border-radius: 8px; 
    	-webkit-border-radius: 8px; 
    	border-radius: 8px;
-   	/* text-overflow: ellipsis; */
+   	/* text-overflow: ellipsis;
    	white-space: nowrap;
-   	overflow:hidden; 
+   	overflow:hidden;  */
+}
+
+.detail_container .cityName {
+	position:relative;
+	margin:20px 0px;
+	text-overflow: ellipsis;
+   	white-space: nowrap;
+   	overflow:hidden;
+
+   	font-size: 35px;
+   	font-family: "나눔 고딕","Nanum Gothic","맑은 고딕","Malgun Gothic","Apple Gothic","돋움",Dotum,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+	font-family: "Maison Neue Bold", Helvetica, Arial, Sans-Serif, sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+.detail_container img {
+	position:relative;
+	margin: 5px;
+	width:48px;
+}
+
+.cityContent {
+	position: relative;
+	top:10px;
+}
+
+.traffic {
+	position: relative;
+	/* top: 10px; */
 }
 
 #close_img {

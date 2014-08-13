@@ -287,6 +287,21 @@ function writeJsonFromServer() {
               "name": "Pucón",
               "from": "2014/9/25",
               "to":"2014/10/1"
+            },
+            {
+              "name": "Valdivia",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "Puerto Montt",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "Torres del Paine",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
             }
           ]
         },
@@ -348,12 +363,12 @@ function writeJsonFromServer() {
           "to":"2014/12/25",
           "cities": [
             {
-              "name": "뭰헨",
+              "name": "München",
               "from": "2014/9/23",
               "to":"2014/9/25"
             },
             {
-              "name": "퓌센",
+              "name": "Fussen",
               "from": "2014/9/25",
               "to":"2014/10/1"
             }
@@ -440,7 +455,7 @@ function writeJsonFromServer() {
           "to":"2015/3/1",
           "cities": [
             {
-              "name": "이스탄불",
+              "name": "Istanbul",
               "from": "2014/9/23",
               "to":"2014/9/25"
             }
@@ -836,26 +851,31 @@ function showDetailInfo() {
   var numberOfCity = data.length;
 
   for(var i = 0; i < numberOfCity; i++) {
-    $("#detailInfo").append("<div id='detail_" + i + "'  class='detail_container'><span></span></div>");
-    $("#detail_" + i).children("span").text(data[i].name);
+    $("#detailInfo").append("<div id='detail_" + i + "'  class='detail_container'><div class='cityName'></div></div>");
+    $("#detail_" + i).children(".cityName").text(data[i].name);
     $("#detail_" + i).css("width", ($("#detailInfo").width() - 20*numberOfCity - 64 - 30)/numberOfCity);
     $("#detail_" + i).css("height", $("#detailInfo").height()-60);
+
+    var contentHeight = ($("#detailInfo").height()-60-90)/3 - 10;
+    $("#detail_" + i).append("<div class='cityContent traffic' style='height:" + (contentHeight - 10) + "px'><img src='./image/black_flat_icons/airplane_64.png'></div>");
+    $("#detail_" + i).append("<div class='cityContent attraction' style='height:" + (contentHeight + 25) + "px'><img src='./image/black_flat_icons/map_64.png'></div>");
+    $("#detail_" + i).append("<div class='cityContent accommodation' style='height:" + (contentHeight - 15) + "px'><img src='./image/black_flat_icons/hotel_64.png'></div>");
   }
 
   // hover() calls the first function when mousing over the element, and the second function when mousing out of it
-  $('.detail_container span').hover(startMarquee, stopMarquee);
+  //$('.detail_container span').hover(startMarquee, stopMarquee);
 }
 
 //http://www.flaticon.com/free-icons/travel_123
-
+/*
 function startMarquee() {
     
-    var menuItemWidth = $(this).width();
-    var listItemWidth = $(this).parent().width();
+    var containerWidth = $(this).width();
+    var cityNamemWidth = $(this).parent().width();
     
-    if(menuItemWidth > listItemWidth) {
-        var scrollDistance = menuItemWidth - listItemWidth;
-        var listItem = $(this).parent();
+    if(containerWidth > cityNamemWidth) {
+        var scrollDistance = containerWidth - cityNamemWidth;
+        var listItem = $(this);
         // Stop any current animation
         listItem.stop();
         
@@ -865,7 +885,7 @@ function startMarquee() {
 }
 
 function stopMarquee() {
-    var listItem = $(this).parent();
+    var listItem = $(this);
     
     // Stop any current animation
     listItem.stop();
@@ -873,4 +893,4 @@ function stopMarquee() {
     // Start animating the left scroll position quickly, with a bit of a swing to the animation.
     // This will make the item seem to 'whip' back to it's starting point
     listItem.animate({scrollLeft: 0}, 'medium', 'swing');
-}
+}*/

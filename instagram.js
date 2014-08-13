@@ -45,7 +45,7 @@ function getUserPhotos() {
   // http://jelled.com/instagram/lookup-user-id
 
   var myUserId = "179519605"; //jkang107
-   myUserId = "285866271"; //배우 박수진
+   //myUserId = "285866271"; //배우 박수진
   //myUserId = "15882249"; //타블로
   var requestUserUrl = "https://api.instagram.com/v1/users/" + myUserId + "/media/recent/?access_token=" + access_token;
   var requestPopularURL = "https://api.instagram.com/v1/media/popular?access_token=" + access_token;
@@ -70,10 +70,16 @@ function getUserPhotos() {
       for (var i=0; i < result.data.length; i++) {
         var photo_standard = result.data[i].images.standard_resolution;
         var locationInfo = result.data[i].location;
+        var countryCode, cityName;
+
         if(locationInfo) {
           latitude = locationInfo.latitude;
           longitude = locationInfo.longitude;
-          
+          if(locationInfo.name) {
+            countryCode = locationInfo.name.split("@&@")[1].toUpperCase();
+            cityName = locationInfo.name.split("@&@")[0];
+            console.log("photo location name: " + locationInfo.name);
+          }
           //thumbnail info
           var photo_thumbnail = result.data[i].images.thumbnail;
           var thumb_url = photo_thumbnail.url;
@@ -82,13 +88,16 @@ function getUserPhotos() {
         }
         //var latitude = locationInfo.latitude;
         //var longitude = locationInfo.longitude
-        $(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + (i + totalNumberOfPhoto) + "' class='photo' src='" 
+  
+        $("#" + countryCode).children().children().children(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + (i + totalNumberOfPhoto) + "' class='photo' src='" 
           + photo_standard.url + "' width='300' height='300'><figcaption><p></p></figcaption></figure></a></li>");
+
+        /*$(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + (i + totalNumberOfPhoto) + "' class='photo' src='" 
+          + photo_standard.url + "' width='300' height='300'><figcaption><p></p></figcaption></figure></a></li>");*/
         $("#photo_" + (i + totalNumberOfPhoto)).attr("origin_width", photo_standard.width);
         $("#photo_" + (i + totalNumberOfPhoto)).attr("origin_height", photo_standard.height);
         $("#photo_" + (i + totalNumberOfPhoto)).attr("time", result.data[i].created_time.toHHMMSS());
         if (result.data[i].caption !== null) {
-          //$("#photo_" + i).attr("info", result.data[i].caption.text);
           $("#photo_" + (i + totalNumberOfPhoto)).siblings().children().text(result.data[i].caption.text);
         }
       }
@@ -100,6 +109,7 @@ function getUserPhotos() {
       addClickEvent();
 
       if(result.pagination.next_url !== undefined) {
+        console.log("[Instagram] It has more image!");
         userURL = result.pagination.next_url;
         hasMoreImages = true;
         //getUserPhotos();
@@ -153,3 +163,4 @@ String.prototype.toHHMMSS = function() {
   var time = hours + ':' + minutes + ':' + seconds;
   return time;
 };
+

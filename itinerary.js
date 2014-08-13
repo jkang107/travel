@@ -51,7 +51,7 @@ function createWorldMap(selectedCountries) {
           {latLng: [-11.922874, -77.022283], name: 'Lima'},
           {latLng: [-23.55, -46.63], name: 'Sao Paulo'},
           {latLng: [45.81, 15.98], name: 'Zagreb'},
-          {latLng: [41, 28.5], name: 'Istanbul (2/2~ 2/10)'},
+          {latLng: [41, 28.5], name: 'Istanbul'},
           {latLng: [41.4, 12.36], name: 'Rome'},
           {latLng: [-19.01, -65.26], name: 'Bolivia'},
           {latLng: [-33.408461, -70.677856], name: 'Chile'},
@@ -92,9 +92,16 @@ function createWorldMap(selectedCountries) {
 
 }
 function setMapPosition() {
-  var mapWidth = innerWidth * 0.5;
-  var mapHeight = innerHeight * 0.55;
+  var mapWidth, mapHeight;
 
+  if(innerWidth > innerHeight) {
+    mapWidth = innerWidth * 0.5;
+    mapHeight = innerHeight * 0.55;
+  } else {
+    mapWidth = innerWidth * 0.65;
+    mapHeight = innerHeight * 0.45;
+  }
+  
   var mapLeft = ($("#worldMapStr").width() - mapWidth) / 2 - 22;
 
   $('#world-map').css({"width" : mapWidth, "height" : mapHeight, "left" : mapLeft});
@@ -872,36 +879,6 @@ function showDetailInfo() {
     $("#detail_" + i).append("<div class='cityContent attraction' style='height:" + (contentHeight + 25) + "px'><img src='./image/black_flat_icons/map_64.png'></div>");
     $("#detail_" + i).append("<div class='cityContent accommodation' style='height:" + (contentHeight - 15) + "px'><img src='./image/black_flat_icons/hotel_64.png'></div>");
   }
-
-  // hover() calls the first function when mousing over the element, and the second function when mousing out of it
-  //$('.detail_container span').hover(startMarquee, stopMarquee);
 }
 
 //http://www.flaticon.com/free-icons/travel_123
-/*
-function startMarquee() {
-    
-    var containerWidth = $(this).width();
-    var cityNamemWidth = $(this).parent().width();
-    
-    if(containerWidth > cityNamemWidth) {
-        var scrollDistance = containerWidth - cityNamemWidth;
-        var listItem = $(this);
-        // Stop any current animation
-        listItem.stop();
-        
-        // Start animating the left scroll position over 1 seconds, using a smooth linear motion
-        listItem.animate({scrollLeft: scrollDistance}, 1000, 'linear');
-    }
-}
-
-function stopMarquee() {
-    var listItem = $(this);
-    
-    // Stop any current animation
-    listItem.stop();
-    
-    // Start animating the left scroll position quickly, with a bit of a swing to the animation.
-    // This will make the item seem to 'whip' back to it's starting point
-    listItem.animate({scrollLeft: 0}, 'medium', 'swing');
-}*/

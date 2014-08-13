@@ -115,11 +115,13 @@ p{
 	margin: 20px 0 0 0;
 }
 
-#section0 h1{
+#section0 #title{
+	position: relative;
 	text-align:center;
-	font-size: 5.5em;
+	font-size: 400%;
 	font-family: 'Indie Flower', serif;
 	font-weight: bold;
+	top:0px;
 }	
 /* 
 동그리마 그리느라 잠시 주석처리

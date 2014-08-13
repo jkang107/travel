@@ -398,7 +398,7 @@ p{
 
 .detail_container .cityName {
 	position:relative;
-	margin:20px 0px;
+	margin:20px 5px;
 	text-overflow: ellipsis;
    	white-space: nowrap;
    	overflow:hidden;
@@ -423,6 +423,12 @@ p{
 .traffic {
 	position: relative;
 	/* top: 10px; */
+}
+
+.term {
+	margin:5px 0px;
+	font-size: 17px;
+	font-family: 'Montserrat', serif;
 }
 
 #close_img {

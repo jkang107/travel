@@ -204,33 +204,33 @@ function writeJsonFromServer() {
           "cities": [
             {
               "name": "Lima",
-              "from": "2014/9/23",
-              "to":"2014/9/25"
+              "from": "2014/10/1",
+              "to":"2014/10/3"
             },
             {
               "name": "Huaraz",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2014/10/3",
+              "to":"2014/10/8"
             },
             {
               "name": "Huacachina",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2014/10/10",
+              "to":"2014/10/11"
             },
             {
               "name": "Nasca",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2014/10/11",
+              "to":"2014/10/12"
             },
             {
               "name": "Cusco",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2014/10/13",
+              "to":"2014/10/19"
             },
             {
               "name": "Ollantaytambo",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2014/10/20",
+              "to":"2014/10/22"
             }
           ]
         },
@@ -346,13 +346,13 @@ function writeJsonFromServer() {
             },
             {
               "name": "Rio de Janeiro",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2014/12/13",
+              "to":"2014/12/15"
             },
             {
               "name": "São Paulo",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2014/12/15",
+              "to":"2014/12/17"
             }
           ]
         },
@@ -364,13 +364,13 @@ function writeJsonFromServer() {
           "cities": [
             {
               "name": "München",
-              "from": "2014/9/23",
-              "to":"2014/9/25"
+              "from": "2014/12/18",
+              "to":"2014/12/22"
             },
             {
               "name": "Fussen",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2014/12/22",
+              "to":"2014/12/23"
             }
           ]
         },
@@ -382,13 +382,13 @@ function writeJsonFromServer() {
           "cities": [
             {
               "name": "Salzburg",
-              "from": "2014/9/23",
-              "to":"2014/9/25"
+              "from": "2014/12/24",
+              "to":"2014/12/27"
             },
             {
               "name": "Hallstatt",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2014/12/27",
+              "to":"2014/12/31"
             }
           ]
         },
@@ -396,68 +396,78 @@ function writeJsonFromServer() {
           "code":"IT",
           "country": "Italy",
           "from":"2015/1/1",
-          "to":"2015/1/30",
+          "to":"2015/2/5",
           "cities": [
             {
               "name": "Venice",
-              "from": "2014/9/23",
-              "to":"2014/9/25"
+              "from": "2015/1/1",
+              "to":"2015/1/6"
             },
             {
               "name": "Milano",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2015/1/6",
+              "to":"2015/1/9"
             },
             {
               "name": "Rome",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2015/1/9",
+              "to":"2015/1/25"
             },
             {
               "name": "Florence",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2015/1/25",
+              "to":"2015/1/27"
             },
             {
               "name": "Napoli",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2015/1/27",
+              "to":"2015/2/5"
             }
           ]
         },
         {
           "code": "HR",
           "country": "Croatia",
-          "from":"2015/2/1",
-          "to": "2015/2/12",
+          "from":"2015/2/6",
+          "to": "2015/2/18",
           "cities": [
             {
               "name": "Zagreb",
-              "from": "2014/9/23",
-              "to":"2014/9/25"
+              "from": "2015/2/6",
+              "to":"2015/2/7"
             },
             {
               "name": "Split",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2015/2/7",
+              "to":"2015/2/10"
             },
             {
               "name": "Dubrovnik",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
+              "from": "2015/2/11",
+              "to":"2015/2/18"
             }
           ]
         },
         {
           "code":"TR",
           "country": "Turkey",
-          "from":"2015/2/12",
+          "from":"2015/2/18",
           "to":"2015/3/1",
           "cities": [
             {
               "name": "Istanbul",
-              "from": "2014/9/23",
-              "to":"2014/9/25"
+              "from": "2015/2/18",
+              "to":"2015/2/23"
+            },
+            {
+              "name": "Cappadocia",
+              "from": "2015/2/23",
+              "to":"2015/2/25"
+            },
+            {
+              "name": "Pamukkale",
+              "from": "2015/2/25",
+              "to":"2015/3/1"
             }
           ]
         },
@@ -857,7 +867,8 @@ function showDetailInfo() {
     $("#detail_" + i).css("height", $("#detailInfo").height()-60);
 
     var contentHeight = ($("#detailInfo").height()-60-90)/3 - 10;
-    $("#detail_" + i).append("<div class='cityContent traffic' style='height:" + (contentHeight - 10) + "px'><img src='./image/black_flat_icons/airplane_64.png'></div>");
+    $("#detail_" + i).append("<div class='cityContent traffic' style='height:" + (contentHeight - 10) 
+      + "px'><img src='./image/black_flat_icons/airplane_64.png'><div class='term'>" + data[i].from.substring(5) + " ~ " + data[i].to.substring(5) + "</div></div>");
     $("#detail_" + i).append("<div class='cityContent attraction' style='height:" + (contentHeight + 25) + "px'><img src='./image/black_flat_icons/map_64.png'></div>");
     $("#detail_" + i).append("<div class='cityContent accommodation' style='height:" + (contentHeight - 15) + "px'><img src='./image/black_flat_icons/hotel_64.png'></div>");
   }

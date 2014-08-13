@@ -213,12 +213,22 @@ function writeJsonFromServer() {
               "to":"2014/10/1"
             },
             {
+              "name": "Huacachina",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
               "name": "Nasca",
               "from": "2014/9/25",
               "to":"2014/10/1"
             },
             {
               "name": "Cusco",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "Ollantaytambo",
               "from": "2014/9/25",
               "to":"2014/10/1"
             }
@@ -231,12 +241,32 @@ function writeJsonFromServer() {
           "to":"2014/11/10",
           "cities": [
             {
+              "name": "Copacabana",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "Isla del Sol",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "Lapaz",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
               "name": "Sucre",
               "from": "2014/9/23",
               "to":"2014/9/25"
             },
             {
               "name": "Uyuni Salt Flat",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "San Pedro de Atacama",
               "from": "2014/9/25",
               "to":"2014/10/1"
             }
@@ -278,6 +308,11 @@ function writeJsonFromServer() {
             },
             {
               "name": "Buenos Aires",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "Ushuaia",
               "from": "2014/9/25",
               "to":"2014/10/1"
             }
@@ -331,12 +366,12 @@ function writeJsonFromServer() {
           "to":"2014/12/31",
           "cities": [
             {
-              "name": "짤츠부르크",
+              "name": "Salzburg",
               "from": "2014/9/23",
               "to":"2014/9/25"
             },
             {
-              "name": "할슈타트",
+              "name": "Hallstatt",
               "from": "2014/9/25",
               "to":"2014/10/1"
             }
@@ -349,17 +384,27 @@ function writeJsonFromServer() {
           "to":"2015/1/30",
           "cities": [
             {
-              "name": "베니스",
+              "name": "Venice",
               "from": "2014/9/23",
               "to":"2014/9/25"
             },
             {
-              "name": "밀라노",
+              "name": "Milano",
               "from": "2014/9/25",
               "to":"2014/10/1"
             },
             {
-              "name": "로마",
+              "name": "Rome",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "Florence",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "Napoli",
               "from": "2014/9/25",
               "to":"2014/10/1"
             }
@@ -372,12 +417,17 @@ function writeJsonFromServer() {
           "to": "2015/2/12",
           "cities": [
             {
-              "name": "자그레브",
+              "name": "Zagreb",
               "from": "2014/9/23",
               "to":"2014/9/25"
             },
             {
-              "name": "두브로니크",
+              "name": "Split",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "Dubrovnik",
               "from": "2014/9/25",
               "to":"2014/10/1"
             }
@@ -786,9 +836,41 @@ function showDetailInfo() {
   var numberOfCity = data.length;
 
   for(var i = 0; i < numberOfCity; i++) {
-    $("#detailInfo").append("<div id='detail_" + i + "'  class='detail_container'></div>");
-    $("#detail_" + i).text(data[i].name);
+    $("#detailInfo").append("<div id='detail_" + i + "'  class='detail_container'><span></span></div>");
+    $("#detail_" + i).children("span").text(data[i].name);
     $("#detail_" + i).css("width", ($("#detailInfo").width() - 20*numberOfCity - 64 - 30)/numberOfCity);
     $("#detail_" + i).css("height", $("#detailInfo").height()-60);
   }
+
+  // hover() calls the first function when mousing over the element, and the second function when mousing out of it
+  $('.detail_container span').hover(startMarquee, stopMarquee);
+}
+
+//http://www.flaticon.com/free-icons/travel_123
+
+function startMarquee() {
+    
+    var menuItemWidth = $(this).width();
+    var listItemWidth = $(this).parent().width();
+    
+    if(menuItemWidth > listItemWidth) {
+        var scrollDistance = menuItemWidth - listItemWidth;
+        var listItem = $(this).parent();
+        // Stop any current animation
+        listItem.stop();
+        
+        // Start animating the left scroll position over 1 seconds, using a smooth linear motion
+        listItem.animate({scrollLeft: scrollDistance}, 1000, 'linear');
+    }
+}
+
+function stopMarquee() {
+    var listItem = $(this).parent();
+    
+    // Stop any current animation
+    listItem.stop();
+    
+    // Start animating the left scroll position quickly, with a bit of a swing to the animation.
+    // This will make the item seem to 'whip' back to it's starting point
+    listItem.animate({scrollLeft: 0}, 'medium', 'swing');
 }

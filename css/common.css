@@ -381,7 +381,7 @@ p{
 .detail_container {
 	background-color: #465552;
 	color: #D6D7D7;
-	font-size: 40px;
+	font-size: 35px;
 	float:left;
 	position:relative;
 	margin:30px 10px;
@@ -393,6 +393,9 @@ p{
 	-moz-border-radius: 8px; 
    	-webkit-border-radius: 8px; 
    	border-radius: 8px;
+   	/* text-overflow: ellipsis; */
+   	white-space: nowrap;
+   	overflow:hidden; 
 }
 
 #close_img {

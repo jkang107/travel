@@ -133,6 +133,19 @@ function addClickEvent() {
     var targetWidth = $("#"+targetInfo.id).attr("origin_width");
     var targetHeight = $("#"+targetInfo.id).attr("origin_height");
 
+    if(innerWidth - 50 < targetWidth) {
+      targetWidth = innerWidth - 50;
+    }
+    if(innerHeight - 50 < targetHeight) {
+      targetHeight = innerHeight - 50;
+    }
+
+    if(targetWidth > targetHeight) {
+      targetWidth = targetHeight;
+    } else {
+      targetHeight = targetWidth;
+    }
+    
     $("#zoom_photo").attr("width", targetWidth);
     $("#zoom_photo").attr("height", targetHeight);
 

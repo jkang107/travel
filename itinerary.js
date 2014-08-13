@@ -873,11 +873,11 @@ function showDetailInfo() {
     $("#detail_" + i).css("width", ($("#detailInfo").width() - 20*numberOfCity - 64 - 30)/numberOfCity);
     $("#detail_" + i).css("height", $("#detailInfo").height()-60);
 
-    var contentHeight = ($("#detailInfo").height()-60-90)/3 - 10;
+    var contentHeight = ($(".detail_container").height()- $(".cityName").height() - parseInt($(".cityName").css("margin-top"))*2)/3;
     $("#detail_" + i).append("<div class='cityContent traffic' style='height:" + (contentHeight - 10) 
       + "px'><img src='./image/black_flat_icons/airplane_64.png'><div class='term'>" + data[i].from.substring(5) + " ~ " + data[i].to.substring(5) + "</div></div>");
-    $("#detail_" + i).append("<div class='cityContent attraction' style='height:" + (contentHeight + 25) + "px'><img src='./image/black_flat_icons/map_64.png'></div>");
-    $("#detail_" + i).append("<div class='cityContent accommodation' style='height:" + (contentHeight - 15) + "px'><img src='./image/black_flat_icons/hotel_64.png'></div>");
+    $("#detail_" + i).append("<div class='cityContent attraction' style='height:" + (contentHeight + 20) + "px'><img src='./image/black_flat_icons/map_64.png'></div>");
+    $("#detail_" + i).append("<div class='cityContent accommodation' style='height:" + (contentHeight - 10) + "px'><img src='./image/black_flat_icons/hotel_64.png'></div>");
   }
 }
 

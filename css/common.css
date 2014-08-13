@@ -400,7 +400,7 @@ p{
 
 .detail_container .cityName {
 	position:relative;
-	margin:20px 5px;
+	margin:15px 5px;
 	text-overflow: ellipsis;
    	white-space: nowrap;
    	overflow:hidden;
@@ -419,7 +419,7 @@ p{
 
 .cityContent {
 	position: relative;
-	top:10px;
+	/*top:10px;*/
 }
 
 .traffic {

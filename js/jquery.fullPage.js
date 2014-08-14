@@ -467,7 +467,7 @@
 			//console.log("e.target.tagName: " + e.target.tagName);
 			// added by jinah kang
 			if(e.target.tagName == "svg" || e.target.tagName == "path" || e.target.tagName == "circle" 
-				|| e.target.parentElement.tagName == "FIGCAPTION" || e.target.className == "photo-grid" || e.target.parentNode.className == "photo-grid") {
+				|| e.target.parentElement.tagName == "FIGCAPTION" || e.target.className == "photo-grid" || e.target.parentNode.className == "photo-grid" || e.target.id == "zoom_photo") {
 				return;
 			}
 			if($("#zoom_photo").css("display") != "none") {

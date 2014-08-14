@@ -194,12 +194,14 @@ function writeJsonFromServer() {
             {
               "name": "Los Angeles",
               "from": "2014/9/23",
-              "to":"2014/9/25"
+              "to":"2014/9/25",
+              "traffic": "plane"
             },
             {
               "name": "San Francisco",
               "from": "2014/9/25",
-              "to":"2014/10/1"
+              "to":"2014/10/1",
+              "traffic": "bus"
             }
           ]
         },
@@ -212,7 +214,8 @@ function writeJsonFromServer() {
             {
               "name": "Lima",
               "from": "2014/10/1",
-              "to":"2014/10/3"
+              "to":"2014/10/3",
+              "traffic": "plane"
             },
             {
               "name": "Huaraz",
@@ -372,7 +375,8 @@ function writeJsonFromServer() {
             {
               "name": "München",
               "from": "2014/12/18",
-              "to":"2014/12/22"
+              "to":"2014/12/22",
+              "traffic": "plane"
             },
             {
               "name": "Fussen",
@@ -441,7 +445,8 @@ function writeJsonFromServer() {
             {
               "name": "Zagreb",
               "from": "2015/2/6",
-              "to":"2015/2/7"
+              "to":"2015/2/7",
+              "traffic": "plane"
             },
             {
               "name": "Split",
@@ -464,7 +469,8 @@ function writeJsonFromServer() {
             {
               "name": "Istanbul",
               "from": "2015/2/18",
-              "to":"2015/2/23"
+              "to":"2015/2/23",
+              "traffic": "plane"
             },
             {
               "name": "Cappadocia",
@@ -874,8 +880,21 @@ function showDetailInfo() {
     $("#detail_" + i).css("height", $("#detailInfo").height()-60);
 
     var contentHeight = ($(".detail_container").height()- $(".cityName").height() - parseInt($(".cityName").css("margin-top"))*2)/3;
+    var traffic_img;
+    switch(data[i].traffic) {
+      case "train":
+        traffic_img = 'airplane_64.png';
+        break;
+      case "plane":
+        traffic_img = 'airplane_64.png';
+        break;
+      case "bus":
+      default:
+        traffic_img = 'bus.png';
+        break;
+    }
     $("#detail_" + i).append("<div class='cityContent traffic' style='height:" + (contentHeight - 10) 
-      + "px'><img src='./image/black_flat_icons/airplane_64.png'><div class='term'>" + data[i].from.substring(5) + " ~ " + data[i].to.substring(5) + "</div></div>");
+      + "px'><img src='./image/black_flat_icons/" + traffic_img + "'><div class='term'>" + data[i].from.substring(5) + " ~ " + data[i].to.substring(5) + "</div></div>");
     $("#detail_" + i).append("<div class='cityContent attraction' style='height:" + (contentHeight + 20) + "px'><img src='./image/black_flat_icons/map_64.png'></div>");
     $("#detail_" + i).append("<div class='cityContent accommodation' style='height:" + (contentHeight - 10) + "px'><img src='./image/black_flat_icons/hotel_64.png'></div>");
   }

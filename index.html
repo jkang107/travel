@@ -44,7 +44,14 @@
 				menu: '#menu'
 			});
 
-			var imageSize = Math.ceil($("#section0").width() /3.5);
+			var imageSize = 0;
+
+			if(innerWidth > innerHeight) {
+				imageSize = innerHeight - 150;
+			} else {
+				imageSize = innerWidth - 100;
+			}
+
 			$("#worldImage").css({"width": imageSize, "height": imageSize});
 			setMapPosition();
 			calculateDDay();

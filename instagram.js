@@ -9,10 +9,13 @@ $(document).ready(function() {
   $("#zoom_photo").css("display", "none");
 
   $("body").click(function(e) {
-    if (e.target.className == "photo-grid" || e.target.id == "menu") {
+    if (e.target.className == "photo-grid" || e.target.id == "menu" || e.target.className == "tableCell") {
       $(".photo-grid").css("opacity", 1.0);
       if ($("#zoom_photo").css("display") != "none") {
         $("#zoom_photo").hide();
+      } else if($("#detailInfo").css("display") == "block") {
+        $("#detailInfo").css("display", "none");
+        $(".detail_container").remove();
       }
     }
   });

@@ -902,32 +902,4 @@ function showDetailInfo() {
 }
 
 
-function getWeatherInfo(cityName) {
-  // http://openweathermap.org/city
-  
-  var openWeatherURL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + cityName + "&mode=json&units=metric&cnt=3";
-  $.ajax({
-    url: openWeatherURL,
-    type: 'GET',
-    success:function(data) {
-      console.log("success get weather!");
-      for(var i = 0; i < data.list.length; i++) {
-        //var date = toHHMMSS(data.list[i].dt);
-        var description = data.list[i].weather[0].description;
-        var icon = data.list[i].weather[0].icon;
-        var iconSrc = "http://openweathermap.org/img/w/" + icon + ".png";
-        // http://openweathermap.org/img/w/10d.png
-        var min = data.list[i].temp.min;
-        var max = data.list[i].temp.max;
-      }
-    }, error: function(error, text) {
-      console.log("error: " + error + " / " + text);
-    }
-  });
-}
-
-
-
-
-
 //http://www.flaticon.com/free-icons/travel_123

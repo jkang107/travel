@@ -16,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/common.css" />
 	<link rel="stylesheet" type="text/css" href="./css/map.css" />
 	<link rel="stylesheet" type="text/css" href="./css/instagram.css" />
+	<link rel="stylesheet" type="text/css" href="./css/digit.css" />
 	<link rel="stylesheet" href="./css/jquery-jvectormap-1.1.1.css" type="text/css" media="screen"/>
 	<!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
 		
@@ -25,6 +26,11 @@
 	<script src="./js/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="./js/jquery-jvectormap-world-mill-en.js"></script>
 	<script type="text/javascript" src="./js/freewall.js"></script>
+	<script type="text/javascript" src="./js/moment.min.js"></script>
+	<script type="text/javascript" src="./js/moment-timezone.min.js"></script>
+	<!-- <script type="text/javascript" src="./js/moment-timezone-2010-2020.js"></script>
+	<script type="text/javascript" src="./js/moment-timezone-with-data.min.js"></script> -->
+	<script type="text/javascript" src="./board.js"></script>
 	<script type="text/javascript" src="instagram.js"></script>
 	<script type="text/javascript" src="itinerary.js"></script>
 	<!-- 
@@ -39,8 +45,8 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var pepe = $.fn.fullpage({
-				slidesColor: ['#A6BFB9', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
-				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+				slidesColor: ['#A6BFB9', '#4BBFC3', '#7BAABE', 'whitesmoke', 'gray'],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage'],
 				menu: '#menu'
 			});
 
@@ -175,6 +181,7 @@
 	<li data-menuanchor="secondPage"><a href="#secondPage" class="menu">TRAVEL</a></li>
 	<li data-menuanchor="3rdPage"><a href="#3rdPage" class="menu">ITINERARY</a></li>
 	<li data-menuanchor="4thpage"><a href="#4thpage" class="menu">ABOUT</a></li>
+	<li data-menuanchor="5thpage"><a href="#5thpage" class="menu">Board</a></li>
 </ul>
 
 <div class="section " id="section0">
@@ -271,6 +278,16 @@
 			jkang107@gmail.com<br/>
 			+82-10-9668-8106
 		</p>
+	</div>
+</div>
+<div class="section" id="section4" >
+	<div class="intro">
+		<p>
+			Time Board
+		</p>
+		<div class='country_info'>
+			
+		</div>
 	</div>
 </div>
 </body>

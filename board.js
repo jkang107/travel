@@ -7,7 +7,7 @@ $(document).ready(function() {
 	 */
 
 	addCountryTimeInfo();
-	callExchangeRate();
+	addExchangeRate();
 });
 function toTimeZone(time, zone) {
     var format = 'YYYY/MM/DD HH:mm:ss ZZ';
@@ -92,7 +92,7 @@ function addCountryBoard(country, time) {
 }
 
 
-function callExchangeRate() {
+function addExchangeRate() {
 	getRate("USD", "KRW");
   	getRate("USD", "EUR");
   	getRate("USD", "PEN");

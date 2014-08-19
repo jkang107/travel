@@ -6,6 +6,15 @@ $(document).ready(function() {
 	 *
 	 */
 
+	addCountryTimeInfo();
+	callExchangeRate();
+});
+function toTimeZone(time, zone) {
+    var format = 'YYYY/MM/DD HH:mm:ss ZZ';
+    return moment(time, format).tz(zone).format(format);
+}
+
+function addCountryTimeInfo() {
 	moment.tz.add('America/Los_Angeles|PST PDT PWT PPT|80 70 70 70|010102301010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010|-261q0 1nX0 11B0 1nX0 SgN0 8x10 iy0 5Wp0 1Vb0 3dB0 WL0 1qN0 11z0 1o10 11z0 1o10 11z0 1o10 11z0 1o10 11z0 1qN0 11z0 1o10 11z0 1o10 11z0 1o10 11z0 1o10 11z0 1qN0 WL0 1qN0 1cL0 1cN0 1cL0 1cN0 1cL0 1cN0 1fz0 1a10 1fz0 1cN0 1cL0 1cN0 1cL0 1cN0 1cL0 1cN0 1cL0 1cN0 1fz0 1cN0 1cL0 1cN0 1cL0 s10 1Vz0 LB0 1BX0 1cN0 1fz0 1a10 1fz0 1cN0 1cL0 1cN0 1cL0 1cN0 1cL0 1cN0 1cL0 1cN0 1fz0 1a10 1fz0 1cN0 1cL0 1cN0 1cL0 1cN0 1cL0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0');
 	moment.tz.add('America/Lima|LMT PET PEST|58.A 50 40|0121212121212121|-2tyGP.o 1bDzP.o zX0 1aN0 1cL0 1cN0 1cL0 1PrB0 zX0 1O10 zX0 6Gp0 zX0 98p0 zX0');
 	moment.tz.add('America/La_Paz|CMT BOST BOT|4w.A 3w.A 40|012|-1x37r.o 13b0');
@@ -22,13 +31,7 @@ $(document).ready(function() {
 	setInterval(function() {
 		setCountryTime();
 	}, 1000);
-});
-
-function toTimeZone(time, zone) {
-    var format = 'YYYY/MM/DD HH:mm:ss ZZ';
-    return moment(time, format).tz(zone).format(format);
 }
-
 function setCountryTime() {
 	var a = moment();
 
@@ -44,17 +47,18 @@ function setCountryTime() {
 	var Istanbul    = toTimeZone(a, "Asia/Istanbul");
 	var Korea    = toTimeZone(a, "Asia/Tokyo");
 
-	addCountryBoard("Lima", Lima);
-	addCountryBoard("LosAngeles", LosAngeles);
-	addCountryBoard("LaPaz", LaPaz);
-	addCountryBoard("Santiago", Santiago);
-	addCountryBoard("Argentina", Argentina);
-	addCountryBoard("SaoPaulo", SaoPaulo);
-	addCountryBoard("Berlin", Berlin);
-	addCountryBoard("Rome", Rome);
-	addCountryBoard("Zagrbe", Zagrbe);
-	addCountryBoard("Istanbul", Istanbul);
 	addCountryBoard("Korea", Korea);
+	addCountryBoard("LosAngeles", LosAngeles);
+	addCountryBoard("Lima", Lima);
+	addCountryBoard("LaPaz", LaPaz);
+	//addCountryBoard("Santiago", Santiago);
+	addCountryBoard("Argentina", Argentina);
+	//addCountryBoard("SaoPaulo", SaoPaulo);
+	addCountryBoard("Berlin", Berlin);
+	//addCountryBoard("Rome", Rome);
+	//addCountryBoard("Zagrbe", Zagrbe);
+	addCountryBoard("Istanbul", Istanbul);
+	
 
 	isTimeBoardCreated = true;
 }
@@ -64,9 +68,61 @@ var isTimeBoardCreated = false;
 function addCountryBoard(country, time) {
 	var onlyTime = time.split(" ")[1];
 	if(!isTimeBoardCreated) {
-		$(".country_info").append("<div id='" + country + "_board' class='country_board'><div class='city_name'>" + country + "</div><div class='current_time'>" + onlyTime + "</div></div>");
+		$(".country_info").append("<div id='" + country + "_board' class='country_board'></div>");
+		var representativeCountry;
+		$("#" + country + "_board").append("<div class='city_name'></div><div class='current_time'>" + onlyTime + "</div>");
+		switch(country) {
+			case "LaPaz":
+				representativeCountry = "Lapaz / Santiago";
+				break;
+			case "Argentina":
+				representativeCountry = "Argentina / SaoPaulo";
+				break;
+			case "Berlin":
+				representativeCountry = "Berlin / Rome";
+				break;
+			default:
+				representativeCountry = country;
+				break;
+		}
+		$("#" + country + "_board").children(".city_name").text(representativeCountry);
 	} else {
 		$("#" + country + "_board").children(".current_time").text(onlyTime);
+	}
+}
+
+
+function callExchangeRate() {
+	getRate("USD", "KRW");
+  	getRate("USD", "EUR");
+  	getRate("USD", "PEN");
+  	getRate("USD", "BOB");
+  	getRate("USD", "ARS");
+  	getRate("USD", "BRL");
+}
+
+function getRate(from, to) {
+	var script = document.createElement('script');
+	//script.setAttribute('src', "http://query.yahooapis.com/v1/public/yql?q=select%20rate%2Cname%20from%20csv%20where%20url%3D'http%3A%2F%2Fdownload.finance.yahoo.com%2Fd%2Fquotes%3Fs%3D"+from+to+"%253DX%26f%3Dl1n'%20and%20columns%3D'rate%2Cname'&format=json&callback=parseExchangeRate");
+	script.setAttribute('src', "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20(%22"+from+to+"%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=parseExchangeRate");
+	document.body.appendChild(script);
+}
+
+function parseExchangeRate(data) {
+	/*var name = data.query.results.row.name;
+	var rate = parseFloat(data.query.results.row.rate, 10);*/
+	var name = data.query.results.rate.Name;
+	var rate = parseFloat(data.query.results.rate.Rate, 10);
+	console.log("Exchange rate " + name + " is " + rate);
+	addExchangeRateBoard(name, rate);
+}
+  
+function addExchangeRateBoard(name, rate) {
+	var rateId = name.replace(/ /gi,"_");
+	if($("#" + rateId).length < 1){ 
+		$(".exchangeRate_info").append("<div id='" + rateId + "' class='exchange_board'></div>");
+		$("#" + rateId).append("<div class='exchange_country'>" + name + "</div>");
+		$("#" + rateId).append("<div class='exchange_rate'>" + rate + "</div>");
 	}
 }
 

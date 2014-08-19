@@ -86,7 +86,7 @@ function createWorldMap(selectedCountries) {
           }
         },
         onViewportChange: function(e, scale, transX, transY){
-            console.log('viewportChange', scale, transX, transY);
+            //console.log('viewportChange', scale, transX, transY);
         }
   });
 
@@ -122,8 +122,8 @@ function readJsonFromServer() {
       countryJSON = JSON.parse(result).countries;
       draw(countryJSON);
       
-      console.log(JSON.parse(result).flights);
-      console.log(JSON.parse(result).countries);
+      //console.log(JSON.parse(result).flights);
+      //console.log(JSON.parse(result).countries);
     },
     error: function(a,b) {
       console.log("error: " + a + b);

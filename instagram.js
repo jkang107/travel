@@ -81,7 +81,7 @@ function getUserPhotos() {
           if(locationInfo.name) {
             countryCode = locationInfo.name.split("@&@")[1].toUpperCase();
             cityName = locationInfo.name.split("@&@")[0];
-            console.log("photo location name: " + locationInfo.name);
+           // console.log("photo location name: " + locationInfo.name);
           }
           //thumbnail info
           var photo_thumbnail = result.data[i].images.thumbnail;

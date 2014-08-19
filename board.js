@@ -113,7 +113,7 @@ function parseExchangeRate(data) {
 	var rate = parseFloat(data.query.results.row.rate, 10);*/
 	var name = data.query.results.rate.Name;
 	var rate = parseFloat(data.query.results.rate.Rate, 10);
-	console.log("Exchange rate " + name + " is " + rate);
+	//console.log("Exchange rate " + name + " is " + rate);
 	addExchangeRateBoard(name, rate);
 }
   

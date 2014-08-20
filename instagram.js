@@ -148,14 +148,16 @@ function addClickEvent() {
     } else {
       targetHeight = targetWidth;
     }
+    var zoom_container_Div = $("#zoom_photo_container");
     
-    $("#zoom_photo").attr("width", targetWidth);
-    $("#zoom_photo").attr("height", targetHeight);
-
+    $("#zoom_photo").attr("width", parseInt(targetWidth) - 76);
+    $("#zoom_photo").attr("height", parseInt(targetHeight) - 60);
+    $("#zoom_photo").css("margin", "30px 0px 30px 28px");
     var photoLeftPos = (window.innerWidth - targetWidth) / 2;
-    $("#zoom_photo_container").css("left", photoLeftPos);
     var photoTopPos = (window.innerHeight - targetHeight) / 2;
-    $("#zoom_photo_container").css("top", photoTopPos);
+    zoom_container_Div.css({"width":parseInt(targetWidth), "height": parseInt(targetHeight)});
+    zoom_container_Div.css("left", photoLeftPos);
+    zoom_container_Div.css("top", photoTopPos);
     $(".photo-grid").css("opacity", "0.3");
   });
 }

@@ -8,6 +8,10 @@ $(document).ready(function() {
 
 	addCountryTimeInfo();
 	addExchangeRate();
+
+	var componentHeight = (innerHeight - 80) / 2;
+	$("#time").css("height", componentHeight);
+	$("#exchangeRate").css("height", componentHeight);
 });
 function toTimeZone(time, zone) {
     var format = 'YYYY/MM/DD HH:mm:ss ZZ';

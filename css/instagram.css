@@ -1,6 +1,7 @@
 #zoom_photo_container {
 	position:fixed;
 	z-index: 1500;
+	background-color: #434141;
 }
 
 .photo-grid {

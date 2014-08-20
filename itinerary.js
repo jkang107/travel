@@ -95,14 +95,14 @@ function setMapPosition() {
   var mapWidth, mapHeight;
 
   if(innerWidth > innerHeight) {
-    mapWidth = innerWidth * 0.5;
+    mapWidth = innerWidth * 0.55;
     mapHeight = innerHeight * 0.55;
   } else {
     mapWidth = innerWidth * 0.65;
     mapHeight = innerHeight * 0.45;
   }
   
-  var mapLeft = ($("#worldMapStr").width() - mapWidth) / 2 - 22;
+  var mapLeft = ($("#worldMapStr").width() - mapWidth) / 2;
 
   $('#world-map').css({"width" : mapWidth, "height" : mapHeight, "left" : mapLeft});
 }
@@ -841,11 +841,13 @@ function mouseEventHandler(e) {
     if(hasCityInfo(clickedCountry) === true) {
       showDetailInfo(clickedCountry);
     }
+    return false;
   });
 
   $("#close_img").click(function(e) {
     $("#detailInfo").css("display", "none");
     $(".detail_container").remove();
+    return false;
   });
 }
 

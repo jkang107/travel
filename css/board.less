@@ -1,0 +1,75 @@
+@pink: #E54B6B;
+@green: #B9EB6E;
+
+@font-face {
+	font-family: 'digi';
+	src: url('http://cssdeck.com/uploads/resources/fonts/digii/DS-DIGII.TTF');
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	width: 100%; height: 100%;
+}
+
+.board {
+	position: relative;
+	left:10px;
+	margin: 10px auto;
+	height: 200px;
+	width:90%;
+
+	.title {
+		font-size: 3em;
+		font-family: 'Open Sans', sans-serif;
+		font-style: bold;
+		margin-top: 10px;
+		color: black;
+		-webkit-font-smoothing: antialiased;
+	} 
+	.zone {
+		float:left;
+		margin: 10px;
+		margin-bottom: 20px;
+		position: relative;
+
+		.zone_name {
+			font-family: 'Montserrat', serif;
+			font-size: 1.5em;
+			text-align: left;
+			margin-left: 8px;
+			margin-top: 3px;
+		}
+
+		.zone_value {
+			font-family: 'digi';
+			font-size: 2.5em;
+			text-align: center;
+			color: #707070;
+			line-height: 80px;
+			background: white;
+			background-image: linear-gradient(#f0f0f0, white); 
+		}
+	}
+}
+#exchangeRate {
+	top: 50px;
+}
+
+#time .zone_value {
+	border-top: 5px solid @pink;
+}
+
+#exchangeRate .zone_value {
+	border-top: 5px solid @green;
+}
+
+#time .zone {
+	width: 12%;
+}
+
+#exchangeRate .zone {
+	width: 14.2%;
+}

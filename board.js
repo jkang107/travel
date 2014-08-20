@@ -50,8 +50,8 @@ function setCountryTime() {
 	addCountryBoard("Korea", Korea);
 	addCountryBoard("LosAngeles", LosAngeles);
 	addCountryBoard("Lima", Lima);
-	addCountryBoard("LaPaz", LaPaz);
-	//addCountryBoard("Santiago", Santiago);
+	//addCountryBoard("LaPaz", LaPaz);
+	addCountryBoard("Santiago", Santiago);
 	addCountryBoard("Argentina", Argentina);
 	//addCountryBoard("SaoPaulo", SaoPaulo);
 	addCountryBoard("Berlin", Berlin);
@@ -68,11 +68,11 @@ var isTimeBoardCreated = false;
 function addCountryBoard(country, time) {
 	var onlyTime = time.split(" ")[1];
 	if(!isTimeBoardCreated) {
-		$(".country_info").append("<div id='" + country + "_board' class='country_board'></div>");
+		$("#time.board").append("<div id='" + country + "' class='zone'></div>");
 		var representativeCountry;
-		$("#" + country + "_board").append("<div class='city_name'></div><div class='current_time'>" + onlyTime + "</div>");
+		$("#" + country).append("<div class='zone_name'></div><div class='zone_value'>" + onlyTime + "</div>");
 		switch(country) {
-			case "LaPaz":
+			/*case "LaPaz":
 				representativeCountry = "Lapaz / Santiago";
 				break;
 			case "Argentina":
@@ -80,14 +80,14 @@ function addCountryBoard(country, time) {
 				break;
 			case "Berlin":
 				representativeCountry = "Berlin / Rome";
-				break;
+				break;*/
 			default:
 				representativeCountry = country;
 				break;
 		}
-		$("#" + country + "_board").children(".city_name").text(representativeCountry);
+		$("#" + country).children(".zone_name").text(representativeCountry);
 	} else {
-		$("#" + country + "_board").children(".current_time").text(onlyTime);
+		$("#" + country).children(".zone_value").text(onlyTime);
 	}
 }
 
@@ -120,9 +120,9 @@ function parseExchangeRate(data) {
 function addExchangeRateBoard(name, rate) {
 	var rateId = name.replace(/ /gi,"_");
 	if($("#" + rateId).length < 1){ 
-		$(".exchangeRate_info").append("<div id='" + rateId + "' class='exchange_board'></div>");
-		$("#" + rateId).append("<div class='exchange_country'>" + name + "</div>");
-		$("#" + rateId).append("<div class='exchange_rate'>" + rate + "</div>");
+		$("#exchangeRate.board").append("<div id='" + rateId + "' class='zone'></div>");
+		$("#" + rateId).append("<div class='zone_name'>" + name + "</div>");
+		$("#" + rateId).append("<div class='zone_value'>" + rate + "</div>");
 	}
 }
 

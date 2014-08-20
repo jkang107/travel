@@ -16,10 +16,11 @@
 	<link rel="stylesheet" type="text/css" href="./css/common.css" />
 	<link rel="stylesheet" type="text/css" href="./css/map.css" />
 	<link rel="stylesheet" type="text/css" href="./css/instagram.css" />
-	<link rel="stylesheet" type="text/css" href="./css/digit.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="./css/digit.css" /> -->
 	<link rel="stylesheet" href="./css/jquery-jvectormap-1.1.1.css" type="text/css" media="screen"/>
+	<link rel="stylesheet/less" type="text/css" href="./css/board.less" />
 	<!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
-		
+	<script src="./js/less-1.7.4.min.js" type="text/javascript"></script>	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="./js/jquery.fullPage.js"></script>
@@ -28,8 +29,6 @@
 	<script type="text/javascript" src="./js/freewall.js"></script>
 	<script type="text/javascript" src="./js/moment.min.js"></script>
 	<script type="text/javascript" src="./js/moment-timezone.min.js"></script>
-	<!-- <script type="text/javascript" src="./js/moment-timezone-2010-2020.js"></script>
-	<script type="text/javascript" src="./js/moment-timezone-with-data.min.js"></script> -->
 	<script type="text/javascript" src="./board.js"></script>
 	<script type="text/javascript" src="instagram.js"></script>
 	<script type="text/javascript" src="itinerary.js"></script>
@@ -53,9 +52,9 @@
 			var imageSize = 0;
 
 			if(innerWidth > innerHeight) {
-				imageSize = innerHeight - 150;
+				imageSize = innerHeight - 250;
 			} else {
-				imageSize = innerWidth - 100;
+				imageSize = innerWidth - 250;
 			}
 
 			$("#worldImage").css({"width": imageSize, "height": imageSize});
@@ -282,13 +281,12 @@
 </div>
 <div class="section" id="section4" >
 	<div class="intro">
-		<p>Time Board</p>
-		<div class='country_info'>
+		<div id='time' class='board'>
+			<div class='title'>World Time</div>
 		</div>
-		<p>Exchange Rate Board</p>
-		<div class='exchangeRate_info'>
+		<div id='exchangeRate' class='board'>
+			<div class='title'>Exchange Rate</div>
 		</div>
-
 	</div>
 </div>
 </body>

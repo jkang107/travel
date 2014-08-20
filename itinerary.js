@@ -844,9 +844,14 @@ function mouseEventHandler(e) {
     return false;
   });
 
-  $("#close_img").click(function(e) {
-    $("#detailInfo").css("display", "none");
-    $(".detail_container").remove();
+  $(".close_img").click(function(e) {
+    $(".photo-grid").css("opacity", 1.0);
+    if ($("#zoom_photo_container").css("display") != "none") {
+      $("#zoom_photo_container").hide();
+    } else if($("#detailInfo").css("display") == "block") {
+      $("#detailInfo").css("display", "none");
+      $(".detail_container").remove();
+    }
     return false;
   });
 }

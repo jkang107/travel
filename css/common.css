@@ -434,7 +434,7 @@ p{
 	font-family: 'Montserrat', serif;
 }
 
-#close_img {
+.close_img {
 	cursor: pointer;
 	width:30px;
 }

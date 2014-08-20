@@ -6,13 +6,13 @@ $(document).ready(function() {
   //login()
   //$(".photo-grid").height();
   getUserPhotos();
-  $("#zoom_photo").css("display", "none");
+  $("#zoom_photo_container").css("display", "none");
 
   $("body").click(function(e) {
     if (e.target.className == "photo-grid" || e.target.id == "menu" || e.target.className == "tableCell") {
       $(".photo-grid").css("opacity", 1.0);
-      if ($("#zoom_photo").css("display") != "none") {
-        $("#zoom_photo").hide();
+      if ($("#zoom_photo_container").css("display") != "none") {
+        $("#zoom_photo_container").hide();
       } else if($("#detailInfo").css("display") == "block") {
         $("#detailInfo").css("display", "none");
         $(".detail_container").remove();
@@ -128,8 +128,8 @@ function getUserPhotos() {
 
 function addClickEvent() {
   $("figure").click(function(e) {
-    if ($("#zoom_photo").css("display") == "none") {
-      $("#zoom_photo").show();
+    if ($("#zoom_photo_container").css("display") == "none") {
+      $("#zoom_photo_container").show();
     }
     var targetInfo = e.target.parentNode.parentNode.childNodes[0];
     $("#zoom_photo").attr("src", targetInfo.src);
@@ -153,10 +153,9 @@ function addClickEvent() {
     $("#zoom_photo").attr("height", targetHeight);
 
     var photoLeftPos = (window.innerWidth - targetWidth) / 2;
-    $("#zoom_photo").css("left", photoLeftPos);
-
+    $("#zoom_photo_container").css("left", photoLeftPos);
     var photoTopPos = (window.innerHeight - targetHeight) / 2;
-    $("#zoom_photo").css("top", photoTopPos);
+    $("#zoom_photo_container").css("top", photoTopPos);
     $(".photo-grid").css("opacity", "0.3");
   });
 }

@@ -184,7 +184,7 @@
 </ul>
 
 <div class="section " id="section0">
-	<div id='title'>Jinah Kang</div><br/>
+	<div id='title'>Jinah Kang</div>
 	<div id="player"> </div>
 	<img id='worldImage' src='./image/world.jpg'>
 </div>
@@ -198,7 +198,11 @@
     <div class="slide" id="US">
 		<div class="intro">
 			<ul class="photo-grid"></ul>
-    		<img id ="zoom_photo">
+			<div id='zoom_photo_container'>
+    			<img class='close_img' src='./image/close_48.png' style='float:right; margin:8px; background: white;'>
+				<img id ="zoom_photo">
+			</div>
+    		
 		</div>
 	</div>
 	<!-- south america -->
@@ -268,7 +272,7 @@
 <div class="section" id="section2">
 	<div id="itinerary" class="intro"></div>
 	<div id='detailInfo' style='display: none;'>
-		<img id='close_img' src='./image/close_48.png' style='float:right; margin:8px;'>
+		<img class='close_img' src='./image/close_48.png' style='float:right; margin:8px;'>
 	</div>
 </div>
 <div class="section" id="section3" >
@@ -284,6 +288,7 @@
 		<div id='time' class='board'>
 			<div class='title'>World Time</div>
 		</div>
+		<br/>
 		<div id='exchangeRate' class='board'>
 			<div class='title'>Exchange Rate</div>
 		</div>

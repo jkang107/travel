@@ -152,11 +152,23 @@ p{
 	/* width: 50%; */
 	/* margin: 0 auto; */
 	text-align:center;
-	font-size: 3.5em;
+	font-size: 3em;
 	/* font-family: arial,helvetica; */
 	font-family: 'Indie Flower', serif;
 	font-weight: bold;
 	color: black;
+}
+#responseMsg {
+	font-size: 1.7em;
+}
+#myEmailAddr {
+	font-size: 2em;	
+	display: inline;
+}
+
+footer img { 
+	display: inline;
+	margin: auto 10px;
 }
 
 .twitter-share-button{

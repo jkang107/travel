@@ -33,6 +33,7 @@
 	<script type="text/javascript" src="./board.js"></script>
 	<script type="text/javascript" src="instagram.js"></script>
 	<script type="text/javascript" src="itinerary.js"></script>
+	<script type="text/javascript" src="message.js"></script>
 	<!-- 
 		** Google font API **
 		https://developers.google.com/fonts/docs/getting_started?hl=ko 
@@ -180,7 +181,7 @@
 	<li data-menuanchor="firstPage"><a href="#firstPage" class="menu">HOME</a></li>
 	<li data-menuanchor="secondPage"><a href="#secondPage" class="menu">TRAVEL</a></li>
 	<li data-menuanchor="3rdPage"><a href="#3rdPage" class="menu">ITINERARY</a></li>
-	<li data-menuanchor="4thpage"><a href="#4thpage" class="menu">ABOUT</a></li>
+	<li data-menuanchor="4thpage"><a href="#4thpage" class="menu">CONTACT</a></li>
 	<li data-menuanchor="5thpage"><a href="#5thpage" class="menu">Board</a></li>
 </ul>
 
@@ -278,35 +279,33 @@
 </div>
 <div class="section" id="section3" >
 	<div class="intro">
-		<!-- <p>
-			jkang107@gmail.com<br/>
-			+82-10-9668-8106
-		</p> -->
+		
 		<header class="body">
 	    </header>
 
 	    <section class="body">
-	    	<form method="post" action="mail.php">
-	        
+	    	<form id='message_form'>
 			    <label>Name</label>
 			    <input name="name" placeholder="Type Here">
 			            
-			    <label>Email</label>
-			    <input name="email" type="email" placeholder="Type Here">
+			    <!-- <label>Email</label>
+			    <input name="email" type="email" placeholder="Type Here"> -->
 			            
 			    <label>Message</label>
 			    <textarea name="message" placeholder="Type Here"></textarea>
 			            
-			    <input id="submit" name="submit" type="submit" value="Submit">
-			    
-			    <label>*What is 2+2? (Anti-spam)</label>
-				<input name="human" placeholder="Type Here">    
+			    <input id="submit" name="submit" type="submit" value="Send Message" style='font-weight:bold;'>   
 			</form>
 	    </section>
 
 	    <footer class="body">
+	    	<br/>
+	    	<img src='./image/email_32.png'>
+	    	<p id='myEmailAddr'>
+				jkang107@gmail.com<br/>
+			</p>
 	    </footer>
-
+		
 	</div>
 </div>
 <div class="section" id="section4" >

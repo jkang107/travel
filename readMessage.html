@@ -20,8 +20,8 @@
 
 	  $.ajax({
 	    type: 'GET',
-	    //url: "http://whispering-gorge-9163.herokuapp.com/read",
-	    url: "http://localhost:5000/getMessages",
+	    url: "http://whispering-gorge-9163.herokuapp.com/getMessages",
+	    //url: "http://localhost:5000/getMessages",
 	    success: function(result) {
 	    	var newStr = "[" + result.replace(/}{/gi, '},{') + "]";
 	    	messageJson = JSON.parse(newStr);
@@ -36,8 +36,8 @@
 
 	function viewMessage() {
 		for(var i=0; i<messageJson.length; i++) {
-			$("body").append("<div class='messageBox'><div class='name'>Name: " 
-				+ messageJson[i].name + "</div><div class='message'>Message: " 
+			$("body").append("<div class='messageBox'><div class='name'>From: " 
+				+ messageJson[i].name + "  |  " + messageJson[i].time+"</div><div class='message'>Message: " 
 				+ messageJson[i].message + "</div></div>");
 		}
 	}

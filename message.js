@@ -17,7 +17,17 @@ $(document).ready(function() {
 	    	var url = "http://whispering-gorge-9163.herokuapp.com/sendMessage";
 	    	//var url = "http://localhost:5000/sendMessage";
 
-	    	deferred = $.post(url, { name: name, message:msg});
+	    	var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1; //January is 0!
+			var yyyy = today.getFullYear();
+			var hh = today.getHours();
+			var m = today.getMinutes();
+			var ss = today.getSeconds();
+
+			var currentTime = yyyy+"/"+mm+"/"+dd+" "+hh+":"+m+":"+ss;
+
+	    	deferred = $.post(url, { name:name, message:msg, time:currentTime});
 
 		    deferred.success(function (e) {
 

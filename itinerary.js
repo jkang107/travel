@@ -904,7 +904,7 @@ function showDetailInfo() {
       + "px'><img src='./image/black_flat_icons/" + traffic_img + "'><div class='term'>" + data[i].from.substring(5) + " ~ " + data[i].to.substring(5) + "</div></div>");
     $("#detail_" + i).append("<div class='cityContent attraction' style='height:" + (contentHeight + 20) + "px'><img src='./image/black_flat_icons/map_64.png'></div>");
     $("#detail_" + i).append("<div class='cityContent accommodation' style='height:" + (contentHeight - 10) + "px'><img src='./image/black_flat_icons/hotel_64.png'></div>");
-    getWeatherInfo(data[i].name);
+    //getWeatherInfo(data[i].name);
   }
 }
 

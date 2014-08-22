@@ -33,9 +33,7 @@ $(document).ready(function() {
 
 		        console.log("Message from server : " + e);
 		        if($("#responseMsg").length == 0) {
-		        	//$("header.body").append("<p id='responseMsg'>Thank you. <br/> I'll get back to you soon.</p>");
-		        	$("header.body").append("<p id='responseMsg'>Your message has been sent.</p>");
-		        	
+		        	$("header.body").append("<p id='responseMsg'>Your message has been sent.</p>");      	
 		        }
 		        $("input[name=name]").val("");
 		        $("textarea[name=message]").val("");

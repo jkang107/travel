@@ -482,7 +482,7 @@
 						(e.wheelDelta || -e.detail)));
 				var scrollable;
 				var activeSection = $('.section.active');
-				
+
 				if (!isMoving) { //if theres any #
 				
 					//if there are landscape slides, we check if the scrolling bar is in the current one or not
@@ -502,6 +502,9 @@
 								return true; //normal scroll
 							}
 						}else{
+							if(activeSection.attr("id") == "section3") {
+								startTime();
+							}
 							$.fn.fullpage.moveSectionDown();
 						}
 					}
@@ -516,6 +519,9 @@
 								return true; //normal scroll
 							}
 						}else{
+							if(activeSection.attr("id") == "section4") {
+								stopTime();
+							}
 							$.fn.fullpage.moveSectionUp();
 						}
 					}
@@ -1072,6 +1078,11 @@
 		 * Activating the website main menu elements according to the given slide name.
 		 */
 		function activateMenuElement(name){
+			if(name == "5thpage") {
+				startTime();
+			} else {
+				stopTime();
+			}
 			if(options.menu){
 				$(options.menu).find('.active').removeClass('active');
 				$(options.menu).find('[data-menuanchor="'+name+'"]').addClass('active');

@@ -8,10 +8,6 @@ $(document).ready(function() {
 
 	addCountryTimeInfo();
 	addExchangeRate();
-	
-	/*var componentHeight = (innerHeight - 120) / 2;
-	$("#time").css("height", componentHeight);
-	$("#exchangeRate").css("height", componentHeight);*/
 });
 
 function toTimeZone(time, zone) {
@@ -33,9 +29,7 @@ function addCountryTimeInfo() {
 	moment.tz.add('Asia/Istanbul|IMT EET EEST TRST TRT|-1U.U -20 -30 -40 -30|012121212121212121212121212121212121212121212121212121234343434342121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121|-2ogNU.U dzzU.U 11b0 8tB0 1on0 1410 1db0 19B0 1in0 3Rd0 Un0 1oN0 11b0 zSp0 CL0 mN0 1Vz0 1gN0 1pz0 5Rd0 1fz0 1yp0 ML0 1kp0 17b0 1ip0 17b0 1fB0 19X0 1jB0 18L0 1ip0 17z0 qdd0 xX0 3S10 Tz0 dA10 11z0 1o10 11z0 1qN0 11z0 1ze0 11B0 WM0 1qO0 WI0 1nX0 1rB0 10L0 11B0 1in0 17d0 1in0 2pX0 19E0 1fU0 16Q0 1iI0 16Q0 1iI0 1Vd0 pb0 3Kp0 14o0 1df0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1fA0 1cL0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1cM0 1fA0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 WO0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 Xc0 1qo0 WM0 1qM0 11A0 1o00 1200 1nA0 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00');
 	moment.tz.add('Asia/Tokyo|CJT JST JDT|-90 -90 -a0|0121212121|-1hTl0 p9C0 QL0 1lB0 13X0 1zB0 NX0 1zB0 NX0');
 
-	setInterval(function() {
-		setCountryTime();
-	}, 1000);
+	//startTime();
 }
 function setCountryTime() {
 	var a = moment();
@@ -168,6 +162,16 @@ function getWeatherInfo(cityName) {
   });
 }
 
+function stopTime() {
+	clearInterval(worldTimer);
+}
 
+var worldTimer;
+
+function startTime() {
+	worldTimer = setInterval(function() {
+		setCountryTime();
+	}, 1000);
+}
 
 

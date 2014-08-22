@@ -47,18 +47,3 @@ $(document).ready(function() {
 	    }
    });
 });
-
-function readMessageFromServer() {
-
-  $.ajax({
-    type: 'GET',
-    url: "http://whispering-gorge-9163.herokuapp.com/getMessages",
-    //url: "http://localhost:5000/getMessages",
-    success: function(result) {
-      
-    },
-    error: function(a,b) {
-      console.log("error: " + a + b);
-    }
-  });
-}

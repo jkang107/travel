@@ -60,7 +60,10 @@ function setCountryTime() {
 	
 
 	isTimeBoardCreated = true;
-	
+	if(innerWidth < 1015) {
+		$(".board").css("margin", "35px auto 0px");
+		$("#time").children(".zone").css({"width": "20%", "margin":"15px 10px"});
+	}
 }
 
 var isTimeBoardCreated = false;
@@ -130,8 +133,8 @@ function addExchangeRateBoard(name, rate) {
 
 	if(innerWidth < 1015) {
 		//$(".zone").css({"width": "20%", "margin":"15px 10px"});
-		$(".board").css("margin", "35px auto 0px");
-		$("#time").children(".zone").css({"width": "20%", "margin":"15px 10px"});
+		//$(".board").css("margin", "35px auto 0px");
+		//$("#time").children(".zone").css({"width": "20%", "margin":"15px 10px"});
 		$("#exchangeRate").children(".zone").css({"width": "30%", "margin":"15px 10px"});
 	}
 }

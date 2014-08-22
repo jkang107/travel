@@ -158,18 +158,6 @@ p{
 	font-weight: bold;
 	color: black;
 }
-#responseMsg {
-	font-size: 1.7em;
-}
-#myEmailAddr {
-	font-size: 2em;	
-	display: inline;
-}
-
-footer img { 
-	display: inline;
-	margin: auto 10px;
-}
 
 .twitter-share-button{
 	position: absolute;

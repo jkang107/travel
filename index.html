@@ -42,6 +42,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Montserrat&effect=shadow-multiple' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -57,6 +58,10 @@
 				imageSize = innerHeight - 250;
 			} else {
 				imageSize = innerWidth - 250;
+			}
+
+			if(imageSize > 550) {
+				imageSize = 550;
 			}
 
 			$("#worldImage").css({"width": imageSize, "height": imageSize});
@@ -182,7 +187,7 @@
 	<li data-menuanchor="secondPage"><a href="#secondPage" class="menu">TRAVEL</a></li>
 	<li data-menuanchor="3rdPage"><a href="#3rdPage" class="menu">ITINERARY</a></li>
 	<li data-menuanchor="4thpage"><a href="#4thpage" class="menu">CONTACT</a></li>
-	<li data-menuanchor="5thpage"><a href="#5thpage" class="menu">Board</a></li>
+	<li data-menuanchor="5thpage"><a href="#5thpage" class="menu">BOARD</a></li>
 </ul>
 
 <div class="section " id="section0">
@@ -311,10 +316,10 @@
 <div class="section" id="section4" >
 	<div class="intro">
 		<div id='time' class='board'>
-			<div class='title'>World Time</div><br/>
+			<div class='title'>World Time</div>
 		</div>
 		<div id='exchangeRate' class='board'>
-			<div class='title'>Exchange Rate</div><br/>
+			<div class='title'>Exchange Rate</div>
 		</div>
 	</div>
 </div>

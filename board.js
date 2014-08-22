@@ -8,11 +8,12 @@ $(document).ready(function() {
 
 	addCountryTimeInfo();
 	addExchangeRate();
-
-	var componentHeight = (innerHeight - 80) / 2;
+	
+	/*var componentHeight = (innerHeight - 120) / 2;
 	$("#time").css("height", componentHeight);
-	$("#exchangeRate").css("height", componentHeight);
+	$("#exchangeRate").css("height", componentHeight);*/
 });
+
 function toTimeZone(time, zone) {
     var format = 'YYYY/MM/DD HH:mm:ss ZZ';
     return moment(time, format).tz(zone).format(format);
@@ -65,6 +66,7 @@ function setCountryTime() {
 	
 
 	isTimeBoardCreated = true;
+	
 }
 
 var isTimeBoardCreated = false;
@@ -72,7 +74,8 @@ var isTimeBoardCreated = false;
 function addCountryBoard(country, time) {
 	var onlyTime = time.split(" ")[1];
 	if(!isTimeBoardCreated) {
-		$("#time.board").append("<div id='" + country + "' class='zone'></div>");
+		$("#time").append("<div id='" + country + "' class='zone'></div>");
+
 		var representativeCountry;
 		$("#" + country).append("<div class='zone_name'></div><div class='zone_value'>" + onlyTime + "</div>");
 		switch(country) {
@@ -103,6 +106,8 @@ function addExchangeRate() {
   	getRate("USD", "BOB");
   	getRate("USD", "ARS");
   	getRate("USD", "BRL");
+
+
 }
 
 function getRate(from, to) {
@@ -127,6 +132,13 @@ function addExchangeRateBoard(name, rate) {
 		$("#exchangeRate.board").append("<div id='" + rateId + "' class='zone'></div>");
 		$("#" + rateId).append("<div class='zone_name'>" + name + "</div>");
 		$("#" + rateId).append("<div class='zone_value'>" + rate + "</div>");
+	}
+
+	if(innerWidth < 1015) {
+		//$(".zone").css({"width": "20%", "margin":"15px 10px"});
+		$(".board").css("margin", "35px auto 0px");
+		$("#time").children(".zone").css({"width": "20%", "margin":"15px 10px"});
+		$("#exchangeRate").children(".zone").css({"width": "30%", "margin":"15px 10px"});
 	}
 }
 

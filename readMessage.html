@@ -20,8 +20,8 @@
 
 	  $.ajax({
 	    type: 'GET',
-	    //url: "http://whispering-gorge-9163.herokuapp.com/read",
-	    url: "http://localhost:5000/getMessages",
+	    url: "http://whispering-gorge-9163.herokuapp.com/getMessages",
+	    //url: "http://localhost:5000/getMessages",
 	    success: function(result) {
 	    	var newStr = "[" + result.replace(/}{/gi, '},{') + "]";
 	    	messageJson = JSON.parse(newStr);

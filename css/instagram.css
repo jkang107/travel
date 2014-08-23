@@ -53,6 +53,7 @@
 	width: 300px;
 	vertical-align: middle;
 	color: white;
+	word-break:break-all;
 }
 
 .photo-grid li:hover figcaption {

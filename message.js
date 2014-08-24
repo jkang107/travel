@@ -36,7 +36,7 @@ $(document).ready(function() {
 		        	$("header.body").append("<p id='responseMsg'>Your message has been sent.</p>");      	
 		        }
 		        $("input[name=name]").val("");
-		        $("textarea[name=message]").val("");
+		        $("textarea[name=message]").val('');
 		    });
 
 		    deferred.error(function (e) {

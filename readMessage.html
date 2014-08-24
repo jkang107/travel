@@ -36,9 +36,10 @@
 
 	function viewMessage() {
 		for(var i=0; i<messageJson.length; i++) {
+			var msg = messageJson[i].message.replace(/\\n/gi, "<br/>").replace(/\"/gi, "");
 			$("body").append("<div class='messageBox'><div class='name'>From: " 
 				+ messageJson[i].name + "  |  " + messageJson[i].time+"</div><div class='message'>Message: " 
-				+ messageJson[i].message + "</div></div>");
+				+ msg + "</div></div>");
 		}
 	}
 

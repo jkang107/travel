@@ -3,6 +3,33 @@
 	z-index: 1500;
 	background-color: #434141;
 }
+#zoom_close {
+	z-index: 1550;
+	position: absolute;
+	right:0px;
+	margin:8px; 
+	background: white;
+}
+
+.zoom_btn {
+	position: absolute;
+	width: 40px;
+	height: 100%;
+	top:0px;
+	z-index: 1510;
+	/*margin: 30px 0px;*/
+}
+
+#rightBtn {
+	right:0px;
+	background-color: red;
+}
+
+#leftBtn {
+	left:0px;
+	background-color: blue;
+
+}
 
 .photo-grid {
 	margin: 1em auto;
@@ -16,7 +43,7 @@
 	border: 5px solid white;
 	display: inline-block;
 	margin: 1em;
-	width: 310px;
+	/*width: 310px;*/
 }
  
 .photo-grid img {

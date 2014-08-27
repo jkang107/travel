@@ -152,13 +152,14 @@ function addClickEvent() {
     
     $("#zoom_photo").attr("width", parseInt(targetWidth) - 76);
     $("#zoom_photo").attr("height", parseInt(targetHeight) - 60);
-    $("#zoom_photo").css("margin", "30px 0px 30px 28px");
+    $("#zoom_photo").css("margin", "30px 28px 30px 28px");
     var photoLeftPos = (window.innerWidth - targetWidth) / 2;
     var photoTopPos = (window.innerHeight - targetHeight) / 2;
-    zoom_container_Div.css({"width":parseInt(targetWidth), "height": parseInt(targetHeight)});
+    zoom_container_Div.css({"width":parseInt(targetWidth) + 40, "height": parseInt(targetHeight)});
     zoom_container_Div.css("left", photoLeftPos);
     zoom_container_Div.css("top", photoTopPos);
     $(".photo-grid").css("opacity", "0.3");
+    //$(".zoom_btn").css("height", parseInt(targetHeight) - 60);
   });
 }
 

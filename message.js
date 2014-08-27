@@ -30,7 +30,6 @@ $(document).ready(function() {
 	    	deferred = $.post(url, { name:name, message:msg, time:currentTime});
 
 		    deferred.success(function (e) {
-
 		        console.log("Message from server : " + e);
 		        if($("#responseMsg").length == 0) {
 		        	$("header.body").append("<p id='responseMsg'>Your message has been sent.</p>");      	

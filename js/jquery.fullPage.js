@@ -470,8 +470,8 @@
 				|| e.target.parentElement.tagName == "FIGCAPTION" || e.target.className == "photo-grid" || e.target.parentNode.className == "photo-grid" || e.target.id == "zoom_photo") {
 				return;
 			}
-			if($("#zoom_photo").css("display") != "none") {
-            	$("#zoom_photo").hide();  
+			if($("#zoom_photo_container").css("display") != "none") {
+            	$("#zoom_photo_container").hide();  
             	$("#photo").css("opacity", 1.0);
           	}
 

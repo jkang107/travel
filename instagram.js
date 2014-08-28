@@ -92,16 +92,14 @@ function getUserPhotos() {
         //var latitude = locationInfo.latitude;
         //var longitude = locationInfo.longitude
   
-        $("#" + countryCode).children().children().children(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + (i + totalNumberOfPhoto) + "' class='photo' src='" 
+        $("#" + countryCode).children().children().children(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + i + "' class='photo' src='" 
           + photo_standard.url + "' width='300' height='300'><figcaption><p></p></figcaption></figure></a></li>");
 
-        /*$(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + (i + totalNumberOfPhoto) + "' class='photo' src='" 
-          + photo_standard.url + "' width='300' height='300'><figcaption><p></p></figcaption></figure></a></li>");*/
-        $("#photo_" + (i + totalNumberOfPhoto)).attr("origin_width", photo_standard.width);
-        $("#photo_" + (i + totalNumberOfPhoto)).attr("origin_height", photo_standard.height);
-        $("#photo_" + (i + totalNumberOfPhoto)).attr("time", result.data[i].created_time.toHHMMSS());
+        $("#photo_" + i).attr("origin_width", photo_standard.width);
+        $("#photo_" + i).attr("origin_height", photo_standard.height);
+        $("#photo_" + i).attr("time", result.data[i].created_time.toHHMMSS());
         if (result.data[i].caption !== null) {
-          $("#photo_" + (i + totalNumberOfPhoto)).siblings().children().text(result.data[i].caption.text);
+          $("#photo_" + i).siblings().children().text(result.data[i].caption.text);
         }
       }
 
@@ -126,6 +124,7 @@ function getUserPhotos() {
 
 }
 
+
 function addClickEvent() {
   $("figure").click(function(e) {
     if ($("#zoom_photo_container").css("display") == "none") {
@@ -133,6 +132,7 @@ function addClickEvent() {
     }
     var targetInfo = e.target.parentNode.parentNode.childNodes[0];
     $("#zoom_photo").attr("src", targetInfo.src);
+    $("#zoom_photo_container").attr("photo_id", targetInfo.id);
     var targetWidth = $("#"+targetInfo.id).attr("origin_width");
     var targetHeight = $("#"+targetInfo.id).attr("origin_height");
 
@@ -148,19 +148,42 @@ function addClickEvent() {
     } else {
       targetHeight = targetWidth;
     }
+    setZoomContainerPosition(targetWidth, targetHeight);
+  });
+}
+
+function setZoomContainerPosition(targetWidth, targetHeight) {
     var zoom_container_Div = $("#zoom_photo_container");
     
-    $("#zoom_photo").attr("width", parseInt(targetWidth) - 76);
-    $("#zoom_photo").attr("height", parseInt(targetHeight) - 60);
-    $("#zoom_photo").css("margin", "30px 28px 30px 28px");
+    $("#zoom_photo").attr({"width": parseInt(targetWidth) - 76, "height": parseInt(targetHeight) - 60});
+    $("#zoom_photo").css("margin", "30px 50px");
     var photoLeftPos = (window.innerWidth - targetWidth) / 2;
     var photoTopPos = (window.innerHeight - targetHeight) / 2;
-    zoom_container_Div.css({"width":parseInt(targetWidth) + 40, "height": parseInt(targetHeight)});
+    zoom_container_Div.css({"width":parseInt(targetWidth) + 65, "height": parseInt(targetHeight)});
     zoom_container_Div.css("left", photoLeftPos);
     zoom_container_Div.css("top", photoTopPos);
+    $(".arrow_image").css("top", (parseInt(targetHeight) - 64)/2);
     $(".photo-grid").css("opacity", "0.3");
-    //$(".zoom_btn").css("height", parseInt(targetHeight) - 60);
+    addArrowEvent();
+}
+
+function addArrowEvent() {
+  $("#rightBtn").unbind().click(function(e) {
+    var nextPhotoId = "photo_" + (parseInt($(this).parent("#zoom_photo_container").attr("photo_id").split("_")[1]) + 1);
+    showNextPhoto(nextPhotoId);
   });
+
+  $("#leftBtn").unbind().click(function(e) {
+    var nextPhotoId = "photo_" + (parseInt($(this).parent("#zoom_photo_container").attr("photo_id").split("_")[1]) - 1);
+    showNextPhoto(nextPhotoId);
+  });
+}
+
+function showNextPhoto(id) {
+    if($("#" + id).length > 0) {
+      $("#zoom_photo").attr("src", $("#" + id).attr("src"));
+      $("#zoom_photo_container").attr("photo_id", id);
+    }
 }
 
 String.prototype.toHHMMSS = function() {

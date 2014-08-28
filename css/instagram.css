@@ -17,6 +17,7 @@
 	height: 100%;
 	top:0px;
 	z-index: 1510;
+	cursor: pointer;
 }
 
 #rightBtn {

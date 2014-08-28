@@ -78,6 +78,11 @@
 			// 3. This function creates an <iframe> (and YouTube player)
 			//    after the API code downloads.
 			var player;
+
+			// disable mouse right click on image.
+			$('img').bind('contextmenu', function(e) {
+    			return false;
+			}); 
 		});
 
 		function calculateDDay() {
@@ -184,7 +189,7 @@
 	</script>
 
 </head>
-<body>
+<body onselectstart="return false" ondragstart="return false">
 <ul id="menu">
 	<li data-menuanchor="firstPage"><a href="#firstPage" class="menu">HOME</a></li>
 	<li data-menuanchor="secondPage"><a href="#secondPage" class="menu">TRAVEL</a></li>
@@ -334,12 +339,12 @@
 </div>
 <script type="text/javascript">
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		  ga('create', 'UA-54082160-1', 'auto');
-		  ga('send', 'pageview');
+	ga('create', 'UA-54082160-1', 'auto');
+	ga('send', 'pageview');
 </script>
 </body>
 </html>

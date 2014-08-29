@@ -218,15 +218,10 @@ function writeJsonFromServer() {
               "traffic": "plane"
             },
             {
-              "name": "Huaraz",
+              "name": "Ica",
               "from": "2014/10/3",
               "to":"2014/10/8"
-            },
-            {
-              "name": "Huacachina",
-              "from": "2014/10/10",
-              "to":"2014/10/11"
-            },
+            }
             {
               "name": "Nasca",
               "from": "2014/10/11",
@@ -241,7 +236,12 @@ function writeJsonFromServer() {
               "name": "Ollantaytambo",
               "from": "2014/10/20",
               "to":"2014/10/22"
-            }
+            },
+            {
+              "name": "Puno",
+              "from": "2014/10/10",
+              "to":"2014/10/11"
+            },
           ]
         },
         {
@@ -261,7 +261,7 @@ function writeJsonFromServer() {
               "to":"2014/10/1"
             },
             {
-              "name": "Lapaz",
+              "name": "La Paz",
               "from": "2014/9/25",
               "to":"2014/10/1"
             },
@@ -274,11 +274,6 @@ function writeJsonFromServer() {
               "name": "Uyuni Salt Flat",
               "from": "2014/9/25",
               "to":"2014/10/1"
-            },
-            {
-              "name": "San Pedro de Atacama",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
             }
           ]
         },
@@ -288,6 +283,16 @@ function writeJsonFromServer() {
           "from":"2014/11/11",
           "to":"2014/11/30",
           "cities": [
+            {
+              "name": "San Pedro de Atacama",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "Calima",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
             {
               "name": "Santiago",
               "from": "2014/9/23",
@@ -304,7 +309,22 @@ function writeJsonFromServer() {
               "to":"2014/10/1"
             },
             {
+              "name": "Bariloche",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
               "name": "Puerto Montt",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "Punta Arenas",
+              "from": "2014/9/25",
+              "to":"2014/10/1"
+            },
+            {
+              "name": "Puerto Natales",
               "from": "2014/9/25",
               "to":"2014/10/1"
             },
@@ -327,17 +347,12 @@ function writeJsonFromServer() {
               "to":"2014/9/25"
             },
             {
-              "name": "El Chalten",
+              "name": "El Chaltén",
               "from": "2014/9/25",
               "to":"2014/10/1"
             },
             {
               "name": "Buenos Aires",
-              "from": "2014/9/25",
-              "to":"2014/10/1"
-            },
-            {
-              "name": "Ushuaia",
               "from": "2014/9/25",
               "to":"2014/10/1"
             }
@@ -350,7 +365,7 @@ function writeJsonFromServer() {
           "to":"2014/12/18",
           "cities": [
             {
-              "name": "Iguazu Falls",
+              "name": "Puerto Iguazu",
               "from": "2014/9/23",
               "to":"2014/9/25"
             },
@@ -362,7 +377,7 @@ function writeJsonFromServer() {
             {
               "name": "São Paulo",
               "from": "2014/12/15",
-              "to":"2014/12/17"
+              "to":"2014/12/18"
             }
           ]
         },

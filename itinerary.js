@@ -221,7 +221,7 @@ function writeJsonFromServer() {
               "name": "Ica",
               "from": "2014/10/3",
               "to":"2014/10/8"
-            }
+            },
             {
               "name": "Nasca",
               "from": "2014/10/11",

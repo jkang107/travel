@@ -21,7 +21,7 @@ function createWorldMap(selectedCountries) {
       }
     },
 
-        selectedRegions: selectedCountries,
+    selectedRegions: selectedCountries,
 
         /*selectedMarkers: JSON.parse( window.localStorage.getItem('jvectormap-selected-markers') || '[]'),*/
         /*onMarkerLabelShow: function(event, label, index){

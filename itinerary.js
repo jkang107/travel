@@ -304,7 +304,7 @@ function writeJsonFromServer() {
 					"name": "Bariloche",
 					"from": "2014/9/25",
 					"to": "2014/10/1"
-				}, {
+				}/*, {
 					"name": "Puerto Montt",
 					"from": "2014/9/25",
 					"to": "2014/10/1"
@@ -320,7 +320,7 @@ function writeJsonFromServer() {
 					"name": "Torres del Paine",
 					"from": "2014/9/25",
 					"to": "2014/10/1"
-				}]
+				}*/]
 			}, {
 				"code": "AR",
 				"country": "Argentina",

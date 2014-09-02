@@ -34,7 +34,7 @@
 }
 
 .photo-grid {
-	margin: 1em auto;
+	margin: 1em 1em;
 	max-width: 1500px;
 	text-align: center;
 	overflow-y: auto;

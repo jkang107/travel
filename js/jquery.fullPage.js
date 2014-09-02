@@ -467,12 +467,13 @@
 			//console.log("e.target.tagName: " + e.target.tagName);
 			// added by jinah kang
 			if(e.target.tagName == "svg" || e.target.tagName == "path" || e.target.tagName == "circle" 
-				|| e.target.parentElement.tagName == "FIGCAPTION" || e.target.className == "photo-grid" || e.target.parentNode.className == "photo-grid" || e.target.id == "zoom_photo") {
+				|| e.target.parentElement.tagName == "FIGCAPTION" || e.target.className == "photo-grid" || e.target.parentNode.className == "photo-grid" || e.target.id == "zoom_photo"
+				|| e.target.className == "zoom_btn" || e.target.className == "arrow_image") {
 				return;
 			}
 			if($("#zoom_photo_container").css("display") != "none") {
             	$("#zoom_photo_container").hide();  
-            	$("#photo").css("opacity", 1.0);
+            	$(".photo-grid").css("opacity", 1.0);
           	}
 
 			if(options.autoScrolling){

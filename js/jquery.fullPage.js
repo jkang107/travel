@@ -472,8 +472,7 @@
 				return;
 			}
 			if($("#zoom_photo_container").css("display") != "none") {
-            	$("#zoom_photo_container").hide();  
-            	$(".photo-grid").css("opacity", 1.0);
+            	hideZoomContainer();
           	}
 
 			if(options.autoScrolling){
@@ -814,8 +813,7 @@
 			//not that fast my friend! :)
 			
 			if($("#zoom_photo_container").css("display") != "none") {
-            	$("#zoom_photo_container").hide();  
-            	$(".photo-grid").css("opacity", 1.0);
+            	hideZoomContainer();
           	}
 
 			if (slideMoving) {
@@ -1221,6 +1219,12 @@
 		* Scrolls to the given section and slide 
 		*/
 		function scrollPageAndSlide(destiny, slide){
+
+			// add by jinah
+			if($("#zoom_photo_container").css("display") == "block") {
+				hideZoomContainer();
+			}
+			
 			if (typeof slide === 'undefined') {
 			    slide = 0;
 			}

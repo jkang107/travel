@@ -797,9 +797,9 @@ function mouseEventHandler(e) {
 	});
 
 	$(".close_img").click(function(e) {
-		$(".photo-grid").css("opacity", 1.0);
+		//$(".photo-grid").css("opacity", 1.0);
 		if ($("#zoom_photo_container").css("display") != "none") {
-			$("#zoom_photo_container").hide();
+      hideZoomContainer();
 		} else if ($("#detailInfo").css("display") == "block") {
 			$("#detailInfo").css("display", "none");
 			$(".detail_container").remove();

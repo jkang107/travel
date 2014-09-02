@@ -1,7 +1,13 @@
 #zoom_photo_container {
 	position:fixed;
 	z-index: 1500;
-	background-color: #434141;
+	/* background-color: #434141; */
+	background: transparent;
+}
+#zoom_photo {
+	border: 2px solid #555;
+	background: transparent;
+	padding: 2px;
 }
 #zoom_close {
 	z-index: 1550;
@@ -34,11 +40,12 @@
 }
 
 .photo-grid {
-	margin: 1em 1em;
+	margin: 1em auto;
 	max-width: 1500px;
 	text-align: center;
 	overflow-y: auto;
 	max-height: 690px;
+
 }
  
 .photo-grid li {

@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 
 	/* 
@@ -11,8 +10,8 @@ $(document).ready(function() {
 });
 
 function toTimeZone(time, zone) {
-    var format = 'YYYY/MM/DD HH:mm:ss ZZ';
-    return moment(time, format).tz(zone).format(format);
+	var format = 'YYYY/MM/DD HH:mm:ss ZZ';
+	return moment(time, format).tz(zone).format(format);
 }
 
 function addCountryTimeInfo() {
@@ -31,20 +30,21 @@ function addCountryTimeInfo() {
 
 	//startTime();
 }
+
 function setCountryTime() {
 	var a = moment();
 
-	var Lima    = toTimeZone(a, "America/Lima");
-	var LosAngeles = toTimeZone(a,"America/Los_Angeles");
-	var LaPaz     = toTimeZone(a,"America/La_Paz");
-	var Santiago  = toTimeZone(a, "America/Santiago");
-	var Argentina = toTimeZone(a,"America/Argentina/Buenos_Aires");
-	var SaoPaulo = toTimeZone(a,"America/Sao_Paulo");
-	var Berlin    = toTimeZone(a, "Europe/Berlin");
-	var Rome = toTimeZone(a,"Europe/Rome");
-	var Zagrbe     = toTimeZone(a,"Europe/Belgrade");
-	var Istanbul    = toTimeZone(a, "Asia/Istanbul");
-	var Korea    = toTimeZone(a, "Asia/Tokyo");
+	var Lima = toTimeZone(a, "America/Lima");
+	var LosAngeles = toTimeZone(a, "America/Los_Angeles");
+	var LaPaz = toTimeZone(a, "America/La_Paz");
+	var Santiago = toTimeZone(a, "America/Santiago");
+	var Argentina = toTimeZone(a, "America/Argentina/Buenos_Aires");
+	var SaoPaulo = toTimeZone(a, "America/Sao_Paulo");
+	var Berlin = toTimeZone(a, "Europe/Berlin");
+	var Rome = toTimeZone(a, "Europe/Rome");
+	var Zagrbe = toTimeZone(a, "Europe/Belgrade");
+	var Istanbul = toTimeZone(a, "Asia/Istanbul");
+	var Korea = toTimeZone(a, "Asia/Tokyo");
 
 	addCountryBoard("Korea", Korea);
 	addCountryBoard("LosAngeles", LosAngeles);
@@ -57,12 +57,15 @@ function setCountryTime() {
 	//addCountryBoard("Rome", Rome);
 	//addCountryBoard("Zagrbe", Zagrbe);
 	addCountryBoard("Istanbul", Istanbul);
-	
+
 
 	isTimeBoardCreated = true;
-	if(innerWidth < 1015) {
+	if (innerWidth < 1015) {
 		$(".board").css("margin", "35px auto 0px");
-		$("#time").children(".zone").css({"width": "20%", "margin":"15px 10px"});
+		$("#time").children(".zone").css({
+			"width": "20%",
+			"margin": "15px 10px"
+		});
 	}
 }
 
@@ -70,12 +73,12 @@ var isTimeBoardCreated = false;
 
 function addCountryBoard(country, time) {
 	var onlyTime = time.split(" ")[1];
-	if(!isTimeBoardCreated) {
+	if (!isTimeBoardCreated) {
 		$("#time").append("<div id='" + country + "' class='zone'></div>");
 
 		var representativeCountry;
 		$("#" + country).append("<div class='zone_name'></div><div class='zone_value'>" + onlyTime + "</div>");
-		switch(country) {
+		switch (country) {
 			/*case "LaPaz":
 				representativeCountry = "Lapaz / Santiago";
 				break;
@@ -85,9 +88,8 @@ function addCountryBoard(country, time) {
 			case "Berlin":
 				representativeCountry = "Berlin / Rome";
 				break;*/
-			default:
-				representativeCountry = country;
-				break;
+			default: representativeCountry = country;
+			break;
 		}
 		$("#" + country).children(".zone_name").text(representativeCountry);
 	} else {
@@ -98,11 +100,11 @@ function addCountryBoard(country, time) {
 
 function addExchangeRate() {
 	getRate("USD", "KRW");
-  	getRate("USD", "EUR");
-  	getRate("USD", "PEN");
-  	getRate("USD", "BOB");
-  	getRate("USD", "ARS");
-  	getRate("USD", "BRL");
+	getRate("USD", "EUR");
+	getRate("USD", "PEN");
+	getRate("USD", "BOB");
+	getRate("USD", "ARS");
+	getRate("USD", "BRL");
 
 
 }
@@ -110,7 +112,7 @@ function addExchangeRate() {
 function getRate(from, to) {
 	var script = document.createElement('script');
 	//script.setAttribute('src', "http://query.yahooapis.com/v1/public/yql?q=select%20rate%2Cname%20from%20csv%20where%20url%3D'http%3A%2F%2Fdownload.finance.yahoo.com%2Fd%2Fquotes%3Fs%3D"+from+to+"%253DX%26f%3Dl1n'%20and%20columns%3D'rate%2Cname'&format=json&callback=parseExchangeRate");
-	script.setAttribute('src', "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20(%22"+from+to+"%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=parseExchangeRate");
+	script.setAttribute('src', "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20(%22" + from + to + "%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=parseExchangeRate");
 	document.body.appendChild(script);
 }
 
@@ -122,47 +124,51 @@ function parseExchangeRate(data) {
 	//console.log("Exchange rate " + name + " is " + rate);
 	addExchangeRateBoard(name, rate);
 }
-  
+
 function addExchangeRateBoard(name, rate) {
-	var rateId = name.replace(/ /gi,"_");
-	if($("#" + rateId).length < 1){ 
+	var rateId = name.replace(/ /gi, "_");
+	if ($("#" + rateId).length < 1) {
 		$("#exchangeRate.board").append("<div id='" + rateId + "' class='zone'></div>");
 		$("#" + rateId).append("<div class='zone_name'>" + name + "</div>");
 		$("#" + rateId).append("<div class='zone_value'>" + rate + "</div>");
 	}
 
-	if(innerWidth < 1015) {
+	if (innerWidth < 1015) {
 		//$(".zone").css({"width": "20%", "margin":"15px 10px"});
 		//$(".board").css("margin", "35px auto 0px");
 		//$("#time").children(".zone").css({"width": "20%", "margin":"15px 10px"});
-		$("#exchangeRate").children(".zone").css({"width": "30%", "margin":"15px 10px"});
+		$("#exchangeRate").children(".zone").css({
+			"width": "30%",
+			"margin": "15px 10px"
+		});
 	}
 }
 
 
 
 function getWeatherInfo(cityName) {
-  // http://openweathermap.org/city
-  
-  var openWeatherURL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + cityName + "&mode=json&units=metric&cnt=3";
-  $.ajax({
-    url: openWeatherURL,
-    type: 'GET',
-    success:function(data) {
-      console.log("success get weather!");
-      for(var i = 0; i < data.list.length; i++) {
-        //var date = toHHMMSS(data.list[i].dt);
-        var description = data.list[i].weather[0].description;
-        var icon = data.list[i].weather[0].icon;
-        var iconSrc = "http://openweathermap.org/img/w/" + icon + ".png";
-        // http://openweathermap.org/img/w/10d.png
-        var min = data.list[i].temp.min;
-        var max = data.list[i].temp.max;
-      }
-    }, error: function(error, text) {
-      console.log("error: " + error + " / " + text);
-    }
-  });
+	// http://openweathermap.org/city
+
+	var openWeatherURL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + cityName + "&mode=json&units=metric&cnt=3";
+	$.ajax({
+		url: openWeatherURL,
+		type: 'GET',
+		success: function(data) {
+			console.log("success get weather!");
+			for (var i = 0; i < data.list.length; i++) {
+				//var date = toHHMMSS(data.list[i].dt);
+				var description = data.list[i].weather[0].description;
+				var icon = data.list[i].weather[0].icon;
+				var iconSrc = "http://openweathermap.org/img/w/" + icon + ".png";
+				// http://openweathermap.org/img/w/10d.png
+				var min = data.list[i].temp.min;
+				var max = data.list[i].temp.max;
+			}
+		},
+		error: function(error, text) {
+			console.log("error: " + error + " / " + text);
+		}
+	});
 }
 
 function stopTime() {
@@ -176,5 +182,3 @@ function startTime() {
 		setCountryTime();
 	}, 1000);
 }
-
-

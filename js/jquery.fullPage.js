@@ -1079,7 +1079,7 @@
 		 * Activating the website main menu elements according to the given slide name.
 		 */
 		function activateMenuElement(name){
-			if(name == "5thpage") {
+			if(name == "5thPage") {
 				startTime();
 			} else {
 				stopTime();

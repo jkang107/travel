@@ -76,6 +76,9 @@ p{
 	-webkit-border-radius: 10px; 
             border-radius: 10px; 
             /* width: 10%; */
+    font-family: 'Raleway', sans-serif;
+    font-style: Semi-Bold;
+	font-weight: 600;
 }
 #menu li.active{
 	background:#666;

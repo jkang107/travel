@@ -11,10 +11,14 @@
 </style>
 <script>
 	$(document).ready(function() {
-		readMessageFromServer();
-
+		$("#checkPW").click(function(e) {
+			if($("input").val() == "07240724") {
+				readMessageFromServer();
+			}
+		});
 	});
 
+	
 	var messageJson;
 	function readMessageFromServer() {
 
@@ -49,6 +53,7 @@
 </script>
 </head>
 <body>
-
+	Password: <input type="password" name="pwd">
+	<button id='checkPW'> OK </button>
 </body>
 </html>

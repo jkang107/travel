@@ -41,9 +41,14 @@
 		for(var i=0; i<messageJson.length; i++) {
 			if(messageJson[i].name == '"700"') {
 				var msg = messageJson[i].message.replace(/\\n/gi, "<br/>").replace(/\"/gi, "");
-			$("body").append("<div class='messageBox'><div class='name'>From: " 
-				+ messageJson[i].name + "  |  " + messageJson[i].time+"</div><div class='message'>Message: " 
-				+ msg + "</div></div>");
+				$("body").append("<div class='messageBox' style='color:blue;'><div class='name'>From: " 
+					+ messageJson[i].name + "  |  " + messageJson[i].time+"</div><div class='message'>Message: " 
+					+ msg + "</div></div>");
+			} else if(messageJson[i].name.toLowerCase() == '"taek"') {
+				var msg = messageJson[i].message.replace(/\\n/gi, "<br/>").replace(/\"/gi, "");
+				$("body").append("<div class='messageBox' style='color:pink;'><div class='name'>From: " 
+					+ messageJson[i].name + "  |  " + messageJson[i].time+"</div><div class='message'>Message: " 
+					+ msg + "</div></div>");
 			}
 			
 		}

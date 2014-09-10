@@ -208,13 +208,13 @@ function writeJsonFromServer() {
 				"from": "2014/9/23",
 				"to": "2014/10/1",
 				"cities": [{
-					"name": "Los Angeles",
+					"name": "San Francisco",
 					"from": "2014/9/23",
-					"to": "2014/9/25",
+					"to": "2014/9/26",
 					"traffic": "plane"
 				}, {
-					"name": "San Francisco",
-					"from": "2014/9/25",
+					"name": "Los Angeles",
+					"from": "2014/9/26",
 					"to": "2014/10/1",
 					"traffic": "bus"
 				}]

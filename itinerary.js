@@ -239,7 +239,8 @@ function writeJsonFromServer() {
 				}, {
 					"name": "Cusco",
 					"from": "2014/10/13",
-					"to": "2014/10/16"
+					"to": "2014/10/16",
+					"traffic": "plane"
 				}, {
 					"name": "Ollantaytambo",
 					"from": "2014/10/17",
@@ -331,7 +332,8 @@ function writeJsonFromServer() {
 				}, {
 					"name": "Rio de Janeiro",
 					"from": "2014/12/15",
-					"to": "2014/12/16"
+					"to": "2014/12/16",
+					"traffic": "plane"
 				}, {
 					"name": "São Paulo",
 					"from": "2014/12/16",
@@ -350,7 +352,8 @@ function writeJsonFromServer() {
 				}, {
 					"name": "Fussen",
 					"from": "2014/12/22",
-					"to": "2014/12/23"
+					"to": "2014/12/23",
+					"traffic": "train"
 				}]
 			}, {
 				"code": "AT",
@@ -827,7 +830,7 @@ function showDetailInfo() {
 		var traffic_img;
 		switch (data[i].traffic) {
 			case "train":
-				traffic_img = 'airplane_64.png';
+				traffic_img = 'train20.png';
 				break;
 			case "plane":
 				traffic_img = 'airplane_64.png';

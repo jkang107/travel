@@ -103,7 +103,11 @@
 			var startDate = new Date(2014,09,23);
 
 			var diffDays = Math.round((todayDate.getTime() - startDate.getTime())/(oneDay));
-
+			if(diffDays == 0 || diffDays == "0") {
+				diffDays = "Day";
+			} else if(diffDays > 0) {
+				diffDays = "+" + diffDays;
+			}
 			$("#worldMapStr").text("D" + diffDays);
 		}
 		/* YouTube API */

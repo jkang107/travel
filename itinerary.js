@@ -51,6 +51,9 @@ function createWorldMap(selectedCountries) {
 			latLng: [34.5128266, -117.1064505],
 			name: 'Los Angeles'
 		}, {
+			latLng: [37.7749300, -122.4194200],
+			name: 'San Francisco'
+		}, {
 			latLng: [-11.922874, -77.022283],
 			name: 'Lima'
 		}, {
@@ -211,12 +214,15 @@ function writeJsonFromServer() {
 					"name": "San Francisco",
 					"from": "2014/9/23",
 					"to": "2014/9/26",
-					"traffic": "plane"
+					"traffic": "plane",
+					"play" : "Pier 39/Fisherman's wharf/Lombard Street/Cable Car",
+					"sleep" : "Green tortoise hostel/4"
 				}, {
 					"name": "Los Angeles",
 					"from": "2014/9/26",
 					"to": "2014/10/1",
-					"traffic": "bus"
+					"traffic": "bus",
+					"sleep" : "하모니 하우스/2"
 				}]
 			}, {
 				"code": "PE",

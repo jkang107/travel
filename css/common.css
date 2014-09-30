@@ -412,7 +412,7 @@ p{
 	-webkit-font-smoothing: antialiased;
 }
 
-.detail_container img {
+.titleImg {
 	position:relative;
 	margin: 5px;
 	width:48px;
@@ -435,6 +435,9 @@ p{
 	font-family: 'Montserrat', serif;
 }
 
+.hostel_name {
+	margin-right: 10px; 
+}
 .close_img {
 	cursor: pointer;
 	width:30px;

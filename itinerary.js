@@ -215,13 +215,14 @@ function writeJsonFromServer() {
 					"from": "2014/9/23",
 					"to": "2014/9/26",
 					"traffic": "plane",
-					"play" : "Pier 39/Fisherman's wharf/Lombard Street/Cable Car",
+					"play" : "Pier 39 / Fisherman's wharf / Lombard Street / Cable Car",
 					"sleep" : "Green tortoise hostel/4"
 				}, {
 					"name": "Los Angeles",
 					"from": "2014/9/26",
 					"to": "2014/10/1",
 					"traffic": "bus",
+					"play": "Universal Studios / Hollywood",
 					"sleep" : "하모니 하우스/2"
 				}]
 			}, {
@@ -233,28 +234,40 @@ function writeJsonFromServer() {
 					"name": "Lima",
 					"from": "2014/10/1",
 					"to": "2014/10/3",
-					"traffic": "plane"
+					"traffic": "plane",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Huaraz",
 					"from": "2014/10/3",
-					"to": "2014/10/8"
+					"to": "2014/10/8",
+					"play": "",
+					"sleep":""
 				},{
 					"name": "Ica",
 					"from": "2014/10/11",
-					"to": "2014/10/12"
+					"to": "2014/10/12",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Cusco",
 					"from": "2014/10/13",
 					"to": "2014/10/16",
-					"traffic": "plane"
+					"traffic": "plane",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Ollantaytambo",
 					"from": "2014/10/17",
-					"to": "2014/10/18"
+					"to": "2014/10/18",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Puno",
 					"from": "2014/10/19",
-					"to": "2014/10/21"
+					"to": "2014/10/21",
+					"play": "",
+					"sleep":""
 				}]
 			}, {
 				"code": "BO",
@@ -264,23 +277,33 @@ function writeJsonFromServer() {
 				"cities": [{
 					"name": "Copacabana",
 					"from": "2014/10/21",
-					"to": "2014/10/22"
+					"to": "2014/10/22",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Isla del Sol",
 					"from": "2014/10/22",
-					"to": "2014/10/23"
+					"to": "2014/10/23",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "La Paz",
 					"from": "2014/10/23",
-					"to": "2014/10/24"
+					"to": "2014/10/24",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Sucre",
 					"from": "2014/10/24",
-					"to": "2014/10/29"
+					"to": "2014/10/29",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Uyuni Salt Flat",
 					"from": "2014/10/29",
-					"to": "2014/11/02"
+					"to": "2014/11/02",
+					"play": "",
+					"sleep":""
 				}]
 			}, {
 				"code": "CL",
@@ -290,23 +313,33 @@ function writeJsonFromServer() {
 				"cities": [{
 					"name": "San Pedro de Atacama",
 					"from": "2014/11/3",
-					"to": "2014/11/6"
+					"to": "2014/11/6",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Santiago",
 					"from": "2014/11/7",
-					"to": "2014/11/9"
+					"to": "2014/11/9",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Pucón",
 					"from": "2014/11/9",
-					"to": "2014/11/14"
+					"to": "2014/11/14",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Bariloche",
 					"from": "2014/11/15",
-					"to": "2014/11/19"
+					"to": "2014/11/19",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Torres del Paine",
 					"from": "2014/11/20",
-					"to": "2014/11/26"
+					"to": "2014/11/26",
+					"play": "",
+					"sleep":""
 				}]
 			}, {
 				"code": "AR",
@@ -316,15 +349,21 @@ function writeJsonFromServer() {
 				"cities": [{
 					"name": "Calafate",
 					"from": "2014/11/27",
-					"to": "2014/12/1"
+					"to": "2014/12/1",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Ushuaia",
 					"from": "2014/12/1",
-					"to": "2014/12/5"
+					"to": "2014/12/5",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Buenos Aires",
 					"from": "2014/12/6",
-					"to": "2014/12/14"
+					"to": "2014/12/14",
+					"play": "",
+					"sleep":""
 				}]
 			}, {
 				"code": "BR",
@@ -334,16 +373,22 @@ function writeJsonFromServer() {
 				"cities": [{
 					"name": "Puerto Iguazu",
 					"from": "2014/12/14",
-					"to": "2014/12/15"
+					"to": "2014/12/15",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Rio de Janeiro",
 					"from": "2014/12/15",
 					"to": "2014/12/16",
-					"traffic": "plane"
+					"traffic": "plane",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "São Paulo",
 					"from": "2014/12/16",
-					"to": "2014/12/17"
+					"to": "2014/12/17",
+					"play": "",
+					"sleep":""
 				}]
 			}, {
 				"code": "DE",
@@ -354,12 +399,16 @@ function writeJsonFromServer() {
 					"name": "München",
 					"from": "2014/12/18",
 					"to": "2014/12/22",
-					"traffic": "plane"
+					"traffic": "plane",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Fussen",
 					"from": "2014/12/22",
 					"to": "2014/12/23",
-					"traffic": "train"
+					"traffic": "train",
+					"play": "",
+					"sleep":""
 				}]
 			}, {
 				"code": "AT",
@@ -369,11 +418,15 @@ function writeJsonFromServer() {
 				"cities": [{
 					"name": "Salzburg",
 					"from": "2014/12/24",
-					"to": "2014/12/27"
+					"to": "2014/12/27",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Hallstatt",
 					"from": "2014/12/27",
-					"to": "2014/12/31"
+					"to": "2014/12/31",
+					"play": "",
+					"sleep":""
 				}]
 			}, {
 				"code": "IT",
@@ -383,23 +436,33 @@ function writeJsonFromServer() {
 				"cities": [{
 					"name": "Venice",
 					"from": "2015/1/1",
-					"to": "2015/1/6"
+					"to": "2015/1/6",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Milano",
 					"from": "2015/1/6",
-					"to": "2015/1/9"
+					"to": "2015/1/9",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Rome",
 					"from": "2015/1/9",
-					"to": "2015/1/25"
+					"to": "2015/1/25",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Florence",
 					"from": "2015/1/25",
-					"to": "2015/1/27"
+					"to": "2015/1/27",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Napoli",
 					"from": "2015/1/27",
-					"to": "2015/2/5"
+					"to": "2015/2/5",
+					"play": "",
+					"sleep":""
 				}]
 			}, {
 				"code": "HR",
@@ -410,15 +473,21 @@ function writeJsonFromServer() {
 					"name": "Zagreb",
 					"from": "2015/2/6",
 					"to": "2015/2/7",
-					"traffic": "plane"
+					"traffic": "plane",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Split",
 					"from": "2015/2/7",
-					"to": "2015/2/10"
+					"to": "2015/2/10",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Dubrovnik",
 					"from": "2015/2/11",
-					"to": "2015/2/18"
+					"to": "2015/2/18",
+					"play": "",
+					"sleep":""
 				}]
 			}, {
 				"code": "TR",
@@ -429,15 +498,21 @@ function writeJsonFromServer() {
 					"name": "Istanbul",
 					"from": "2015/2/18",
 					"to": "2015/2/23",
-					"traffic": "plane"
+					"traffic": "plane",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Cappadocia",
 					"from": "2015/2/23",
-					"to": "2015/2/25"
+					"to": "2015/2/25",
+					"play": "",
+					"sleep":""
 				}, {
 					"name": "Pamukkale",
 					"from": "2015/2/25",
-					"to": "2015/3/1"
+					"to": "2015/3/1",
+					"play": "",
+					"sleep":""
 				}]
 			}, {
 				"code": "KR",
@@ -846,9 +921,18 @@ function showDetailInfo() {
 				traffic_img = 'bus.png';
 				break;
 		}
-		$("#detail_" + i).append("<div class='cityContent traffic' style='height:" + (contentHeight - 10) + "px'><img src='./image/black_flat_icons/" + traffic_img + "'><div class='term'>" + data[i].from.substring(5) + " ~ " + data[i].to.substring(5) + "</div></div>");
-		$("#detail_" + i).append("<div class='cityContent attraction' style='height:" + (contentHeight + 20) + "px'><img src='./image/black_flat_icons/map_64.png'></div>");
-		$("#detail_" + i).append("<div class='cityContent accommodation' style='height:" + (contentHeight - 10) + "px'><img src='./image/black_flat_icons/hotel_64.png'></div>");
+		$("#detail_" + i).append("<div class='cityContent traffic' style='height:" + (contentHeight - 10) + "px'><img class='titleImg' src='./image/black_flat_icons/" + traffic_img + "'><div class='term'>" + data[i].from.substring(5) + " ~ " + data[i].to.substring(5) + "</div></div>");
+		$("#detail_" + i).append("<div class='cityContent attraction' style='height:" + (contentHeight + 20) + "px'><img class='titleImg' src='./image/black_flat_icons/map_64.png'><div class='term'>" + data[i].play + "</div></div>");
+		var appendStar = "";
+		if(data[i].sleep.split("/")[0]) {
+			var starNum = data[i].sleep.split("/")[1];
+			
+			for(var j = 0; j < starNum; j++) {
+				appendStar += "<img class='hostelScore' src='./image/star16.png'>";
+			}
+		}
+		$("#detail_" + i).append("<div class='cityContent accommodation' style='height:" + (contentHeight - 10) + "px'><img class='titleImg' src='./image/black_flat_icons/hotel_64.png'><div><span class='term hostel_name'>" + data[i].sleep.split("/")[0] + "</span>" + appendStar + "</div></div>");
+
 		//getWeatherInfo(data[i].name);
 	}
 }

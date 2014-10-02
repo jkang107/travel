@@ -812,7 +812,7 @@ function drawLine(num, direction) {
 
 
 function highlightRoute() {
-	var num = 2;
+	var num = 3;
 	setInterval(function() {
 		if ($("#circle_" + num).css("color") == "rgb(255, 255, 255)") {
 			$("#circle_" + num).css("color", "#4B4646");

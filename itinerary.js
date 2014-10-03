@@ -233,16 +233,16 @@ function writeJsonFromServer() {
 				"cities": [{
 					"name": "Lima",
 					"from": "2014/10/1",
-					"to": "2014/10/3",
+					"to": "2014/10/2",
 					"traffic": "plane",
 					"play": "",
-					"sleep":""
+					"sleep":"포비네/4"
 				}, {
 					"name": "Huaraz",
-					"from": "2014/10/3",
+					"from": "2014/10/2",
 					"to": "2014/10/8",
-					"play": "",
-					"sleep":""
+					"play": "69 Lake / Santa Cruz trek",
+					"sleep":"Akilpo/4"
 				},{
 					"name": "Ica",
 					"from": "2014/10/11",

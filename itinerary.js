@@ -216,14 +216,14 @@ function writeJsonFromServer() {
 					"to": "2014/9/26",
 					"traffic": "plane",
 					"play" : "Pier 39 / Fisherman's wharf / Lombard Street / Cable Car",
-					"sleep" : "Green tortoise hostel/4"
+					"sleep" : "Green tortoise hostel/3"
 				}, {
 					"name": "Los Angeles",
 					"from": "2014/9/26",
 					"to": "2014/10/1",
 					"traffic": "bus",
 					"play": "Universal Studios / Hollywood",
-					"sleep" : "하모니 하우스/2"
+					"sleep" : "하모니 하우스/1"
 				}]
 			}, {
 				"code": "PE",

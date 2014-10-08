@@ -236,29 +236,29 @@ function writeJsonFromServer() {
 					"to": "2014/10/2",
 					"traffic": "plane",
 					"play": "",
-					"sleep":"포비네/4"
+					"sleep":"포비네/3"
 				}, {
 					"name": "Huaraz",
 					"from": "2014/10/2",
 					"to": "2014/10/8",
-					"play": "69 Lake / Santa Cruz trek",
-					"sleep":"Akilpo/4"
+					"play": "69 Lake / Pastoruri Glacier",
+					"sleep":"Akilpo/5"
 				},{
 					"name": "Ica",
-					"from": "2014/10/11",
-					"to": "2014/10/12",
+					"from": "2014/10/9",
+					"to": "2014/10/10",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Cusco",
-					"from": "2014/10/13",
-					"to": "2014/10/16",
+					"from": "2014/10/11",
+					"to": "2014/10/15",
 					"traffic": "plane",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Ollantaytambo",
-					"from": "2014/10/17",
+					"from": "2014/10/16",
 					"to": "2014/10/18",
 					"play": "",
 					"sleep":""

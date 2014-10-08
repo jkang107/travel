@@ -92,13 +92,13 @@ function getUserPhotos() {
 				//var latitude = locationInfo.latitude;
 				//var longitude = locationInfo.longitude
 
-				$("#" + countryCode).children().children().children(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + i + "' class='photo' src='" + photo_standard.url + "' width='300' height='300'><figcaption><p></p></figcaption></figure></a></li>");
+				$("#" + countryCode).children().children().children(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + (numOfCallAPI + i)+ "' class='photo' src='" + photo_standard.url + "' width='300' height='300'><figcaption><p></p></figcaption></figure></a></li>");
 
-				$("#photo_" + i).attr("origin_width", photo_standard.width);
-				$("#photo_" + i).attr("origin_height", photo_standard.height);
-				$("#photo_" + i).attr("time", result.data[i].created_time.toHHMMSS());
+				$("#photo_" + (numOfCallAPI+i)).attr("origin_width", photo_standard.width);
+				$("#photo_" + (numOfCallAPI+i)).attr("origin_height", photo_standard.height);
+				$("#photo_" + (numOfCallAPI+i)).attr("time", result.data[i].created_time.toHHMMSS());
 				if (result.data[i].caption !== null) {
-					$("#photo_" + i).siblings().children().text(result.data[i].caption.text);
+					$("#photo_" + (numOfCallAPI+i)).siblings().children().text(result.data[i].caption.text);
 				}
 			}
 
@@ -113,18 +113,20 @@ function getUserPhotos() {
 				userURL = result.pagination.next_url;
 				hasMoreImages = true;
 				//getUserPhotos();
-				$(".photo-grid").append("<button id='loadMore' style='width:300px; height:50px;'>Load more...</button>");
-				$("#loadMore").click(function(e) {
+				//$(".photo-grid").append("<button id='loadMore' style='width:300px; height:50px;'>Load more...</button>");
+				//$("#loadMore").click(function(e) {
+					
 					getUserPhotos();
-
-				});
+					numOfCallAPI += totalNumberOfPhoto;
+					
+				//});
 			}
 		}
 	});
 
 }
 
-
+var numOfCallAPI = 0;
 function addClickEvent() {
 	$("figure").click(function(e) {
 		if ($("#zoom_photo_container").css("display") == "none") {

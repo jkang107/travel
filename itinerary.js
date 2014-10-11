@@ -244,18 +244,18 @@ function writeJsonFromServer() {
 					"play": "69 Lake / Pastoruri Glacier",
 					"sleep":"Akilpo/5"
 				},{
-					"name": "Ica",
+					"name": "Ica/Huacachina",
 					"from": "2014/10/9",
 					"to": "2014/10/10",
-					"play": "",
-					"sleep":""
+					"play": "Buggy car tour",
+					"sleep":"Casa de Arena/3"
 				}, {
 					"name": "Cusco",
 					"from": "2014/10/11",
 					"to": "2014/10/15",
 					"traffic": "plane",
 					"play": "",
-					"sleep":""
+					"sleep":"Casa del Inka"
 				}, {
 					"name": "Ollantaytambo",
 					"from": "2014/10/16",

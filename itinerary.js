@@ -244,7 +244,7 @@ function writeJsonFromServer() {
 					"play": "69 Lake / Pastoruri Glacier",
 					"sleep":"Akilpo/5"
 				},{
-					"name": "Ica/Huacachina",
+					"name": "Huacachina",
 					"from": "2014/10/9",
 					"to": "2014/10/10",
 					"play": "Buggy car tour",
@@ -252,49 +252,37 @@ function writeJsonFromServer() {
 				}, {
 					"name": "Cusco",
 					"from": "2014/10/11",
-					"to": "2014/10/15",
+					"to": "2014/10/16",
 					"traffic": "plane",
-					"play": "",
-					"sleep":"Casa del Inka"
+					"play": "Plaza De Armas / 12 Angle Stone",
+					"sleep":"El Puma/4"
 				}, {
-					"name": "Ollantaytambo",
+					"name": "Machu Picchu",
 					"from": "2014/10/16",
-					"to": "2014/10/18",
-					"play": "",
-					"sleep":""
-				}, {
-					"name": "Puno",
-					"from": "2014/10/19",
-					"to": "2014/10/21",
+					"to": "2014/10/17",
 					"play": "",
 					"sleep":""
 				}]
 			}, {
 				"code": "BO",
 				"country": "Bolivia",
-				"from": "2014/10/21",
+				"from": "2014/10/18",
 				"to": "2014/11/2",
 				"cities": [{
 					"name": "Copacabana",
-					"from": "2014/10/21",
-					"to": "2014/10/22",
-					"play": "",
-					"sleep":""
-				}, {
-					"name": "Isla del Sol",
-					"from": "2014/10/22",
-					"to": "2014/10/23",
-					"play": "",
+					"from": "2014/10/18",
+					"to": "2014/10/19",
+					"play": "Isla del Sol",
 					"sleep":""
 				}, {
 					"name": "La Paz",
-					"from": "2014/10/23",
-					"to": "2014/10/24",
+					"from": "2014/10/20",
+					"to": "2014/10/21",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Sucre",
-					"from": "2014/10/24",
+					"from": "2014/10/22",
 					"to": "2014/10/29",
 					"play": "",
 					"sleep":""

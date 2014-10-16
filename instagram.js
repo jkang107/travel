@@ -70,6 +70,9 @@ function getUserPhotos() {
 			if ($("#loadMore").length > 0) {
 				$("#loadMore").remove();
 			}
+			console.log("totalNumberOfPhoto: " + totalNumberOfPhoto);
+			console.log("numOfCallAPI: " + numOfCallAPI);
+			
 			for (var i = 0; i < result.data.length; i++) {
 				var photo_standard = result.data[i].images.standard_resolution;
 				var locationInfo = result.data[i].location;
@@ -117,7 +120,7 @@ function getUserPhotos() {
 				//$("#loadMore").click(function(e) {
 					
 					getUserPhotos();
-					numOfCallAPI += totalNumberOfPhoto;
+					numOfCallAPI += result.data.length;
 					
 				//});
 			}

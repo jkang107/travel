@@ -44,46 +44,47 @@ function createWorldMap(selectedCountries) {
             );
           }
         },*/
-		markers: [{
-			latLng: [37.3, 127],
-			name: 'Seoul'
-		}, {
-			latLng: [34.5128266, -117.1064505],
-			name: 'Los Angeles'
-		}, {
-			latLng: [37.7749300, -122.4194200],
-			name: 'San Francisco'
-		}, {
-			latLng: [-11.922874, -77.022283],
-			name: 'Lima'
-		}, {
-			latLng: [-23.55, -46.63],
-			name: 'Sao Paulo'
-		}, {
-			latLng: [45.81, 15.98],
-			name: 'Zagreb'
-		}, {
-			latLng: [41, 28.5],
-			name: 'Istanbul'
-		}, {
-			latLng: [41.4, 12.36],
-			name: 'Rome'
-		}, {
-			latLng: [-19.01, -65.26],
-			name: 'Bolivia'
-		}, {
-			latLng: [-33.408461, -70.677856],
-			name: 'Chile'
-		}, {
-			latLng: [-34.616842, -58.354506],
-			name: 'Buenos Aires'
-		}, {
-			latLng: [48.134522, 11.579258],
-			name: 'Munich'
-		}, {
-			latLng: [47.817451, 13.030509],
-			name: 'Salzburg'
-		}],
+		// markers: [{
+		// 	latLng: [37.3, 127],
+		// 	name: 'Seoul'
+		// }, {
+		// 	latLng: [34.5128266, -117.1064505],
+		// 	name: 'Los Angeles'
+		// }, {
+		// 	latLng: [37.7749300, -122.4194200],
+		// 	name: 'San Francisco'
+		// }, {
+		// 	latLng: [-11.922874, -77.022283],
+		// 	name: 'Lima'
+		// }, {
+		// 	latLng: [-23.55, -46.63],
+		// 	name: 'Sao Paulo'
+		// }, {
+		// 	latLng: [45.81, 15.98],
+		// 	name: 'Zagreb'
+		// }, {
+		// 	latLng: [41, 28.5],
+		// 	name: 'Istanbul'
+		// }, {
+		// 	latLng: [41.4, 12.36],
+		// 	name: 'Rome'
+		// }, {
+		// 	latLng: [-19.01, -65.26],
+		// 	name: 'Bolivia'
+		// }, {
+		// 	latLng: [-33.408461, -70.677856],
+		// 	name: 'Chile'
+		// }, {
+		// 	latLng: [-34.616842, -58.354506],
+		// 	name: 'Buenos Aires'
+		// }, {
+		// 	latLng: [48.134522, 11.579258],
+		// 	name: 'Munich'
+		// }, {
+		// 	latLng: [47.817451, 13.030509],
+		// 	name: 'Salzburg'
+		// }],
+		
 		onRegionLabelShow: function(event, label, code) {
 			//label.html(label.html()+' (modified)');
 			label.html();
@@ -260,8 +261,8 @@ function writeJsonFromServer() {
 					"name": "Machu Picchu",
 					"from": "2014/10/16",
 					"to": "2014/10/17",
-					"play": "",
-					"sleep":""
+					"play": "Machu Picchu / Huayna Picchu",
+					"sleep":"Angle Hostel/3"
 				}]
 			}, {
 				"code": "BO",

@@ -44,7 +44,7 @@ function createWorldMap(selectedCountries) {
             );
           }
         },*/
-		// markers: [{
+		 markers: [{
 		// 	latLng: [37.3, 127],
 		// 	name: 'Seoul'
 		// }, {
@@ -69,8 +69,8 @@ function createWorldMap(selectedCountries) {
 		// 	latLng: [41.4, 12.36],
 		// 	name: 'Rome'
 		// }, {
-		// 	latLng: [-19.01, -65.26],
-		// 	name: 'Bolivia'
+		 	latLng: [-19.01, -65.26],
+		 	name: "I'm here. (Bolivia)"
 		// }, {
 		// 	latLng: [-33.408461, -70.677856],
 		// 	name: 'Chile'
@@ -83,7 +83,7 @@ function createWorldMap(selectedCountries) {
 		// }, {
 		// 	latLng: [47.817451, 13.030509],
 		// 	name: 'Salzburg'
-		// }],
+		 }],
 		
 		onRegionLabelShow: function(event, label, code) {
 			//label.html(label.html()+' (modified)');
@@ -801,7 +801,7 @@ function drawLine(num, direction) {
 
 
 function highlightRoute() {
-	var num = 3;
+	var num = 4;
 	setInterval(function() {
 		if ($("#circle_" + num).css("color") == "rgb(255, 255, 255)") {
 			$("#circle_" + num).css("color", "#4B4646");

@@ -268,13 +268,13 @@ function writeJsonFromServer() {
 				"code": "BO",
 				"country": "Bolivia",
 				"from": "2014/10/18",
-				"to": "2014/11/2",
+				"to": "2014/10/29",
 				"cities": [{
 					"name": "Copacabana",
 					"from": "2014/10/18",
 					"to": "2014/10/19",
 					"play": "Isla del Sol",
-					"sleep":"Inki"
+					"sleep":"Inki Kala/4"
 				}, {
 					"name": "La Paz",
 					"from": "2014/10/20",
@@ -286,7 +286,7 @@ function writeJsonFromServer() {
 					"from": "2014/10/22",
 					"to": "2014/10/25",
 					"play": "",
-					"sleep":"Pachamama Hostel"
+					"sleep":"Pachamama Hostel/4"
 				}, {
 					"name": "Uyuni Salt Flat",
 					"from": "2014/10/25",
@@ -297,18 +297,18 @@ function writeJsonFromServer() {
 			}, {
 				"code": "CL",
 				"country": "Chile",
-				"from": "2014/11/3",
+				"from": "2014/10/29",
 				"to": "2014/11/30",
 				"cities": [{
 					"name": "San Pedro de Atacama",
-					"from": "2014/11/3",
-					"to": "2014/11/6",
+					"from": "2014/10/30",
+					"to": "2014/11/3",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Santiago",
-					"from": "2014/11/7",
-					"to": "2014/11/9",
+					"from": "2014/11/3",
+					"to": "2014/11/5",
 					"play": "",
 					"sleep":""
 				}, {

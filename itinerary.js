@@ -274,23 +274,23 @@ function writeJsonFromServer() {
 					"from": "2014/10/18",
 					"to": "2014/10/19",
 					"play": "Isla del Sol",
-					"sleep":""
+					"sleep":"Inki"
 				}, {
 					"name": "La Paz",
 					"from": "2014/10/20",
 					"to": "2014/10/21",
-					"play": "",
-					"sleep":""
+					"play": "Death Road",
+					"sleep":"Pirwa Hostel/3"
 				}, {
 					"name": "Sucre",
 					"from": "2014/10/22",
-					"to": "2014/10/29",
+					"to": "2014/10/25",
 					"play": "",
-					"sleep":""
+					"sleep":"Pachamama Hostel"
 				}, {
 					"name": "Uyuni Salt Flat",
-					"from": "2014/10/29",
-					"to": "2014/11/02",
+					"from": "2014/10/25",
+					"to": "2014/10/29",
 					"play": "",
 					"sleep":""
 				}]

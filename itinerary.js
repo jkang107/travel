@@ -69,8 +69,8 @@ function createWorldMap(selectedCountries) {
 		// 	latLng: [41.4, 12.36],
 		// 	name: 'Rome'
 		// }, {
-		 	latLng: [-19.01, -65.26],
-		 	name: "I'm here. (Bolivia)"
+		 	latLng: [-22.90, -68.19],
+		 	name: "I'm here. (Chile)"
 		// }, {
 		// 	latLng: [-33.408461, -70.677856],
 		// 	name: 'Chile'
@@ -268,7 +268,7 @@ function writeJsonFromServer() {
 				"code": "BO",
 				"country": "Bolivia",
 				"from": "2014/10/18",
-				"to": "2014/10/29",
+				"to": "2014/10/28",
 				"cities": [{
 					"name": "Copacabana",
 					"from": "2014/10/18",
@@ -285,14 +285,14 @@ function writeJsonFromServer() {
 					"name": "Sucre",
 					"from": "2014/10/22",
 					"to": "2014/10/25",
-					"play": "",
+					"play": "FOOD FOOD FOOD",
 					"sleep":"Pachamama Hostel/4"
 				}, {
 					"name": "Uyuni Salt Flat",
 					"from": "2014/10/25",
-					"to": "2014/10/29",
-					"play": "",
-					"sleep":""
+					"to": "2014/10/28",
+					"play": "Uyuni Salt Flat Sunrise & Sunset Tour",
+					"sleep":"Hotel Avenida/4"
 				}]
 			}, {
 				"code": "CL",
@@ -301,7 +301,7 @@ function writeJsonFromServer() {
 				"to": "2014/11/30",
 				"cities": [{
 					"name": "San Pedro de Atacama",
-					"from": "2014/10/30",
+					"from": "2014/10/29",
 					"to": "2014/11/3",
 					"play": "",
 					"sleep":""
@@ -801,7 +801,7 @@ function drawLine(num, direction) {
 
 
 function highlightRoute() {
-	var num = 4;
+	var num = 5;
 	setInterval(function() {
 		if ($("#circle_" + num).css("color") == "rgb(255, 255, 255)") {
 			$("#circle_" + num).css("color", "#4B4646");

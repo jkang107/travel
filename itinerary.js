@@ -291,24 +291,54 @@ function writeJsonFromServer() {
 					"name": "Uyuni Salt Flat",
 					"from": "2014/10/25",
 					"to": "2014/10/28",
-					"play": "Uyuni Salt Flat Sunrise & Sunset Tour",
+					"play": "Uyuni Salt Flat Sunrise & Sunset",
 					"sleep":"Hotel Avenida/4"
 				}]
 			}, {
 				"code": "CL",
 				"country": "Chile",
 				"from": "2014/10/29",
-				"to": "2014/11/30",
+				"to": "2014/11/1",
 				"cities": [{
 					"name": "San Pedro de Atacama",
 					"from": "2014/10/29",
-					"to": "2014/11/3",
+					"to": "2014/11/1",
+					"play": "Valle de la Luna",
+					"sleep":"Intipara hostel/4"
+				}]
+			}, {
+				"code": "AR",
+				"country": "Argentina",
+				"from": "2014/11/1",
+				"to": "2014/11/6",
+				"cities": [{
+					"name": "Jujuy",
+					"from": "2014/11/1",
+					"to": "2014/11/2",
 					"play": "",
 					"sleep":""
 				}, {
+					"name": "Salta",
+					"from": "2014/11/2",
+					"to": "2014/11/4",
+					"play": "",
+					"sleep":""
+				}, {
+					"name": "Mendoza",
+					"from": "2014/11/4",
+					"to": "2014/11/6",
+					"play": "",
+					"sleep":""
+				}]
+			}, {
+				"code": "CL",
+				"country": "Chile",
+				"from": "2014/11/7",
+				"to": "2014/11/30",
+				"cities": [{
 					"name": "Santiago",
-					"from": "2014/11/3",
-					"to": "2014/11/5",
+					"from": "2014/11/7",
+					"to": "2014/11/8",
 					"play": "",
 					"sleep":""
 				}, {
@@ -333,8 +363,8 @@ function writeJsonFromServer() {
 			}, {
 				"code": "AR",
 				"country": "Argentina",
-				"from": "2014/11/27",
-				"to": "2014/12/13",
+				"from": "2014/11/26",
+				"to": "2014/12/14",
 				"cities": [{
 					"name": "Calafate",
 					"from": "2014/11/27",

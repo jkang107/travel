@@ -261,6 +261,7 @@ function writeJsonFromServer() {
 					"name": "Machu Picchu",
 					"from": "2014/10/16",
 					"to": "2014/10/17",
+					"traffic": "train",
 					"play": "Machu Picchu / Huayna Picchu",
 					"sleep":"Angle Hostel/3"
 				}]

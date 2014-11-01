@@ -780,7 +780,7 @@ function drawCircle(num, direction, country, from, isCity) {
 	}
 
 
-	if (num > 7) {
+	if (num > 9) {
 		if (num == dataSize) {
 			//black
 			$("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle + "px;'><div class='circle' style='width:50px; height:50px; background-color:#07314A;'></div><span id='circle_" + num + "' class='circle_no' style='color:white;'>" + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");

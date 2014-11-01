@@ -121,10 +121,10 @@ p{
 #section0 #title{
 	position: relative;
 	text-align:center;
-	font-size: 400%;
-	font-family: 'Indie Flower', serif;
-	font-weight: bold;
+	font-size: 350%;
+	font-family: 'Raleway', serif;
 	top:0px;
+	margin: 5px;
 }	
 
 #section1 .intro { 

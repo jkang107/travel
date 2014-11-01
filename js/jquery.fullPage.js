@@ -520,7 +520,7 @@
 							}
 						}else{
 							if(activeSection.attr("id") == "section4") {
-								stopTime();
+								//stopTime();
 							}
 							$.fn.fullpage.moveSectionUp();
 						}
@@ -1077,11 +1077,11 @@
 		 * Activating the website main menu elements according to the given slide name.
 		 */
 		function activateMenuElement(name){
-			if(name == "5thPage") {
-				startTime();
-			} else {
-				stopTime();
-			}
+			// if(name == "5thPage") {
+			// 	startTime();
+			// } else {
+			// 	stopTime();
+			// }
 			if(options.menu){
 				$(options.menu).find('.active').removeClass('active');
 				$(options.menu).find('[data-menuanchor="'+name+'"]').addClass('active');

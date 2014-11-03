@@ -311,40 +311,40 @@ function writeJsonFromServer() {
 				"code": "AR",
 				"country": "Argentina(1)",
 				"from": "2014/10/30",
-				"to": "2014/11/6",
+				"to": "2014/11/8",
 				"cities": [{
 					"name": "Jujuy",
 					"from": "2014/10/30",
-					"to": "2014/11/2",
+					"to": "2014/11/3",
 					"play": "Purmamarca",
 					"sleep":"Club Hostel/4"
 				}, {
 					"name": "Salta",
-					"from": "2014/11/2",
-					"to": "2014/11/4",
+					"from": "2014/11/3",
+					"to": "2014/11/6",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Mendoza",
-					"from": "2014/11/4",
-					"to": "2014/11/6",
+					"from": "2014/11/6",
+					"to": "2014/11/8",
 					"play": "",
 					"sleep":""
 				}]
 			}, {
 				"code": "CL",
 				"country": "Chile(2)",
-				"from": "2014/11/7",
+				"from": "2014/11/9",
 				"to": "2014/11/30",
 				"cities": [{
 					"name": "Santiago",
-					"from": "2014/11/7",
-					"to": "2014/11/8",
+					"from": "2014/11/9",
+					"to": "2014/11/10",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Pucón",
-					"from": "2014/11/9",
+					"from": "2014/11/11",
 					"to": "2014/11/14",
 					"play": "",
 					"sleep":""

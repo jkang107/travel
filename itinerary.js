@@ -323,7 +323,7 @@ function writeJsonFromServer() {
 					"from": "2014/11/3",
 					"to": "2014/11/6",
 					"play": "Cafayate Tour",
-					"sleep":"Corvacha Hostel"
+					"sleep":"La Corvacha Hostel/4"
 				}, {
 					"name": "Mendoza",
 					"from": "2014/11/6",

@@ -316,14 +316,14 @@ function writeJsonFromServer() {
 					"name": "Jujuy",
 					"from": "2014/10/30",
 					"to": "2014/11/3",
-					"play": "Purmamarca",
+					"play": "Purmamarca(Cerro de los 7 Colores) / Tilcara",
 					"sleep":"Club Hostel/4"
 				}, {
 					"name": "Salta",
 					"from": "2014/11/3",
 					"to": "2014/11/6",
-					"play": "",
-					"sleep":""
+					"play": "Cafayate Tour",
+					"sleep":"Corvacha Hostel"
 				}, {
 					"name": "Mendoza",
 					"from": "2014/11/6",

@@ -69,8 +69,8 @@ function createWorldMap(selectedCountries) {
 		// 	latLng: [41.4, 12.36],
 		// 	name: 'Rome'
 		// }, {
-		 	latLng: [-24.18, -65.29],
-		 	name: "I'm here! (Jujuy)"
+		 	latLng: [-33.43, -70.65],
+		 	name: "I'm here! (Santiago)"
 		// }, {
 		// 	latLng: [-33.408461, -70.677856],
 		// 	name: 'Chile'
@@ -311,7 +311,7 @@ function writeJsonFromServer() {
 				"code": "AR",
 				"country": "Argentina(1)",
 				"from": "2014/10/30",
-				"to": "2014/11/8",
+				"to": "2014/11/7",
 				"cities": [{
 					"name": "Jujuy",
 					"from": "2014/10/30",
@@ -326,25 +326,25 @@ function writeJsonFromServer() {
 					"sleep":"La Corvacha Hostel/4"
 				}, {
 					"name": "Mendoza",
-					"from": "2014/11/6",
+					"from": "2014/11/7",
 					"to": "2014/11/8",
-					"play": "",
-					"sleep":""
+					"play": "Wine Tour",
+					"sleep":"Hostel independencia/3"
 				}]
 			}, {
 				"code": "CL",
 				"country": "Chile(2)",
-				"from": "2014/11/9",
+				"from": "2014/11/8",
 				"to": "2014/11/30",
 				"cities": [{
 					"name": "Santiago",
-					"from": "2014/11/9",
+					"from": "2014/11/8",
 					"to": "2014/11/10",
 					"play": "",
-					"sleep":""
+					"sleep":"Hostel Backpackers/3"
 				}, {
 					"name": "Pucón",
-					"from": "2014/11/11",
+					"from": "2014/11/10",
 					"to": "2014/11/14",
 					"play": "",
 					"sleep":""
@@ -832,7 +832,7 @@ function drawLine(num, direction) {
 
 
 function highlightRoute() {
-	var num = 6;
+	var num = 7;
 	setInterval(function() {
 		if ($("#circle_" + num).css("color") == "rgb(255, 255, 255)") {
 			$("#circle_" + num).css("color", "#4B4646");

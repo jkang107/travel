@@ -69,8 +69,8 @@ function createWorldMap(selectedCountries) {
 		// 	latLng: [41.4, 12.36],
 		// 	name: 'Rome'
 		// }, {
-		 	latLng: [-33.43, -70.65],
-		 	name: "I'm here! (Santiago)"
+		 	latLng: [-39.27, -71.97],
+		 	name: "I'm here! (Pucón)"
 		// }, {
 		// 	latLng: [-33.408461, -70.677856],
 		// 	name: 'Chile'
@@ -335,70 +335,70 @@ function writeJsonFromServer() {
 				"code": "CL",
 				"country": "Chile(2)",
 				"from": "2014/11/8",
-				"to": "2014/11/30",
+				"to": "2014/11/24",
 				"cities": [{
 					"name": "Santiago",
 					"from": "2014/11/8",
 					"to": "2014/11/10",
-					"play": "",
+					"play": "볼거없음",
 					"sleep":"Hostel Backpackers/3"
 				}, {
 					"name": "Pucón",
-					"from": "2014/11/10",
+					"from": "2014/11/11",
 					"to": "2014/11/14",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Bariloche",
-					"from": "2014/11/15",
-					"to": "2014/11/19",
+					"from": "2014/11/14",
+					"to": "2014/11/17",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Torres del Paine",
-					"from": "2014/11/20",
-					"to": "2014/11/26",
+					"from": "2014/11/19",
+					"to": "2014/11/24",
 					"play": "",
 					"sleep":""
 				}]
 			}, {
 				"code": "AR",
 				"country": "Argentina(2)",
-				"from": "2014/11/26",
-				"to": "2014/12/14",
+				"from": "2014/11/25",
+				"to": "2014/12/10",
 				"cities": [{
-					"name": "Calafate",
-					"from": "2014/11/27",
-					"to": "2014/12/1",
+					"name": "El Calafate",
+					"from": "2014/11/25",
+					"to": "2014/11/27",
 					"play": "",
 					"sleep":""
 				}, {
-					"name": "Ushuaia",
-					"from": "2014/12/1",
-					"to": "2014/12/5",
+					"name": "El Chaltén",
+					"from": "2014/11/27",
+					"to": "2014/11/29",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Buenos Aires",
-					"from": "2014/12/6",
-					"to": "2014/12/14",
+					"from": "2014/11/29",
+					"to": "2014/12/10",
 					"play": "",
 					"sleep":""
 				}]
 			}, {
 				"code": "BR",
 				"country": "Brazil",
-				"from": "2014/12/14",
+				"from": "2014/12/10",
 				"to": "2014/12/18",
 				"cities": [{
 					"name": "Puerto Iguazu",
-					"from": "2014/12/14",
-					"to": "2014/12/15",
+					"from": "2014/12/10",
+					"to": "2014/12/13",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Rio de Janeiro",
-					"from": "2014/12/15",
+					"from": "2014/12/14",
 					"to": "2014/12/16",
 					"traffic": "plane",
 					"play": "",

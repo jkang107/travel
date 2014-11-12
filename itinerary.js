@@ -69,8 +69,8 @@ function createWorldMap(selectedCountries) {
 		// 	latLng: [41.4, 12.36],
 		// 	name: 'Rome'
 		// }, {
-		 	latLng: [-39.27, -71.97],
-		 	name: "I'm here! (Pucón)"
+		 	latLng: [-41.13, -71.31],
+		 	name: "I'm here! (Bariloche)"
 		// }, {
 		// 	latLng: [-33.408461, -70.677856],
 		// 	name: 'Chile'
@@ -346,8 +346,8 @@ function writeJsonFromServer() {
 					"name": "Pucón",
 					"from": "2014/11/11",
 					"to": "2014/11/14",
-					"play": "",
-					"sleep":""
+					"play": "Volcan Villarrica / Hydro Speed",
+					"sleep":"ChiliKiwi/4"
 				}, {
 					"name": "Bariloche",
 					"from": "2014/11/14",

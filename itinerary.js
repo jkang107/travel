@@ -69,8 +69,8 @@ function createWorldMap(selectedCountries) {
 		// 	latLng: [41.4, 12.36],
 		// 	name: 'Rome'
 		// }, {
-		 	latLng: [-41.13, -71.31],
-		 	name: "I'm here! (Bariloche)"
+		 	latLng: [-50.34, -72.27],
+		 	name: "I'm here! (El Calafate)"
 		// }, {
 		// 	latLng: [-33.408461, -70.677856],
 		// 	name: 'Chile'
@@ -348,33 +348,28 @@ function writeJsonFromServer() {
 					"to": "2014/11/14",
 					"play": "Volcan Villarrica / Hydro Speed",
 					"sleep":"ChiliKiwi/4"
-				}, {
-					"name": "Bariloche",
-					"from": "2014/11/14",
-					"to": "2014/11/17",
-					"play": "",
-					"sleep":""
-				}, {
-					"name": "Torres del Paine",
-					"from": "2014/11/19",
-					"to": "2014/11/24",
-					"play": "",
-					"sleep":""
 				}]
 			}, {
 				"code": "AR",
 				"country": "Argentina(2)",
-				"from": "2014/11/25",
+				"from": "2014/11/13",
 				"to": "2014/12/10",
-				"cities": [{
+				"cities": [
+				{
+					"name": "Bariloche",
+					"from": "2014/11/13",
+					"to": "2014/11/16",
+					"play": "",
+					"sleep":"Penthouse 1004/4"
+				}, {
 					"name": "El Calafate",
-					"from": "2014/11/25",
-					"to": "2014/11/27",
+					"from": "2014/11/17",
+					"to": "2014/11/19",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "El Chaltén",
-					"from": "2014/11/27",
+					"from": "2014/11/26",
 					"to": "2014/11/29",
 					"play": "",
 					"sleep":""
@@ -382,6 +377,19 @@ function writeJsonFromServer() {
 					"name": "Buenos Aires",
 					"from": "2014/11/29",
 					"to": "2014/12/10",
+					"traffic": "plane",
+					"play": "",
+					"sleep":""
+				}]
+			}, {
+				"code": "CL",
+				"country": "Chile(3)",
+				"from": "2014/11/20",
+				"to": "2014/11/25",
+				"cities": [{
+					"name": "Torres del Paine",
+					"from": "2014/11/20",
+					"to": "2014/11/25",
 					"play": "",
 					"sleep":""
 				}]
@@ -780,7 +788,7 @@ function drawCircle(num, direction, country, from, isCity) {
 	}
 
 
-	if (num > 9) {
+	if (num > 10) {
 		if (num == dataSize) {
 			//black
 			$("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle + "px;'><div class='circle' style='width:50px; height:50px; background-color:#07314A;'></div><span id='circle_" + num + "' class='circle_no' style='color:white;'>" + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
@@ -832,7 +840,7 @@ function drawLine(num, direction) {
 
 
 function highlightRoute() {
-	var num = 7;
+	var num = 8;
 	setInterval(function() {
 		if ($("#circle_" + num).css("color") == "rgb(255, 255, 255)") {
 			$("#circle_" + num).css("color", "#4B4646");

@@ -228,7 +228,7 @@ function writeJsonFromServer() {
 				}]
 			}, {
 				"code": "PE",
-				"country": "Peru",
+				"country": "Peru(1)",
 				"from": "2014/10/1",
 				"to": "2014/10/10",
 				"cities": [{
@@ -365,21 +365,8 @@ function writeJsonFromServer() {
 					"name": "El Calafate",
 					"from": "2014/11/17",
 					"to": "2014/11/19",
-					"play": "",
-					"sleep":""
-				}, {
-					"name": "El Chaltén",
-					"from": "2014/11/26",
-					"to": "2014/11/29",
-					"play": "",
-					"sleep":""
-				}, {
-					"name": "Buenos Aires",
-					"from": "2014/11/29",
-					"to": "2014/12/10",
-					"traffic": "plane",
-					"play": "",
-					"sleep":""
+					"play": "Moreno Glacier",
+					"sleep":"Mochilero/3"
 				}]
 			}, {
 				"code": "CL",
@@ -387,53 +374,98 @@ function writeJsonFromServer() {
 				"from": "2014/11/20",
 				"to": "2014/11/25",
 				"cities": [{
-					"name": "Torres del Paine",
+					"name": "Puerto Natales",
 					"from": "2014/11/20",
-					"to": "2014/11/25",
+					"to": "2014/11/21",
+					"play": "",
+					"sleep":"Kaweskar/4"
+				},{
+					"name": "Torres del Paine",
+					"from": "2014/11/21",
+					"to": "2014/11/24",
+					"play": "",
+					"sleep":"Refugio"
+				}]
+			}, {
+				"code": "AR",
+				"country": "Argentina(3)",
+				"from": "2014/11/25",
+				"to": "2014/12/9",
+				"cities": [
+				{
+					"name": "El Calafate",
+					"from": "2014/11/25",
+					"to": "2014/11/29",
+					"play": "Moreno Glacier",
+					"sleep":"Mochilero/3"
+				}, {
+					"name": "Buenos Aires",
+					"from": "2014/11/29",
+					"to": "2014/12/6",
+					"traffic": "plane",
 					"play": "",
 					"sleep":""
+				},{
+					"name": "Iguazu",
+					"from": "2014/12/7",
+					"to": "2014/12/9",
+					"play": "",
+					"sleep":""
+				}]
+			},{
+				"code": "PE",
+				"country": "Peru(2)",
+				"from": "2014/12/9",
+				"to": "2015/2/4",
+				"cities": [{
+					"name": "Lima",
+					"from": "2014/12/9",
+					"to": "2014/12/10",
+					"traffic": "plane",
+					"play": "",
+					"sleep":""
+				}, {
+					"name": "Huaraz",
+					"from": "2014/12/11",
+					"to": "2014/2/4",
+					"play": "",
+					"sleep":"Akilpo/5"
 				}]
 			}, {
 				"code": "BR",
 				"country": "Brazil",
-				"from": "2014/12/10",
-				"to": "2014/12/18",
+				"from": "2015/2/4",
+				"to": "2015/2/8",
 				"cities": [{
-					"name": "Puerto Iguazu",
-					"from": "2014/12/10",
-					"to": "2014/12/13",
-					"play": "",
-					"sleep":""
-				}, {
 					"name": "Rio de Janeiro",
-					"from": "2014/12/14",
-					"to": "2014/12/16",
+					"from": "2015/2/4",
+					"to": "2015/2/6",
 					"traffic": "plane",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "São Paulo",
-					"from": "2014/12/16",
-					"to": "2014/12/17",
+					"from": "2015/2/7",
+					"to": "2015/2/8",
 					"play": "",
 					"sleep":""
 				}]
 			}, {
 				"code": "DE",
 				"country": "Germany",
-				"from": "2014/12/18",
-				"to": "2014/12/25",
+				"from": "2015/2/8",
+				"to": "2015/2/15",
 				"cities": [{
 					"name": "München",
-					"from": "2014/12/18",
-					"to": "2014/12/22",
+					"from": "2015/2/8",
+					"to": "2015/2/10",
 					"traffic": "plane",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Fussen",
-					"from": "2014/12/22",
-					"to": "2014/12/23",
+					"from": "2015/2/10",
+					"to": "2015/2/11",
 					"traffic": "train",
 					"play": "",
 					"sleep":""
@@ -441,8 +473,8 @@ function writeJsonFromServer() {
 			}, {
 				"code": "AT",
 				"country": "Austria",
-				"from": "2014/12/25",
-				"to": "2014/12/31",
+				"from": "2015/2/25",
+				"to": "2015/2/31",
 				"cities": [{
 					"name": "Salzburg",
 					"from": "2014/12/24",
@@ -457,95 +489,59 @@ function writeJsonFromServer() {
 					"sleep":""
 				}]
 			}, {
-				"code": "IT",
-				"country": "Italy",
-				"from": "2015/1/1",
-				"to": "2015/2/5",
-				"cities": [{
-					"name": "Venice",
-					"from": "2015/1/1",
-					"to": "2015/1/6",
-					"play": "",
-					"sleep":""
-				}, {
-					"name": "Milano",
-					"from": "2015/1/6",
-					"to": "2015/1/9",
-					"play": "",
-					"sleep":""
-				}, {
-					"name": "Rome",
-					"from": "2015/1/9",
-					"to": "2015/1/25",
-					"play": "",
-					"sleep":""
-				}, {
-					"name": "Florence",
-					"from": "2015/1/25",
-					"to": "2015/1/27",
-					"play": "",
-					"sleep":""
-				}, {
-					"name": "Napoli",
-					"from": "2015/1/27",
-					"to": "2015/2/5",
-					"play": "",
-					"sleep":""
-				}]
-			}, {
 				"code": "HR",
 				"country": "Croatia",
-				"from": "2015/2/6",
-				"to": "2015/2/18",
+				"from": "2015/2/15",
+				"to": "2015/2/24",
 				"cities": [{
 					"name": "Zagreb",
-					"from": "2015/2/6",
-					"to": "2015/2/7",
+					"from": "2015/2/15",
+					"to": "2015/2/16",
 					"traffic": "plane",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Split",
-					"from": "2015/2/7",
-					"to": "2015/2/10",
+					"from": "2015/2/17",
+					"to": "2015/2/20",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Dubrovnik",
-					"from": "2015/2/11",
-					"to": "2015/2/18",
+					"from": "2015/2/20",
+					"to": "2015/2/24",
 					"play": "",
 					"sleep":""
 				}]
 			}, {
 				"code": "TR",
 				"country": "Turkey",
-				"from": "2015/2/18",
-				"to": "2015/3/1",
+				"from": "2015/2/24",
+				"to": "2015/3/8",
 				"cities": [{
 					"name": "Istanbul",
-					"from": "2015/2/18",
-					"to": "2015/2/23",
+					"from": "2015/2/24",
+					"to": "2015/2/30",
 					"traffic": "plane",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Cappadocia",
-					"from": "2015/2/23",
-					"to": "2015/2/25",
+					"from": "2015/2/30",
+					"to": "2015/3/2",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Pamukkale",
-					"from": "2015/2/25",
-					"to": "2015/3/1",
+					"from": "2015/3/3",
+					"to": "2015/3/8",
 					"play": "",
 					"sleep":""
 				}]
 			}, {
 				"code": "KR",
 				"country": "Arrival!",
-				"from": "2015/3/1"
+				"from": "2015/3/8"
 			}]
 		},
 		dataType: "json",
@@ -788,7 +784,7 @@ function drawCircle(num, direction, country, from, isCity) {
 	}
 
 
-	if (num > 10) {
+	if (num > 12) {
 		if (num == dataSize) {
 			//black
 			$("#itinerary").append("<div id='route_" + num + "' class='circle_container' style='float:" + floatStyle + "; top:" + topStyle + "px;'><div class='circle' style='width:50px; height:50px; background-color:#07314A;'></div><span id='circle_" + num + "' class='circle_no' style='color:white;'>" + num + "</span><div class='route_info'><div class='code'>" + country + "</div><div class='from'>" + from + "</div></div></div>");
@@ -840,7 +836,7 @@ function drawLine(num, direction) {
 
 
 function highlightRoute() {
-	var num = 8;
+	var num = 10;
 	setInterval(function() {
 		if ($("#circle_" + num).css("color") == "rgb(255, 255, 255)") {
 			$("#circle_" + num).css("color", "#4B4646");

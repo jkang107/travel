@@ -473,18 +473,18 @@ function writeJsonFromServer() {
 			}, {
 				"code": "AT",
 				"country": "Austria",
-				"from": "2015/2/25",
-				"to": "2015/2/31",
+				"from": "2015/2/11",
+				"to": "2015/2/14",
 				"cities": [{
 					"name": "Salzburg",
-					"from": "2014/12/24",
-					"to": "2014/12/27",
+					"from": "2015/2/11",
+					"to": "2015/2/12",
 					"play": "",
 					"sleep":""
 				}, {
 					"name": "Hallstatt",
-					"from": "2014/12/27",
-					"to": "2014/12/31",
+					"from": "2015/2/12",
+					"to": "2015/2/14",
 					"play": "",
 					"sleep":""
 				}]

@@ -69,8 +69,8 @@ function createWorldMap(selectedCountries) {
 		// 	latLng: [41.4, 12.36],
 		// 	name: 'Rome'
 		// }, {
-		 	latLng: [-50.34, -72.27],
-		 	name: "I'm here! (El Calafate)"
+		 	latLng: [-34.60, -58.38],
+		 	name: "I'm here! (Buenos aires)"
 		// }, {
 		// 	latLng: [-33.408461, -70.677856],
 		// 	name: 'Chile'
@@ -383,7 +383,7 @@ function writeJsonFromServer() {
 					"name": "Torres del Paine",
 					"from": "2014/11/21",
 					"to": "2014/11/24",
-					"play": "",
+					"play": "W Trakking",
 					"sleep":"Refugio"
 				}]
 			}, {
@@ -404,7 +404,7 @@ function writeJsonFromServer() {
 					"to": "2014/12/6",
 					"traffic": "plane",
 					"play": "",
-					"sleep":""
+					"sleep":"삼촌네/4"
 				},{
 					"name": "Iguazu",
 					"from": "2014/12/7",

@@ -69,8 +69,8 @@ function createWorldMap(selectedCountries) {
 		// 	latLng: [41.4, 12.36],
 		// 	name: 'Rome'
 		// }, {
-		 	latLng: [-34.60, -58.38],
-		 	name: "I'm here! (Buenos aires)"
+		 	latLng: [-9.52, -77.52],
+		 	name: "I'm here! (Huaraz)"
 		// }, {
 		// 	latLng: [-33.408461, -70.677856],
 		// 	name: 'Chile'
@@ -836,7 +836,7 @@ function drawLine(num, direction) {
 
 
 function highlightRoute() {
-	var num = 10;
+	var num = 11;
 	setInterval(function() {
 		if ($("#circle_" + num).css("color") == "rgb(255, 255, 255)") {
 			$("#circle_" + num).css("color", "#4B4646");

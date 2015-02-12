@@ -428,7 +428,7 @@ function writeJsonFromServer() {
 					"name": "Huaraz",
 					"from": "2014/12/11",
 					"to": "2014/2/4",
-					"play": "",
+					"play": "Churup/Laguna Willcacocha/Chavin",
 					"sleep":"Akilpo/5"
 				}]
 			}, {
@@ -441,8 +441,8 @@ function writeJsonFromServer() {
 					"from": "2015/2/4",
 					"to": "2015/2/6",
 					"traffic": "plane",
-					"play": "",
-					"sleep":""
+					"play": "Corcovado/Copacabana beach",
+					"sleep":"Refugio Hostel/3"
 				}, {
 					"name": "São Paulo",
 					"from": "2015/2/7",
@@ -457,17 +457,17 @@ function writeJsonFromServer() {
 				"to": "2015/2/15",
 				"cities": [{
 					"name": "München",
-					"from": "2015/2/8",
+					"from": "2015/2/9",
 					"to": "2015/2/10",
 					"traffic": "plane",
 					"play": "",
-					"sleep":""
+					"sleep":"MEININGER Hotel/3"
 				}, {
 					"name": "Fussen",
 					"from": "2015/2/10",
-					"to": "2015/2/11",
+					"to": "2015/2/10",
 					"traffic": "train",
-					"play": "",
+					"play": "Neuschwanstein Castle",
 					"sleep":""
 				}]
 			}, {
@@ -478,15 +478,15 @@ function writeJsonFromServer() {
 				"cities": [{
 					"name": "Salzburg",
 					"from": "2015/2/11",
-					"to": "2015/2/12",
-					"play": "",
-					"sleep":""
+					"to": "2015/2/13",
+					"play": "Mirabell Palace/Salzburg Cathedral",
+					"sleep":"Yoho Hostel/4"
 				}, {
 					"name": "Hallstatt",
-					"from": "2015/2/12",
+					"from": "2015/2/13",
 					"to": "2015/2/14",
 					"play": "",
-					"sleep":""
+					"sleep":"Seehotel Grüner Baum"
 				}]
 			}, {
 				"code": "HR",
@@ -836,7 +836,7 @@ function drawLine(num, direction) {
 
 
 function highlightRoute() {
-	var num = 11;
+	var num = 14;
 	setInterval(function() {
 		if ($("#circle_" + num).css("color") == "rgb(255, 255, 255)") {
 			$("#circle_" + num).css("color", "#4B4646");

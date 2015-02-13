@@ -69,8 +69,8 @@ function createWorldMap(selectedCountries) {
 		// 	latLng: [41.4, 12.36],
 		// 	name: 'Rome'
 		// }, {
-		 	latLng: [-9.52, -77.52],
-		 	name: "I'm here! (Huaraz)"
+		 	latLng: [48.14, 11.55],
+		 	name: "I'm here! (München)"
 		// }, {
 		// 	latLng: [-33.408461, -70.677856],
 		// 	name: 'Chile'
@@ -201,7 +201,7 @@ function writeJsonFromServer() {
 				"number": "552",
 				"date": "2014/3/1"
 			}],
-			"selectedCountry": ["BO", "BR", "HR", "PE", "CL", "DE", "AT", "US", "TR", "IT", "AR"],
+			"selectedCountry": ["BO", "BR", "HR", "PE", "CL", "DE", "AT", "US", "TR", "AR"],
 			"countries": [{
 				"code": "KR",
 				"country": "Departure!",
@@ -486,7 +486,7 @@ function writeJsonFromServer() {
 					"from": "2015/2/13",
 					"to": "2015/2/14",
 					"play": "",
-					"sleep":"Seehotel Grüner Baum"
+					"sleep":"Seehotel Grüner Baum/4"
 				}]
 			}, {
 				"code": "HR",

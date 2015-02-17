@@ -71,7 +71,7 @@ function getUserPhotos() {
 				$("#loadMore").remove();
 			}
 			console.log("totalNumberOfPhoto: " + totalNumberOfPhoto);
-			console.log("numOfCallAPI: " + numOfCallAPI);
+			//console.log("numOfCallAPI: " + numOfCallAPI);
 			
 			for (var i = 0; i < result.data.length; i++) {
 				var photo_standard = result.data[i].images.standard_resolution;
@@ -83,8 +83,9 @@ function getUserPhotos() {
 					longitude = locationInfo.longitude;
 					if (locationInfo.name) {
 						countryCode = locationInfo.name.split("@&@")[1].toUpperCase();
-						cityName = locationInfo.name.split("@&@")[0];
-						// console.log("photo location name: " + locationInfo.name);
+						//cityName = locationInfo.name.split("@&@")[0];
+					} else {
+						console.log(">> No Location INFO!! <<");
 					}
 					//thumbnail info
 					var photo_thumbnail = result.data[i].images.thumbnail;
@@ -94,14 +95,14 @@ function getUserPhotos() {
 				}
 				//var latitude = locationInfo.latitude;
 				//var longitude = locationInfo.longitude
-
 				$("#" + countryCode).children().children().children(".photo-grid").append("<li><a href='javascript:void(0)'><figure><img id = 'photo_" + (numOfCallAPI + i)+ "' class='photo' src='" + photo_standard.url + "' width='300' height='300'><figcaption><p></p></figcaption></figure></a></li>");
-
-				$("#photo_" + (numOfCallAPI+i)).attr("origin_width", photo_standard.width);
-				$("#photo_" + (numOfCallAPI+i)).attr("origin_height", photo_standard.height);
-				$("#photo_" + (numOfCallAPI+i)).attr("time", result.data[i].created_time.toHHMMSS());
+				var photoNum = numOfCallAPI+i;
+				
+				$("#photo_" + photoNum).attr("origin_width", photo_standard.width);
+				$("#photo_" + photoNum).attr("origin_height", photo_standard.height);
+				$("#photo_" + photoNum).attr("time", result.data[i].created_time.toHHMMSS());
 				if (result.data[i].caption !== null) {
-					$("#photo_" + (numOfCallAPI+i)).siblings().children().text(result.data[i].caption.text);
+					$("#photo_" + photoNum).siblings().children().text(result.data[i].caption.text);
 				}
 			}
 
@@ -118,7 +119,6 @@ function getUserPhotos() {
 				//getUserPhotos();
 				//$(".photo-grid").append("<button id='loadMore' style='width:300px; height:50px;'>Load more...</button>");
 				//$("#loadMore").click(function(e) {
-					
 					getUserPhotos();
 					numOfCallAPI += result.data.length;
 					

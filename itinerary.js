@@ -45,44 +45,8 @@ function createWorldMap(selectedCountries) {
           }
         },*/
 		 markers: [{
-		// 	latLng: [37.3, 127],
-		// 	name: 'Seoul'
-		// }, {
-		// 	latLng: [34.5128266, -117.1064505],
-		// 	name: 'Los Angeles'
-		// }, {
-		// 	latLng: [37.7749300, -122.4194200],
-		// 	name: 'San Francisco'
-		// }, {
-		// 	latLng: [-11.922874, -77.022283],
-		// 	name: 'Lima'
-		// }, {
-		// 	latLng: [-23.55, -46.63],
-		// 	name: 'Sao Paulo'
-		// }, {
-		// 	latLng: [45.81, 15.98],
-		// 	name: 'Zagreb'
-		// }, {
-		// 	latLng: [41, 28.5],
-		// 	name: 'Istanbul'
-		// }, {
-		// 	latLng: [41.4, 12.36],
-		// 	name: 'Rome'
-		// }, {
-		 	latLng: [48.14, 11.55],
-		 	name: "I'm here! (München)"
-		// }, {
-		// 	latLng: [-33.408461, -70.677856],
-		// 	name: 'Chile'
-		// }, {
-		// 	latLng: [-34.616842, -58.354506],
-		// 	name: 'Buenos Aires'
-		// }, {
-		// 	latLng: [48.134522, 11.579258],
-		// 	name: 'Munich'
-		// }, {
-		// 	latLng: [47.817451, 13.030509],
-		// 	name: 'Salzburg'
+		 	latLng: [43.50, 16.44],
+		 	name: "I'm here! (Split)"
 		 }],
 		
 		onRegionLabelShow: function(event, label, code) {
@@ -172,35 +136,35 @@ function writeJsonFromServer() {
 		//url: "http://localhost:5000/write",
 
 		data: {
-			"flights": [{
-				"code": "OZ",
-				"number": "202",
-				"date": "2014/09/23"
-			}, {
-				"code": "CM",
-				"number": "361",
-				"date": "2014/10/1"
-			}, {
-				"code": "CM",
-				"number": "493",
-				"date": "2014/10/1"
-			}, {
-				"code": "LH",
-				"number": "505",
-				"date": "2014/10/17"
-			}, {
-				"code": "OU",
-				"number": "4437",
-				"date": "2015/2/6"
-			}, {
-				"code": "TK",
-				"number": "1054",
-				"date": "2015/2/18"
-			}, {
-				"code": "OZ",
-				"number": "552",
-				"date": "2014/3/1"
-			}],
+			// "flights": [{
+			// 	"code": "OZ",
+			// 	"number": "202",
+			// 	"date": "2014/09/23"
+			// }, {
+			// 	"code": "CM",
+			// 	"number": "361",
+			// 	"date": "2014/10/1"
+			// }, {
+			// 	"code": "CM",
+			// 	"number": "493",
+			// 	"date": "2014/10/1"
+			// }, {
+			// 	"code": "LH",
+			// 	"number": "505",
+			// 	"date": "2014/10/17"
+			// }, {
+			// 	"code": "OU",
+			// 	"number": "4437",
+			// 	"date": "2015/2/6"
+			// }, {
+			// 	"code": "TK",
+			// 	"number": "1054",
+			// 	"date": "2015/2/18"
+			// }, {
+			// 	"code": "OZ",
+			// 	"number": "552",
+			// 	"date": "2014/3/1"
+			// }],
 			"selectedCountry": ["BO", "BR", "HR", "PE", "CL", "DE", "AT", "US", "TR", "AR"],
 			"countries": [{
 				"code": "KR",
@@ -499,13 +463,13 @@ function writeJsonFromServer() {
 					"to": "2015/2/16",
 					"traffic": "plane",
 					"play": "",
-					"sleep":""
+					"sleep":"Hostel Sara/4"
 				}, {
 					"name": "Split",
-					"from": "2015/2/17",
+					"from": "2015/2/16",
 					"to": "2015/2/20",
 					"play": "",
-					"sleep":""
+					"sleep":"SleepinnSplit/5"
 				}, {
 					"name": "Dubrovnik",
 					"from": "2015/2/20",
@@ -836,7 +800,7 @@ function drawLine(num, direction) {
 
 
 function highlightRoute() {
-	var num = 14;
+	var num = 15;
 	setInterval(function() {
 		if ($("#circle_" + num).css("color") == "rgb(255, 255, 255)") {
 			$("#circle_" + num).css("color", "#4B4646");

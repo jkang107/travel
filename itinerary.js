@@ -45,8 +45,8 @@ function createWorldMap(selectedCountries) {
           }
         },*/
 		 markers: [{
-		 	latLng: [43.50, 16.44],
-		 	name: "I'm here! (Split)"
+		 	latLng: [38.40, 35.48],
+		 	name: "I'm here! (Cappadocia)"
 		 }],
 		
 		onRegionLabelShow: function(event, label, code) {
@@ -475,30 +475,37 @@ function writeJsonFromServer() {
 					"from": "2015/2/20",
 					"to": "2015/2/24",
 					"play": "",
-					"sleep":""
+					"sleep":"Room PlaceForYou/3"
 				}]
 			}, {
 				"code": "TR",
 				"country": "Turkey",
 				"from": "2015/2/24",
-				"to": "2015/3/8",
+				"to": "2015/3/10",
 				"cities": [{
-					"name": "Istanbul",
-					"from": "2015/2/24",
-					"to": "2015/2/30",
-					"traffic": "plane",
-					"play": "",
-					"sleep":""
-				}, {
 					"name": "Cappadocia",
-					"from": "2015/2/30",
-					"to": "2015/3/2",
-					"play": "",
-					"sleep":""
+					"from": "2015/2/24",
+					"to": "2015/2/27",
+					"traffic": "plane",
+					"play": "Balloon Tour",
+					"sleep":"Garden Cave Hotel/4"
 				}, {
 					"name": "Pamukkale",
-					"from": "2015/3/3",
-					"to": "2015/3/8",
+					"from": "2015/2/28",
+					"to": "2015/3/1",
+					"play": "",
+					"sleep":""
+				},{
+					"name": "Fethiye",
+					"from": "2015/3/2",
+					"to": "2015/3/4",
+					"play": "",
+					"sleep":""
+				}, {
+					"name": "Istanbul",
+					"from": "2015/3/4",
+					"to": "2015/3/10",
+					"traffic": "plane",
 					"play": "",
 					"sleep":""
 				}]
@@ -800,7 +807,7 @@ function drawLine(num, direction) {
 
 
 function highlightRoute() {
-	var num = 15;
+	var num = 16;
 	setInterval(function() {
 		if ($("#circle_" + num).css("color") == "rgb(255, 255, 255)") {
 			$("#circle_" + num).css("color", "#4B4646");

@@ -82,10 +82,14 @@ function getUserPhotos() {
 					latitude = locationInfo.latitude;
 					longitude = locationInfo.longitude;
 					if (locationInfo.name) {
+						//countryCode = locationInfo.name.split("@&@")[1];
 						countryCode = locationInfo.name.split("@&@")[1].toUpperCase();
 						//cityName = locationInfo.name.split("@&@")[0];
 					} else {
-						console.log(">> No Location INFO!! <<");
+						console.log(">> =========== No Location INFO!! ===========<<");
+						console.log("result.data[i]: " + result.data[i]);
+						console.log(">> ===========================================!! <<");
+
 					}
 					//thumbnail info
 					var photo_thumbnail = result.data[i].images.thumbnail;

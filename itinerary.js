@@ -45,8 +45,8 @@ function createWorldMap(selectedCountries) {
           }
         },*/
 		 markers: [{
-		 	latLng: [38.40, 35.48],
-		 	name: "I'm here! (Cappadocia)"
+		 	latLng: [36.65, 29.12],
+		 	name: "I'm here! (Fethiye)"
 		 }],
 		
 		onRegionLabelShow: function(event, label, code) {
@@ -492,15 +492,15 @@ function writeJsonFromServer() {
 				}, {
 					"name": "Pamukkale",
 					"from": "2015/2/28",
-					"to": "2015/3/1",
-					"play": "",
+					"to": "2015/2/28",
+					"play": "Pamukkale",
 					"sleep":""
 				},{
 					"name": "Fethiye",
-					"from": "2015/3/2",
+					"from": "2015/2/28",
 					"to": "2015/3/4",
-					"play": "",
-					"sleep":""
+					"play": "Paragliding / Ölüdeniz Beach",
+					"sleep":"Caretta apart/3"
 				}, {
 					"name": "Istanbul",
 					"from": "2015/3/4",

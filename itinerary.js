@@ -512,7 +512,7 @@ function writeJsonFromServer() {
 			}, {
 				"code": "KR",
 				"country": "Arrival!",
-				"from": "2015/3/8"
+				"from": "2015/3/11"
 			}]
 		},
 		dataType: "json",

@@ -45,8 +45,8 @@ function createWorldMap(selectedCountries) {
           }
         },*/
 		 markers: [{
-		 	latLng: [36.65, 29.12],
-		 	name: "I'm here! (Fethiye)"
+		 	latLng: [41.00, 28.96],
+		 	name: "I'm here! (Istanbul)"
 		 }],
 		
 		onRegionLabelShow: function(event, label, code) {
@@ -506,8 +506,8 @@ function writeJsonFromServer() {
 					"from": "2015/3/4",
 					"to": "2015/3/10",
 					"traffic": "plane",
-					"play": "",
-					"sleep":""
+					"play": "Sultan Ahmed Mosque / Ayasofya / Dolmabahce Palace",
+					"sleep":"Ottomarin/4"
 				}]
 			}, {
 				"code": "KR",

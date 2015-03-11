@@ -45,8 +45,8 @@ function createWorldMap(selectedCountries) {
           }
         },*/
 		 markers: [{
-		 	latLng: [41.00, 28.96],
-		 	name: "I'm here! (Istanbul)"
+		 	latLng: [35.90, 127.76],
+		 	name: "I'm here! (Korea)"
 		 }],
 		
 		onRegionLabelShow: function(event, label, code) {
@@ -807,7 +807,7 @@ function drawLine(num, direction) {
 
 
 function highlightRoute() {
-	var num = 16;
+	var num = 17;
 	setInterval(function() {
 		if ($("#circle_" + num).css("color") == "rgb(255, 255, 255)") {
 			$("#circle_" + num).css("color", "#4B4646");

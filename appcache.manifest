@@ -1,0 +1,20 @@
+CACHE MANIFEST
+# this is comment
+# manifest version : v1.0 20150413
+CACHE:
+index.html
+instagram.js
+itinerary.js
+message.js
+js/freewall.js
+js/jquery-jvectormap-1.2.2.min.js
+js/jquery-jvectormap-world-mill-en.js
+js/jquery-jvectormap.js
+js/jquery.fullPage.js
+js/jquery.fullPage.min.js
+js/less-1.7.4.min.js
+ 
+NETWORK:
+*
+ 
+FALLBACK:

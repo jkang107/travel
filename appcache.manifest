@@ -13,6 +13,23 @@ js/jquery-jvectormap.js
 js/jquery.fullPage.js
 js/jquery.fullPage.min.js
 js/less-1.7.4.min.js
+image/previous-64.png
+image/next-64.png
+image/line_v.png
+image/line_top_middle.png
+image/line_right.png
+image/line_left.png
+image/line_h.png
+image/line_bot_middle.png
+image/curve_top_right.png
+image/curve_top_left.png
+image/curve_bot_right.png
+image/curve_bot_left.png
+image/close_48.png
+image/airplane_64.png
+image/black_flat_icons/hotel_64.png
+image/black_flat_icons/map_64.png
+image/black_flat_icons/train20.png
  
 NETWORK:
 *

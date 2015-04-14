@@ -45,7 +45,139 @@
 	<link href='http://fonts.googleapis.com/css?family=Montserrat&effect=shadow-multiple' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+</head>
+<body onselectstart="return false" ondragstart="return false">
+<ul id="menu">
+	<li data-menuanchor="firstPage"><a href="#firstPage" class="menu">HOME</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage" class="menu">TRAVEL</a></li>
+	<li data-menuanchor="3rdPage"><a href="#3rdPage" class="menu">ITINERARY</a></li>
+	<li data-menuanchor="4thPage"><a href="#4thPage" class="menu">CONTACT</a></li>
+	<!-- <li data-menuanchor="5thPage"><a href="#5thPage" class="menu">BOARD</a></li> -->
+</ul>
 
+<div class="section" id="section0">
+	<div id='title'>2014.09.23 ~ 2015.03.10</div>
+	<div id="player"> </div>
+	<img id='worldImage' src='./image/IMG_2228.JPG' style="display:none;">
+<!-- 	<img id='worldImage' src='./image/uyuni.JPG'>
+ --></div>
+<div class="section" id="section1">
+    <div class="slide">
+		<div class="intro">
+			<h1 id="worldMapStr" class='font-effect-shadow-multiple'></h1>
+			<div id="world-map" style="position: relative; top: 20px;"></div>
+		</div>
+	</div>
+    <div class="slide" id="US">
+		<div class="intro">
+			<ul class="photo-grid"></ul>
+			<div id='zoom_photo_container'>
+				<img id ="zoom_photo">
+				<div id='rightBtn' class='zoom_btn'>
+					<img id='nextImg' class='arrow_image' src='./image/next-64.png' >
+				</div>
+				<div id='leftBtn' class='zoom_btn'>
+					<img id='prevImg' class='arrow_image' src='./image/previous-64.png'  >
+				</div>
+				<img id='zoom_close' class='close_img' src='./image/close_48.png' >
+			</div>
+		</div>
+	</div>
+	<!-- south america -->
+	<div class="slide" id="PE">
+		<div class="intro">
+			<ul class="photo-grid"></ul>
+			<!-- <h1>Peru</h1> -->
+		</div>
+	</div>
+	<div class="slide" id="BO">
+		<div class="intro">
+			<ul class="photo-grid"></ul>
+	</div>
+	</div>
+	<div class="slide" id="CL">
+		<div class="intro">
+			<ul class="photo-grid"></ul>
+		</div>
+	</div>
+	<div class="slide" id="AR">
+		<div class="intro">
+			<ul class="photo-grid"></ul>
+		</div>
+	</div>
+	<div class="slide" id="BR">
+		<div class="intro">
+			<ul class="photo-grid"></ul>
+		</div>
+	</div>
+
+	<!-- Europe -->
+	<div class="slide" id="DE">
+		<div class="intro">
+			<ul class="photo-grid"></ul>
+		</div>
+	</div>
+	<div class="slide" id="AT">
+		<div class="intro">
+			<ul class="photo-grid"></ul>
+		</div>
+	</div>
+	<div class="slide" id="HR">
+		<div class="intro">
+			<ul class="photo-grid"></ul>
+		</div>
+	</div>
+	<div class="slide" id="TR">
+		<div class="intro">
+			<ul class="photo-grid"></ul>
+		</div>
+	</div>
+</div>
+<div class="section" id="section2">
+	<div id="itinerary" class="intro"></div>
+	<div id='detailInfo' style='display: none;'>
+		<img class='close_img' src='./image/close_48.png' style='float:right; margin:8px;'>
+	</div>
+</div>
+<div class="section" id="section3" >
+	<div class="intro">
+		
+		<header class="body">
+	    </header>
+
+	    <section class="body">
+	    	<form id='message_form'>
+			    <label>Name</label>
+			    <input name="name" placeholder="Type Here">
+			            
+			    <!-- <label>Email</label>
+			    <input name="email" type="email" placeholder="Type Here"> -->
+			            
+			    <label>Message</label>
+			    <textarea name="message" placeholder="Type Here"></textarea>
+			            
+			    <input id="submit" name="submit" type="submit" value="Send Message" style='font-weight:bold;'>   
+			</form>
+	    </section>
+
+	    <footer class="body">
+	    	<!-- <br/> -->
+	    	<!-- <img id='email_img' src='./image/email_32.png'> -->
+	    	<div id='myEmailAddr'>jkang107@gmail.com</div>
+	    </footer>
+		
+	</div>
+</div>
+<!-- <div class="section" id="section4" >
+	<div class="intro">
+		<div id='time' class='board'>
+			<div class='title'>World Time</div>
+		</div>
+		<div id='exchangeRate' class='board'>
+			<div class='title'>Exchange Rate</div>
+		</div>
+	</div>
+</div> -->
 	<script type="text/javascript">
 		$(document).ready(function() {
 			/*var pepe = $.fn.fullpage({
@@ -228,140 +360,6 @@
 
 		
 	</script>
-
-</head>
-<body onselectstart="return false" ondragstart="return false">
-<ul id="menu">
-	<li data-menuanchor="firstPage"><a href="#firstPage" class="menu">HOME</a></li>
-	<li data-menuanchor="secondPage"><a href="#secondPage" class="menu">TRAVEL</a></li>
-	<li data-menuanchor="3rdPage"><a href="#3rdPage" class="menu">ITINERARY</a></li>
-	<li data-menuanchor="4thPage"><a href="#4thPage" class="menu">CONTACT</a></li>
-	<!-- <li data-menuanchor="5thPage"><a href="#5thPage" class="menu">BOARD</a></li> -->
-</ul>
-
-<div class="section" id="section0">
-	<div id='title'>2014.09.23 ~ 2015.03.10</div>
-	<div id="player"> </div>
-	<img id='worldImage' src='./image/IMG_2228.JPG' style="display:none;">
-<!-- 	<img id='worldImage' src='./image/uyuni.JPG'>
- --></div>
-<div class="section" id="section1">
-    <div class="slide">
-		<div class="intro">
-			<h1 id="worldMapStr" class='font-effect-shadow-multiple'></h1>
-			<div id="world-map" style="position: relative; top: 20px;"></div>
-		</div>
-	</div>
-    <div class="slide" id="US">
-		<div class="intro">
-			<ul class="photo-grid"></ul>
-			<div id='zoom_photo_container'>
-				<img id ="zoom_photo">
-				<div id='rightBtn' class='zoom_btn'>
-					<img id='nextImg' class='arrow_image' src='./image/next-64.png' >
-				</div>
-				<div id='leftBtn' class='zoom_btn'>
-					<img id='prevImg' class='arrow_image' src='./image/previous-64.png'  >
-				</div>
-				<img id='zoom_close' class='close_img' src='./image/close_48.png' >
-			</div>
-		</div>
-	</div>
-	<!-- south america -->
-	<div class="slide" id="PE">
-		<div class="intro">
-			<ul class="photo-grid"></ul>
-			<!-- <h1>Peru</h1> -->
-		</div>
-	</div>
-	<div class="slide" id="BO">
-		<div class="intro">
-			<ul class="photo-grid"></ul>
-	</div>
-	</div>
-	<div class="slide" id="CL">
-		<div class="intro">
-			<ul class="photo-grid"></ul>
-		</div>
-	</div>
-	<div class="slide" id="AR">
-		<div class="intro">
-			<ul class="photo-grid"></ul>
-		</div>
-	</div>
-	<div class="slide" id="BR">
-		<div class="intro">
-			<ul class="photo-grid"></ul>
-		</div>
-	</div>
-
-	<!-- Europe -->
-	<div class="slide" id="DE">
-		<div class="intro">
-			<ul class="photo-grid"></ul>
-		</div>
-	</div>
-	<div class="slide" id="AT">
-		<div class="intro">
-			<ul class="photo-grid"></ul>
-		</div>
-	</div>
-	<div class="slide" id="HR">
-		<div class="intro">
-			<ul class="photo-grid"></ul>
-		</div>
-	</div>
-	<div class="slide" id="TR">
-		<div class="intro">
-			<ul class="photo-grid"></ul>
-		</div>
-	</div>
-</div>
-<div class="section" id="section2">
-	<div id="itinerary" class="intro"></div>
-	<div id='detailInfo' style='display: none;'>
-		<img class='close_img' src='./image/close_48.png' style='float:right; margin:8px;'>
-	</div>
-</div>
-<div class="section" id="section3" >
-	<div class="intro">
-		
-		<header class="body">
-	    </header>
-
-	    <section class="body">
-	    	<form id='message_form'>
-			    <label>Name</label>
-			    <input name="name" placeholder="Type Here">
-			            
-			    <!-- <label>Email</label>
-			    <input name="email" type="email" placeholder="Type Here"> -->
-			            
-			    <label>Message</label>
-			    <textarea name="message" placeholder="Type Here"></textarea>
-			            
-			    <input id="submit" name="submit" type="submit" value="Send Message" style='font-weight:bold;'>   
-			</form>
-	    </section>
-
-	    <footer class="body">
-	    	<!-- <br/> -->
-	    	<!-- <img id='email_img' src='./image/email_32.png'> -->
-	    	<div id='myEmailAddr'>jkang107@gmail.com</div>
-	    </footer>
-		
-	</div>
-</div>
-<!-- <div class="section" id="section4" >
-	<div class="intro">
-		<div id='time' class='board'>
-			<div class='title'>World Time</div>
-		</div>
-		<div id='exchangeRate' class='board'>
-			<div class='title'>Exchange Rate</div>
-		</div>
-	</div>
-</div> -->
 <script type="text/javascript">
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

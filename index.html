@@ -238,13 +238,13 @@
 			//3. get screen size
 			if(innerWidth > innerHeight) {
 				if(innerWidth - 250 < imgWidth || innerHeight - 250 < imgHeight) {
-					resizeHeight =  innerHeight - 250;
+					resizeHeight =  innerHeight - 350;
 					resizeWidth = resizeHeight / ratio;
 				}
 				
 			} else {
 				if(innerWidth - 250 < imgWidth) {
-					resizeWidth =  innerWidth - 250;
+					resizeWidth =  innerWidth - 350;
 					resizeHeight = resizeWidth * ratio;
 				}
 			}

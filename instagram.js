@@ -70,7 +70,7 @@ function getUserPhotos() {
 			if ($("#loadMore").length > 0) {
 				$("#loadMore").remove();
 			}
-			console.log("totalNumberOfPhoto: " + totalNumberOfPhoto);
+			//console.log("totalNumberOfPhoto: " + totalNumberOfPhoto);
 			//console.log("numOfCallAPI: " + numOfCallAPI);
 			
 			for (var i = 0; i < result.data.length; i++) {
@@ -86,9 +86,9 @@ function getUserPhotos() {
 						countryCode = locationInfo.name.split("@&@")[1].toUpperCase();
 						//cityName = locationInfo.name.split("@&@")[0];
 					} else {
-						console.log(">> =========== No Location INFO!! ===========<<");
+						/*console.log(">> =========== No Location INFO!! ===========<<");
 						console.log("result.data[i]: " + result.data[i]);
-						console.log(">> ===========================================!! <<");
+						console.log(">> ===========================================!! <<");*/
 
 					}
 					//thumbnail info
@@ -117,7 +117,7 @@ function getUserPhotos() {
 			addClickEvent();
 
 			if (result.pagination.next_url !== undefined) {
-				console.log("[Instagram] It has more image!");
+				//console.log("[Instagram] It has more image!");
 				userURL = result.pagination.next_url;
 				hasMoreImages = true;
 				//getUserPhotos();
